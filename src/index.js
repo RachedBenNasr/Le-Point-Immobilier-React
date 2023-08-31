@@ -20,8 +20,8 @@ const App = () => {
     <Router>
       <div>
         <Route component={NotFound} path="**" />
-        <Route component={ComingSoon} exact path="/" />
-        <Route component={Home} exact path="/home" />
+        <Route component={ComingSoon} exact path="/coming-soon" />
+        <Route component={Home} exact path="/" />
         <Route component={Promote} exact path="/promote" />
         <Route component={Buying} exact path="/buying" />
         <Route component={Publish} exact path="/publish" />
