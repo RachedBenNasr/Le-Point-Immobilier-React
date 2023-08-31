@@ -9,7 +9,7 @@ import './footer.css'
 const Footer = (props) => {
   return (
     <footer className={`footer-footer ${props.rootClassName} `}>
-      <Link to="/" className="footer-navlink">
+      <Link to="/home" className="footer-navlink">
         <img
           alt={props.imagealt}
           src={props.imagesrc}

@@ -13,12 +13,12 @@ const Home = (props) => {
   return (
     <div className="home-container">
       <Helmet>
-        <title>Le Point Immobilier</title>
+        <title>Home - Le Point Immobilier</title>
         <meta
           name="description"
           content="Trouvez votre bien parmi nos annonces immobilières en Tunisie : choisissez directement vente maison"
         />
-        <meta property="og:title" content="Le Point Immobilier" />
+        <meta property="og:title" content="Home - Le Point Immobilier" />
         <meta
           property="og:description"
           content="Trouvez votre bien parmi nos annonces immobilières en Tunisie : choisissez directement vente maison"
@@ -134,14 +134,17 @@ const Home = (props) => {
               </span>
             </div>
             <div className="home-stat2">
-              <h1 className="home-text30">[X]</h1>
-              <span className="home-text31">Listings</span>
-              <span className="home-text32">And growing each day</span>
+              <h1 className="home-text30">
+                <span className="home-text31">0</span>
+                <br></br>
+              </h1>
+              <span className="home-text33">Listings</span>
+              <span className="home-text34">And growing each day</span>
             </div>
             <div className="home-stat3">
-              <h1 className="home-text33">7</h1>
-              <span className="home-text34">Cities</span>
-              <span className="home-text35">
+              <h1 className="home-text35">7</h1>
+              <span className="home-text36">Cities</span>
+              <span className="home-text37">
                 <span>countless opportunities</span>
                 <br></br>
               </span>
@@ -150,10 +153,10 @@ const Home = (props) => {
         </div>
         <div className="home-separator2"></div>
         <div className="home-steps">
-          <h1 className="home-text38">
+          <h1 className="home-text40">
             <span>Discover Our Process</span>
           </h1>
-          <span className="home-text40">
+          <span className="home-text42">
             <span>Simple. Efficient. With you at its center.</span>
             <br></br>
           </span>
@@ -169,8 +172,8 @@ const Home = (props) => {
                 <div className="home-line1"></div>
               </div>
               <div className="home-container08">
-                <h1 className="home-text43">Research</h1>
-                <span className="home-text44">
+                <h1 className="home-text45">Research</h1>
+                <span className="home-text46">
                   {' '}
                   Lay the groundwork with insightful research.
                 </span>
@@ -190,8 +193,8 @@ const Home = (props) => {
                 <div className="home-line3"></div>
               </div>
               <div className="home-container11">
-                <h1 className="home-text45">Browse</h1>
-                <span className="home-text46">
+                <h1 className="home-text47">Browse</h1>
+                <span className="home-text48">
                   <span>Discover a world of investment possibilities.</span>
                   <br></br>
                 </span>
@@ -211,8 +214,8 @@ const Home = (props) => {
                 <div className="home-line5"></div>
               </div>
               <div className="home-container14">
-                <h1 className="home-text49">Evaluate</h1>
-                <span className="home-text50">
+                <h1 className="home-text51">Evaluate</h1>
+                <span className="home-text52">
                   <span>
                     {' '}
                     Make informed choices through thorough assessment.
@@ -232,8 +235,8 @@ const Home = (props) => {
                 <div className="home-line7"></div>
               </div>
               <div className="home-container17">
-                <h1 className="home-text53">Purchase</h1>
-                <span className="home-text54">
+                <h1 className="home-text55">Purchase</h1>
+                <span className="home-text56">
                   <span>Seal the deal and own your investment success.</span>
                   <br></br>
                 </span>
@@ -243,10 +246,10 @@ const Home = (props) => {
         </div>
         <div className="home-separator3"></div>
         <div className="home-testimonial">
-          <h1 className="home-text57">
+          <h1 className="home-text59">
             <span>Our clients speak</span>
           </h1>
-          <span className="home-text59">
+          <span className="home-text61">
             Discover the stories of those who turned their real estate
             aspirations into reality with us. Our valued clients share their
             journey, highlighting the trust, satisfaction, and success they

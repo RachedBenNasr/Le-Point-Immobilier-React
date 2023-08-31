@@ -73,34 +73,36 @@ const Publish = (props) => {
               className="publish-image"
             />
             <form className="publish-form">
-              <h1 className="publish-heading">
+              <h1 className="publish-title">
                 Carefully fill out the form below
               </h1>
-              <span className="publish-text09">
-                <span>Personal details</span>
-                <br></br>
-              </span>
-              <input
-                type="text"
-                id="name"
-                required="true"
-                placeholder="Full Name"
-                className="publish-name input"
-              />
-              <input
-                type="text"
-                id="Phone Number"
-                required="true"
-                placeholder="Number"
-                className="publish-number input"
-              />
-              <input
-                type="text"
-                id="mail"
-                required="true"
-                placeholder="Email"
-                className="publish-email input"
-              />
+              <div className="publish-personal">
+                <span className="publish-text09">
+                  <span>Personal details</span>
+                  <br></br>
+                </span>
+                <input
+                  type="text"
+                  id="name"
+                  required="true"
+                  placeholder="Full Name"
+                  className="publish-name input"
+                />
+                <input
+                  type="text"
+                  id="Phone Number"
+                  required="true"
+                  placeholder="Number"
+                  className="publish-number input"
+                />
+                <input
+                  type="text"
+                  id="mail"
+                  required="true"
+                  placeholder="Email"
+                  className="publish-email input"
+                />
+              </div>
               <div className="publish-purpose">
                 <span className="publish-text12">Purpose</span>
                 <div className="publish-container02">
@@ -117,7 +119,7 @@ const Publish = (props) => {
                     type="radio"
                     name="purpose"
                     required="true"
-                    className="publish-radiobutton1"
+                    className="publish-radiobutton01"
                   />
                   <span>For sale</span>
                 </div>
@@ -135,7 +137,7 @@ const Publish = (props) => {
                   <option value="Plot of land">Plot of land</option>
                 </select>
               </div>
-              <div className="publish-rooms">
+              <div className="publish-residential">
                 <span className="publish-text16">
                   <span>Details</span>
                   <br></br>
@@ -162,18 +164,83 @@ const Publish = (props) => {
                     <div className="publish-container07">
                       <input
                         type="radio"
-                        name="State"
+                        name="garden"
                         required="true"
-                        className="publish-radiobutton2"
+                        className="publish-radiobutton02"
                       />
                       <span>Yes</span>
                     </div>
                     <div className="publish-container08">
                       <input
                         type="radio"
-                        name="State"
+                        name="garden"
                         required="true"
-                        className="publish-radiobutton3"
+                        className="publish-radiobutton03"
+                      />
+                      <span>No</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="publish-boxes1">
+                  <div className="publish-container09">
+                    <span>does it have a pool</span>
+                    <div className="publish-container10">
+                      <input
+                        type="radio"
+                        name="pool"
+                        required="true"
+                        className="publish-radiobutton04"
+                      />
+                      <span>Yes</span>
+                    </div>
+                    <div className="publish-container11">
+                      <input
+                        type="radio"
+                        name="pool"
+                        required="true"
+                        className="publish-radiobutton05"
+                      />
+                      <span>No</span>
+                    </div>
+                  </div>
+                  <div className="publish-container12">
+                    <span>does it contain a cellar</span>
+                    <div className="publish-container13">
+                      <input
+                        type="radio"
+                        name="cellar"
+                        required="true"
+                        className="publish-radiobutton06"
+                      />
+                      <span>Yes</span>
+                    </div>
+                    <div className="publish-container14">
+                      <input
+                        type="radio"
+                        name="cellar"
+                        required="true"
+                        className="publish-radiobutton07"
+                      />
+                      <span>No</span>
+                    </div>
+                  </div>
+                  <div className="publish-container15">
+                    <span>does it contain a garage</span>
+                    <div className="publish-container16">
+                      <input
+                        type="radio"
+                        name="garage"
+                        required="true"
+                        className="publish-radiobutton08"
+                      />
+                      <span>Yes</span>
+                    </div>
+                    <div className="publish-container17">
+                      <input
+                        type="radio"
+                        name="garage"
+                        required="true"
+                        className="publish-radiobutton09"
                       />
                       <span>No</span>
                     </div>
@@ -181,7 +248,7 @@ const Publish = (props) => {
                 </div>
               </div>
               <div className="publish-commercial">
-                <span className="publish-text24">
+                <span className="publish-text33">
                   What type of commercial property
                 </span>
                 <input
@@ -192,7 +259,7 @@ const Publish = (props) => {
                 />
               </div>
               <div className="publish-location">
-                <span className="publish-text25">
+                <span className="publish-text34">
                   <span>Where is your property located</span>
                   <br></br>
                 </span>
@@ -210,7 +277,19 @@ const Publish = (props) => {
                 </select>
               </div>
               <div className="publish-area">
-                <span className="publish-text28">
+                <span className="publish-text37">
+                  What is the exact address
+                </span>
+                <input
+                  type="text"
+                  id="address"
+                  required="true"
+                  placeholder="Address"
+                  className="publish-type1 input"
+                />
+              </div>
+              <div className="publish-area1">
+                <span className="publish-text38">
                   What is the full area of your property in M²
                 </span>
                 <input
@@ -218,93 +297,113 @@ const Publish = (props) => {
                   id="Area"
                   required="true"
                   placeholder="Area"
-                  className="publish-type1 input"
+                  className="publish-type2 input"
                 />
               </div>
               <div className="publish-services">
-                <span className="publish-text29">
+                <span className="publish-text39">
                   Is your property serviced? (Water - Electricity - Gas)
                 </span>
-                <div className="publish-container09">
+                <div className="publish-container18">
                   <input
                     type="radio"
-                    name="State"
+                    name="service"
                     required="true"
-                    className="publish-radiobutton4"
+                    className="publish-radiobutton10"
                   />
                   <span>Yes</span>
                 </div>
-                <div className="publish-container10">
+                <div className="publish-container19">
                   <input
                     type="radio"
-                    name="State"
+                    name="service"
                     required="true"
-                    className="publish-radiobutton5"
+                    className="publish-radiobutton11"
                   />
                   <span>No</span>
                 </div>
               </div>
               <div className="publish-legal">
-                <span className="publish-text32">
-                  Does your property have a blue title / Individual title
+                <span className="publish-text42">
+                  What kind of title does your property hold
                 </span>
-                <div className="publish-container11">
+                <div className="publish-container20">
                   <input
                     type="radio"
-                    name="Title"
+                    name="title"
                     required="true"
-                    className="publish-radiobutton6"
+                    className="publish-radiobutton12"
                   />
-                  <span>Yes</span>
+                  <span>Blue / Individual title</span>
                 </div>
-                <div className="publish-container12">
+                <div className="publish-container21">
                   <input
                     type="radio"
-                    name="Title"
-                    className="publish-radiobutton7"
+                    name="title"
+                    required="true"
+                    className="publish-radiobutton13"
                   />
-                  <span>No</span>
+                  <span>&quot;titre jumelée&quot;</span>
+                </div>
+                <div className="publish-container22">
+                  <input
+                    type="radio"
+                    name="title"
+                    required="true"
+                    className="publish-radiobutton14"
+                  />
+                  <span>Neither</span>
                 </div>
               </div>
-              <span className="publish-text35">
-                <span>Upload photos of your property</span>
-                <br></br>
-              </span>
-              <div className="publish-div">
-                <React.Fragment>
+              <div className="publish-uploads">
+                <span className="publish-text46">
+                  <span>Upload photos of your property</span>
+                  <br></br>
+                </span>
+                <div className="publish-div">
                   <React.Fragment>
-                    <style
-                      dangerouslySetInnerHTML={{
-                        __html:
-                          '\n    input[type="file"] {\n        display: none;\n    }\n\n    .custom-upload {\n        display: inline-block;\n        padding: 8px 12px;\n        background-color: #a0221a;\n        color: white;\n        border: none;\n        border-radius: 4px;\n        cursor: pointer;\n        transition: background-color 0.3s;\n    }\n\n    .custom-upload:hover {\n        background-color: #a0221a;\n    }\n',
-                      }}
-                    />
+                    <React.Fragment>
+                      <style
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            '\n    input[type="file"] {\n        display: none;\n    }\n\n    .custom-upload {\n        display: inline-block;\n        padding: 8px 12px;\n        background-color: #a0221a;\n        color: white;\n        border: none;\n        border-radius: 4px;\n        cursor: pointer;\n        transition: background-color 0.3s;\n    }\n\n    .custom-upload:hover {\n        background-color: #a0221a;\n    }\n',
+                        }}
+                      />
 
-                    <label htmlFor="file-upload" className="custom-upload">
-                      Choose Photos
-                    </label>
-                    <input
-                      type="file"
-                      id="file-upload"
-                      name="photos[]"
-                      accept="image/*"
-                      multiple={true}
-                    />
+                      <label htmlFor="file-upload" className="custom-upload">
+                        Choose Photos
+                      </label>
+                      <input
+                        type="file"
+                        id="file-upload"
+                        name="photos[]"
+                        accept="image/*"
+                        multiple={true}
+                      />
+                    </React.Fragment>
                   </React.Fragment>
-                </React.Fragment>
+                </div>
               </div>
               <div className="publish-price">
-                <span className="publish-text38">Asking price (TND)</span>
+                <span className="publish-text49">Asking price (TND)</span>
                 <input
                   type="text"
                   id="Price"
                   placeholder="Price"
-                  className="publish-type2 input"
+                  required="true"
+                  className="publish-type3 input"
                 />
+              </div>
+              <div className="publish-additional">
+                <span className="publish-text50">Additional information</span>
+                <textarea
+                  placeholder="Details"
+                  className="publish-textarea textarea"
+                ></textarea>
               </div>
               <button type="submit" className="publish-button button">
                 <span>
-                  <span className="publish-text40">Submit</span>
+                  <span className="publish-text52">Submit</span>
                   <br></br>
                 </span>
               </button>

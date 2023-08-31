@@ -85,17 +85,15 @@ const Buying = (props) => {
               <option value="date">Date posted</option>
             </select>
             <div className="buying-container6">
-              <button className="buying-button button">
+              <button type="button" className="buying-button button">
                 <span>
-                  <Link to="/services" className="buying-navlink1">
-                    Apply
-                  </Link>
+                  <span className="buying-text4">Apply</span>
                   <br></br>
                 </span>
               </button>
               <button type="reset" className="buying-button1 button">
-                <span className="buying-text5">
-                  <span className="buying-text6">Reset</span>
+                <span className="buying-text6">
+                  <span className="buying-text7">Reset</span>
                   <br></br>
                 </span>
               </button>
