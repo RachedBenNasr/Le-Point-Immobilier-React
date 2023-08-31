@@ -25,10 +25,9 @@
   justify-content: center;
 }
 .page-image {
-  width: 400px;
-  margin: var(--dl-space-space-twounits);
+  width: 500px;
   object-fit: cover;
-  padding-left: var(--dl-space-space-twounits);
+  padding-left: 50px;
 }
 .page-container2 {
   display: flex;
@@ -39,7 +38,6 @@
   font-size: 3rem;
 }
 .page-text1 {
-  color: rgb(0, 0, 0);
   margin-top: var(--dl-space-space-twounits);
   text-align: center;
   padding-left: var(--dl-space-space-threeunits);
