@@ -288,6 +288,9 @@
   .contact-form {
     width: 100%;
   }
+  .contact-button {
+    width: auto;
+  }
 }
 @media(max-width: 479px) {
   .contact-banner {
@@ -295,6 +298,9 @@
     padding-left: var(--dl-space-space-unit);
     padding-right: var(--dl-space-space-unit);
     padding-bottom: var(--dl-space-space-threeunits);
+  }
+  .contact-cards {
+    width: 95%;
   }
   .contact-container2 {
     flex-direction: column;
