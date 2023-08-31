@@ -154,7 +154,7 @@ const Promote = (props) => {
               />
             </span>
           </h2>
-          <Link to="/contact" className="promote-navlink button">
+          <Link to="/not-found" className="promote-navlink button">
             We can help!
           </Link>
         </div>
