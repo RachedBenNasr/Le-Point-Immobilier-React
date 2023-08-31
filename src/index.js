@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import './style.css'
-import NotFound from './views/not-found'
 import ComingSoon from './views/coming-soon'
 import Home from './views/home'
 import Promote from './views/promote'
@@ -14,13 +13,12 @@ import Services from './views/services'
 import Renting from './views/renting'
 import Commercial from './views/commercial'
 import Opportunities from './views/opportunities'
-import Page from './views/page'
+import NotFound from './views/not-found'
 
 const App = () => {
   return (
     <Router>
       <div>
-        <Route component={NotFound} path="**" />
         <Route component={ComingSoon} exact path="/soon" />
         <Route component={Home} exact path="/" />
         <Route component={Promote} exact path="/promote" />
@@ -31,7 +29,7 @@ const App = () => {
         <Route component={Renting} exact path="/renting" />
         <Route component={Commercial} exact path="/commercial" />
         <Route component={Opportunities} exact path="/opportunities" />
-        <Route component={Page} exact path="/page" />
+        <Route component={NotFound} path="**" />
       </div>
     </Router>
   )
