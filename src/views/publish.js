@@ -389,8 +389,8 @@ const Publish = (props) => {
                 <input
                   type="text"
                   id="Price"
-                  placeholder="Price"
                   required="true"
+                  placeholder="Price"
                   className="publish-type3 input"
                 />
               </div>

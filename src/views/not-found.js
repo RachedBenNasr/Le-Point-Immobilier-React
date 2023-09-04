@@ -30,8 +30,8 @@ const NotFound = (props) => {
         <Header rootClassName="header-root-class-name8"></Header>
         <div className="not-found-hero">
           <img
-            src="/z01vrhbcvd-removebg-preview-1500h.png"
             alt="image"
+            src="/z01vrhbcvd-removebg-preview-1500h.png"
             className="not-found-image"
           />
           <div className="not-found-container2">
@@ -40,7 +40,7 @@ const NotFound = (props) => {
               <span>The page you are looking for does not seem to exist</span>
               <br></br>
             </span>
-            <Link to="/" className="not-found-navlink button">
+            <Link to="/home" className="not-found-navlink button">
               <span>
                 <span>Go back home</span>
                 <br></br>

@@ -63,8 +63,8 @@ const Commercial = (props) => {
               <option value="Appartment">Appartment</option>
               <option value="Option 2">Option 2</option>
               <option value="Penthouse">Penthouse</option>
-              <option value="Option 3">Option 3</option>
               <option value="Villa">Villa</option>
+              <option value="Option 3">Option 3</option>
               <option value="Commercial">Commercial</option>
               <option value="Plot of land">Plot of land</option>
             </select>
@@ -74,8 +74,8 @@ const Commercial = (props) => {
               </option>
               <option value="Option 1">Option 1</option>
               <option value="Tunis">Tunis</option>
-              <option value="Option 2">Option 2</option>
               <option value="Ariana">Ariana</option>
+              <option value="Option 2">Option 2</option>
               <option value="Option 3">Option 3</option>
               <option value="Manouba">Manouba</option>
               <option value="Ben Arous">Ben Arous</option>
@@ -87,10 +87,10 @@ const Commercial = (props) => {
               <option value="0" selected>
                 Sort By
               </option>
-              <option value="Option 1">Option 1</option>
               <option value="price">Price</option>
-              <option value="Option 2">Option 2</option>
+              <option value="Option 1">Option 1</option>
               <option value="date">Date posted</option>
+              <option value="Option 2">Option 2</option>
               <option value="Option 3">Option 3</option>
             </select>
             <div className="commercial-container6">

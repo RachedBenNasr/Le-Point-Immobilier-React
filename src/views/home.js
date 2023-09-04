@@ -13,12 +13,12 @@ const Home = (props) => {
   return (
     <div className="home-container">
       <Helmet>
-        <title>Le Point Immobilier</title>
+        <title>Home - Le Point Immobilier</title>
         <meta
           name="description"
           content="Trouvez votre bien parmi nos annonces immobilières en Tunisie : choisissez directement vente maison"
         />
-        <meta property="og:title" content="Le Point Immobilier" />
+        <meta property="og:title" content="Home - Le Point Immobilier" />
         <meta
           property="og:description"
           content="Trouvez votre bien parmi nos annonces immobilières en Tunisie : choisissez directement vente maison"
