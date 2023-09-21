@@ -501,24 +501,13 @@
 .publish-radiobutton13 {
   margin-right: var(--dl-space-space-oneandhalfunits);
 }
-.publish-container22 {
-  display: flex;
-  padding: var(--dl-space-space-unit);
-  align-items: center;
-  padding-right: 16px;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.publish-radiobutton14 {
-  margin-right: var(--dl-space-space-oneandhalfunits);
-}
 .publish-uploads {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
 }
-.publish-text46 {
+.publish-text45 {
   padding: var(--dl-space-space-unit);
   font-style: normal;
   font-weight: 700;
@@ -534,7 +523,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.publish-text49 {
+.publish-text48 {
   padding: var(--dl-space-space-unit);
   font-style: normal;
   font-weight: 700;
@@ -557,7 +546,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.publish-text50 {
+.publish-text49 {
   padding: var(--dl-space-space-unit);
   font-style: normal;
   font-weight: 700;
@@ -580,7 +569,7 @@
   color: var(--dl-color-gray-black);
   background-color: transparent;
 }
-.publish-text52:hover {
+.publish-text51:hover {
   color: var(--dl-color-gray-black);
   background-color: transparent;
 }
@@ -658,17 +647,17 @@
   .publish-text38 {
     text-align: center;
   }
-  .publish-text49 {
+  .publish-text48 {
     text-align: center;
   }
-  .publish-text50 {
+  .publish-text49 {
     text-align: center;
   }
   .publish-button {
     margin-top: var(--dl-space-space-unit);
     margin-left: 0px;
   }
-  .publish-text52 {
+  .publish-text51 {
     margin-top: var(--dl-space-space-unit);
     margin-left: 0px;
   }

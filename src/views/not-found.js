@@ -40,7 +40,7 @@ const NotFound = (props) => {
               <span>The page you are looking for does not seem to exist</span>
               <br></br>
             </span>
-            <Link to="/home" className="not-found-navlink button">
+            <Link to="/" className="not-found-navlink button">
               <span>
                 <span>Go back home</span>
                 <br></br>

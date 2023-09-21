@@ -101,6 +101,11 @@ const Buying = (props) => {
           </div>
           <div className="buying-container7">
             <ByuingListing rootClassName="byuing-listing-root-class-name"></ByuingListing>
+            <ByuingListing rootClassName="byuing-listing-root-class-name20"></ByuingListing>
+            <ByuingListing rootClassName="byuing-listing-root-class-name19"></ByuingListing>
+            <ByuingListing rootClassName="byuing-listing-root-class-name18"></ByuingListing>
+            <ByuingListing rootClassName="byuing-listing-root-class-name17"></ByuingListing>
+            <ByuingListing rootClassName="byuing-listing-root-class-name16"></ByuingListing>
             <ByuingListing rootClassName="byuing-listing-root-class-name3"></ByuingListing>
             <ByuingListing rootClassName="byuing-listing-root-class-name2"></ByuingListing>
             <ByuingListing rootClassName="byuing-listing-root-class-name1"></ByuingListing>

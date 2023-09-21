@@ -74,14 +74,8 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.services-navlink {
-  display: contents;
-}
 .services-component1 {
   text-decoration: none;
-}
-.services-navlink1 {
-  display: contents;
 }
 .services-component2 {
   text-decoration: none;
@@ -96,10 +90,16 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.services-navlink2 {
+.services-navlink {
   display: contents;
 }
 .services-component3 {
+  text-decoration: none;
+}
+.services-navlink1 {
+  display: contents;
+}
+.services-component4 {
   text-decoration: none;
 }
 .services-container4 {
@@ -112,13 +112,10 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.services-navlink3 {
-  display: contents;
-}
 .services-component5 {
   text-decoration: none;
 }
-.services-navlink4 {
+.services-navlink2 {
   display: contents;
 }
 .services-component6 {

@@ -345,18 +345,9 @@ const Publish = (props) => {
                   />
                   <span>&quot;titre jumelée&quot;</span>
                 </div>
-                <div className="publish-container22">
-                  <input
-                    type="radio"
-                    name="title"
-                    required="true"
-                    className="publish-radiobutton14"
-                  />
-                  <span>Neither</span>
-                </div>
               </div>
               <div className="publish-uploads">
-                <span className="publish-text46">
+                <span className="publish-text45">
                   <span>Upload photos of your property</span>
                   <br></br>
                 </span>
@@ -385,7 +376,7 @@ const Publish = (props) => {
                 </div>
               </div>
               <div className="publish-price">
-                <span className="publish-text49">Asking price (TND)</span>
+                <span className="publish-text48">Asking price (TND)</span>
                 <input
                   type="text"
                   id="Price"
@@ -395,7 +386,7 @@ const Publish = (props) => {
                 />
               </div>
               <div className="publish-additional">
-                <span className="publish-text50">Additional information</span>
+                <span className="publish-text49">Additional information</span>
                 <textarea
                   placeholder="Details"
                   className="publish-textarea textarea"
@@ -403,7 +394,7 @@ const Publish = (props) => {
               </div>
               <button type="submit" className="publish-button button">
                 <span>
-                  <span className="publish-text52">Submit</span>
+                  <span className="publish-text51">Submit</span>
                   <br></br>
                 </span>
               </button>

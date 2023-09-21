@@ -5,15 +5,18 @@
   flex-direction: row;
 }
 .navigation-links-navlink {
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
   text-decoration: none;
 }
 .navigation-links-navlink1 {
+  font-size: 12px;
   margin-left: var(--dl-space-space-twounits);
   text-decoration: none;
 }
 .navigation-links-navlink2 {
+  font-size: 12px;
   margin-left: var(--dl-space-space-twounits);
   text-decoration: none;
 }
@@ -47,7 +50,8 @@
     margin-bottom: var(--dl-space-space-unit);
   }
   .navigation-links-root-class-name11 {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    height: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }

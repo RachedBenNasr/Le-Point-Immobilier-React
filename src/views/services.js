@@ -36,29 +36,25 @@ const Services = (props) => {
         </div>
         <div id="CARDS" className="services-blog">
           <div className="services-container2">
-            <Link to="/renting" className="services-navlink">
-              <BlogPostCard4
-                date="Renting"
-                label="Browse→"
-                imageSrc="https://images.unsplash.com/flagged/photo-1564767609424-270b9df918e1?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fGhvdXNlJTIwa2V5fGVufDB8fHx8MTY5MjU1Njk0NXww&amp;ixlib=rb-4.0.3&amp;w=1500"
-                description="Find your perfect rental property hassle-free."
-                rootClassName="rootClassName2"
-                className="services-component1"
-              ></BlogPostCard4>
-            </Link>
-            <Link to="/opportunities" className="services-navlink1">
-              <BlogPostCard4
-                date="Opportunities"
-                label="Browse→"
-                imageSrc="https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEwfHxzdG9ja3N8ZW58MHx8fHwxNjkyNTU5Mzk0fDA&amp;ixlib=rb-4.0.3&amp;w=1500"
-                description="Investment options that fit your budget, high on value."
-                rootClassName="rootClassName3"
-                className="services-component2"
-              ></BlogPostCard4>
-            </Link>
+            <BlogPostCard4
+              date="Renting"
+              label="Browse→"
+              imageSrc="https://images.unsplash.com/flagged/photo-1564767609424-270b9df918e1?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fGhvdXNlJTIwa2V5fGVufDB8fHx8MTY5MjU1Njk0NXww&amp;ixlib=rb-4.0.3&amp;w=1500"
+              description="Find your perfect rental property hassle-free."
+              rootClassName="rootClassName2"
+              className="services-component1"
+            ></BlogPostCard4>
+            <BlogPostCard4
+              date="Opportunities"
+              label="Browse→"
+              imageSrc="https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEwfHxzdG9ja3N8ZW58MHx8fHwxNjkyNTU5Mzk0fDA&amp;ixlib=rb-4.0.3&amp;w=1500"
+              description="Investment options that fit your budget, high on value."
+              rootClassName="rootClassName3"
+              className="services-component2"
+            ></BlogPostCard4>
           </div>
           <div className="services-container3">
-            <Link to="/buying" className="services-navlink2">
+            <Link to="/buying" className="services-navlink">
               <BlogPostCard4
                 date="Buying"
                 label="Browse→"
@@ -68,26 +64,27 @@ const Services = (props) => {
                 className="services-component3"
               ></BlogPostCard4>
             </Link>
-            <BlogPostCard4
-              date="Estimating"
-              label="Browse→"
-              imageSrc="https://images.unsplash.com/photo-1632571401005-458e9d244591?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDR8fG1hdGhzfGVufDB8fHx8MTY5MjU1OTQxMnww&amp;ixlib=rb-4.0.3&amp;w=1500"
-              description="Accurate property insights for confident decisions."
-              rootClassName="rootClassName6"
-            ></BlogPostCard4>
-          </div>
-          <div className="services-container4">
-            <Link to="/commercial" className="services-navlink3">
+            <Link to="/consulting" className="services-navlink1">
               <BlogPostCard4
-                date="Commercial"
+                date="Consulting"
                 label="Browse→"
-                imageSrc="https://images.unsplash.com/photo-1570838562484-e873ff08d81f?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEzfHxnYXMlMjBzdGF0aW9ufGVufDB8fHx8MTY5MjU1Njk4N3ww&amp;ixlib=rb-4.0.3&amp;w=1500"
-                description="Unlock lucrative business opportunities in real estate."
-                rootClassName="rootClassName1"
-                className="services-component5"
+                imageSrc="https://images.unsplash.com/photo-1612550761236-e813928f7271?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDIxfHxoYW5kc2hha2V8ZW58MHx8fHwxNjkzODM4Mjk1fDA&amp;ixlib=rb-4.0.3&amp;w=1500"
+                description="Accurate property insights for confident decisions."
+                rootClassName="rootClassName6"
+                className="services-component4"
               ></BlogPostCard4>
             </Link>
-            <Link to="/promote" className="services-navlink4">
+          </div>
+          <div className="services-container4">
+            <BlogPostCard4
+              date="Commercial"
+              label="Browse→"
+              imageSrc="https://images.unsplash.com/photo-1570838562484-e873ff08d81f?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEzfHxnYXMlMjBzdGF0aW9ufGVufDB8fHx8MTY5MjU1Njk4N3ww&amp;ixlib=rb-4.0.3&amp;w=1500"
+              description="Unlock lucrative business opportunities in real estate."
+              rootClassName="rootClassName1"
+              className="services-component5"
+            ></BlogPostCard4>
+            <Link to="/promote" className="services-navlink2">
               <BlogPostCard4
                 date="Promotion"
                 label="Browse→"

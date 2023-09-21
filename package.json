@@ -10,7 +10,7 @@
     "react-helmet": "^6.1.0",
     "dangerous-html": "0.1.13",
     "prop-types": "15.7.2",
-    "@teleporthq/react-components": "github:teleporthq/thq-react-components"
+    "@teleporthq/react-components": "latest"
   },
   "scripts": {
     "start": "craco start",
@@ -19,7 +19,7 @@
     "eject": "craco eject"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "browserslist": {
     "production": [

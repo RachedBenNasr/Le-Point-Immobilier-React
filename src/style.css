@@ -76,6 +76,12 @@
   display: flex !important;
   transform: none !important;
 }
+.hover {
+  fill: #000000;
+  width: 45px;
+  cursor: pointer;
+  height: 45px;
+}
 .Heading {
   font-size: 32px;
   font-family: Inter;
@@ -92,3 +98,7 @@
   text-transform: none;
   text-decoration: none;
 }
+
+
+
+

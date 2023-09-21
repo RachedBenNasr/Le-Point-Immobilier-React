@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 
 import Header from '../components/header'
 import GalleryCard3 from '../components/gallery-card3'
-import TestimonialCard3 from '../components/testimonial-card3'
+import TestimonialCard from '../components/testimonial-card'
 import Footer from '../components/footer'
 import './home.css'
 
@@ -13,12 +13,12 @@ const Home = (props) => {
   return (
     <div className="home-container">
       <Helmet>
-        <title>Home - Le Point Immobilier</title>
+        <title>Le Point Immobilier</title>
         <meta
           name="description"
           content="Trouvez votre bien parmi nos annonces immobilières en Tunisie : choisissez directement vente maison"
         />
-        <meta property="og:title" content="Home - Le Point Immobilier" />
+        <meta property="og:title" content="Le Point Immobilier" />
         <meta
           property="og:description"
           content="Trouvez votre bien parmi nos annonces immobilières en Tunisie : choisissez directement vente maison"
@@ -34,7 +34,7 @@ const Home = (props) => {
               <span> been so simple.</span>
             </h1>
             <div className="home-container03">
-              <Link to="/services" className="home-navlink button">
+              <Link to="/service" className="home-navlink button">
                 <span>
                   <span className="home-text05">Discover our services</span>
                   <br></br>
@@ -256,24 +256,24 @@ const Home = (props) => {
             found through our services.
           </span>
           <div className="home-container18">
-            <TestimonialCard3
+            <TestimonialCard
               name="TEST"
               quote="Choosing this agency was a game-changer for me. From initial consultation to property purchase, they guided me seamlessly. Their expertise turned my investment into a success story. Highly recommended!"
               pictureSrc="https://images.unsplash.com/photo-1633409361618-c73427e4e206?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=880&amp;q=80"
               rootClassName="rootClassName"
-            ></TestimonialCard3>
-            <TestimonialCard3
+            ></TestimonialCard>
+            <TestimonialCard
               name="TEST"
               quote="I can't thank this team enough for their dedication. They not only understood my preferences but also helped me discover options I hadn't considered. The result? A property that exceeded my expectations."
               pictureSrc="https://images.unsplash.com/photo-1633409361618-c73427e4e206?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=880&amp;q=80"
               rootClassName="rootClassName"
-            ></TestimonialCard3>
-            <TestimonialCard3
+            ></TestimonialCard>
+            <TestimonialCard
               name="TEST"
               quote="The professionalism of this agency is unmatched. They made the process smooth and transparent, keeping me informed at every step. With their support, I found a valuable investment that's now a cornerstone of my portfolio."
               pictureSrc="https://images.unsplash.com/photo-1633409361618-c73427e4e206?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=880&amp;q=80"
               rootClassName="rootClassName"
-            ></TestimonialCard3>
+            ></TestimonialCard>
           </div>
         </div>
         <div className="home-separator4"></div>
