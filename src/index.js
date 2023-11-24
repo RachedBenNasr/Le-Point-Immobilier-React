@@ -20,6 +20,8 @@ import Publish from "./views/publish";
 import Contact from "./views/contact";
 import Consulting from "./views/consulting";
 import Services from "./views/services";
+import Renting from "./views/renting";
+import opportunities from "./views/opportunities";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDM-Zt-YIpUKD7CaSaVFHiJdY7HnD-A8p0",
@@ -46,6 +48,8 @@ const App = () => {
         <Route component={Contact} exact path="/contact" />
         <Route component={Consulting} exact path="/consulting" />
         <Route component={Services} exact path="/service" />
+        <Route component={Renting} exact path="/renting" />
+        <Route component={opportunities} exact path="/opportunities" />
         <Route component={NotFound} path="**" />
       </Switch>
     </Router>

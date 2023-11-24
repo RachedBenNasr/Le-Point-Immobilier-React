@@ -100,6 +100,7 @@
 .consulting-text15:hover {
   color: var(--dl-color-gray-white);
   background-color: var(--dl-color-gray-black);
+  cursor: pointer;
 }
 @media(max-width: 1200px) {
   .consulting-text01 {

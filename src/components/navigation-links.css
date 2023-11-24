@@ -6,20 +6,12 @@
 }
 .navigation-links-navlink {
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
+  font-style: bold;
+  font-weight: 800;
   text-decoration: none;
+  margin-right: 25px;
 }
-.navigation-links-navlink1 {
-  font-size: 12px;
-  margin-left: var(--dl-space-space-twounits);
-  text-decoration: none;
-}
-.navigation-links-navlink2 {
-  font-size: 12px;
-  margin-left: var(--dl-space-space-twounits);
-  text-decoration: none;
-}
+
 
 
 

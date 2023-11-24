@@ -1,38 +1,49 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-import './navigation-links.css'
+import "./navigation-links.css";
 
 const NavigationLinks = (props) => {
   return (
     <nav className={`navigation-links-nav ${props.rootClassName} `}>
       <Link to="/" className="navigation-links-navlink">
-        {props.text}
+        {props.home}
       </Link>
-      <Link to="/service" className="navigation-links-navlink1">
-        {props.text1}
+      <Link to="/service" className="navigation-links-navlink">
+        {props.services}
       </Link>
-      <Link to="/contact" className="navigation-links-navlink2">
-        {props.text4}
+
+      <Link to="/buying" className="navigation-links-navlink">
+        {props.achat}
+      </Link>
+      <Link to="/renting" className="navigation-links-navlink">
+        {props.location}
+      </Link>
+      <Link to="/contact" className="navigation-links-navlink">
+        {props.contact}
       </Link>
     </nav>
-  )
-}
+  );
+};
 
 NavigationLinks.defaultProps = {
-  text1: 'Services',
-  rootClassName: '',
-  text: 'Acceuil',
-  text4: 'Contactez nous',
-}
+  services: "Services",
+  rootClassName: "",
+  home: "Acceuil",
+  contact: "Contactez nous",
+  achat: "Achat",
+  location: "Location",
+};
 
 NavigationLinks.propTypes = {
-  text1: PropTypes.string,
+  services: PropTypes.string,
   rootClassName: PropTypes.string,
-  text: PropTypes.string,
-  text4: PropTypes.string,
-}
+  home: PropTypes.string,
+  contact: PropTypes.string,
+  achat: PropTypes.string,
+  location: PropTypes.string,
+};
 
-export default NavigationLinks
+export default NavigationLinks;
