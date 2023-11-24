@@ -24,14 +24,10 @@ const Header = (props) => {
       <div className="header-container">
         <Link to="/publish" className="header-publish button">
           <span className="header-text">
-            <span className="">Publish a listing</span>
+            <span className="">Publier une annonce</span>
             <br className=""></br>
           </span>
         </Link>
-        <div className="header-language">
-          <img alt="image" src="/uk-1500h.png" className="header-image1" />
-          <img alt="image" src="/france-1500h.png" className="header-image2" />
-        </div>
       </div>
       <div data-role="BurgerMenu" className="header-burger-menu">
         <svg viewBox="0 0 1024 1024" className="header-icon">
@@ -48,7 +44,7 @@ const Header = (props) => {
               alt="image"
               src="/horizontal-1500h.png"
               loading="lazy"
-              className="header-image3"
+              className="header-image1"
             />
             <div data-role="CloseMobileMenu" className="header-menu-close">
               <svg viewBox="0 0 1024 1024" className="header-icon2">
@@ -64,9 +60,9 @@ const Header = (props) => {
             className=""
           ></NavigationLinks>
         </div>
-        <div className="header-language1">
-          <img alt="image" src="/uk-1500h.png" className="header-image4" />
-          <img alt="image" src="/france-1500h.png" className="header-image5" />
+        <div className="header-language">
+          <img alt="image" src="/uk-200h.png" className="header-image2" />
+          <img alt="image" src="/france-200h.png" className="header-image3" />
         </div>
         <div className="header-icon-group">
           <svg viewBox="0 0 877.7142857142857 1024" className="header-icon4">

@@ -83,15 +83,14 @@ ByuingListing.defaultProps = {
   text6: '5',
   text1: '[1MD - 1.5MD]',
   text42: '2',
-  text: 'Luxury villa with pool',
-  text61: 'Soukra, Ariana, Tunisia',
+  text: 'Villa de luxe avec piscine',
+  text61: 'Soukra, Ariana, Tunisie',
   text41: '300000 m²',
   text5: 'NEW',
   text2:
-    'Discover luxurious living in this exquisite villa with a pool. Nestled amidst serene surroundings, this spacious retreat offers the perfect blend of comfort and elegance. Dive into the refreshing waters of your private pool, or unwind in the lush garden oasis.',
+    "Découvrez une vie de luxe dans cette villa exquise avec piscine. Nichée au cœur d'un cadre paisible, cette retraite spacieuse offre le mélange parfait de confort et d'élégance. Plongez dans les eaux rafraîchissantes de votre piscine privée ou détendez-vous dans l'oasis du jardin luxuriant.\"",
   rootClassName: '',
   text4: '3',
-  text3: '3 days ago',
 }
 
 ByuingListing.propTypes = {
@@ -105,7 +104,6 @@ ByuingListing.propTypes = {
   text2: PropTypes.string,
   rootClassName: PropTypes.string,
   text4: PropTypes.string,
-  text3: PropTypes.string,
 }
 
 export default ByuingListing

@@ -64,7 +64,7 @@ const Footer = (props) => {
 }
 
 Footer.defaultProps = {
-  text1: 'Le Point Immobilier, All Rights Reserved.',
+  text1: 'Le Point Immobilier, Tous droits réservés',
   imagealt: 'image',
   text: '©',
   rootClassName: '',

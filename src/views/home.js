@@ -29,20 +29,18 @@ const Home = (props) => {
         <div className="home-hero">
           <div className="home-container02">
             <h1 id="Title" className="home-text">
-              <span>Real estate has never</span>
-              <br></br>
-              <span> been so simple.</span>
+              L&apos;immobilier n&apos;a jamais été aussi simple.
             </h1>
             <div className="home-container03">
               <Link to="/service" className="home-navlink button">
                 <span>
-                  <span className="home-text05">Discover our services</span>
+                  <span className="home-text02">Découvrez nos services</span>
                   <br></br>
                 </span>
               </Link>
               <Link to="/promote" className="home-navlink1 button">
                 <span>
-                  <span className="home-text08">Promote your listing</span>
+                  <span className="home-text05">Promouvez votre annonce</span>
                   <br></br>
                 </span>
               </Link>
@@ -51,11 +49,11 @@ const Home = (props) => {
         </div>
         <div className="home-separator"></div>
         <div className="home-gallery">
-          <h1 className="home-text10">
-            <span>Featured listings</span>
+          <h1 className="home-text07">
+            <span>Annonces à la une</span>
             <br></br>
           </h1>
-          <span className="home-text13">
+          <span className="home-text10">
             <span>
               <span>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
@@ -111,41 +109,43 @@ const Home = (props) => {
         </div>
         <div className="home-separator1"></div>
         <div className="home-stats">
-          <h1 className="home-text20">Key statistics</h1>
-          <span className="home-text21">
-            <span>A brief look at our industry leading numbers</span>
+          <h1 className="home-text17">Statistiques clés</h1>
+          <span className="home-text18">
+            <span>
+              Un coup d&apos;œil sur nos chiffres leaders de l&apos;industrie
+            </span>
             <br></br>
           </span>
           <div className="home-stats1">
             <div className="home-stat">
-              <h1 className="home-text24">3000+</h1>
-              <span className="home-text25">Happy clients</span>
-              <span className="home-text26">
+              <h1 className="home-text21">3000+</h1>
+              <span className="home-text22">clients satisfaits</span>
+              <span className="home-text23">
                 {' '}
                 Waiting for your to be among them
               </span>
             </div>
             <div className="home-stat1">
-              <h1 className="home-text27">1000+</h1>
-              <span className="home-text28">Projects completed</span>
-              <span className="home-text29">
+              <h1 className="home-text24">1000+</h1>
+              <span className="home-text25"> Projets accomplis</span>
+              <span className="home-text26">
                 {' '}
-                Embracing Exceptional Investments
+                Adoptez des investissements exceptionnels
               </span>
             </div>
             <div className="home-stat2">
-              <h1 className="home-text30">
-                <span className="home-text31">0</span>
+              <h1 className="home-text27">
+                <span className="home-text28">0</span>
                 <br></br>
               </h1>
-              <span className="home-text33">Listings</span>
-              <span className="home-text34">And growing each day</span>
+              <span className="home-text30">Annonces</span>
+              <span className="home-text31"> en croissance chaque jour</span>
             </div>
             <div className="home-stat3">
-              <h1 className="home-text35">7</h1>
-              <span className="home-text36">Cities</span>
-              <span className="home-text37">
-                <span>countless opportunities</span>
+              <h1 className="home-text32">7</h1>
+              <span className="home-text33">Cities</span>
+              <span className="home-text34">
+                <span>D&apos;innombrables opportunités</span>
                 <br></br>
               </span>
             </div>
@@ -153,11 +153,9 @@ const Home = (props) => {
         </div>
         <div className="home-separator2"></div>
         <div className="home-steps">
-          <h1 className="home-text40">
-            <span>Discover Our Process</span>
-          </h1>
-          <span className="home-text42">
-            <span>Simple. Efficient. With you at its center.</span>
+          <h1 className="home-text37">Découvrez Notre Processus</h1>
+          <span className="home-text38">
+            <span>Simple. Efficace. Avec vous au cœur.</span>
             <br></br>
           </span>
           <div className="home-container05">
@@ -172,10 +170,10 @@ const Home = (props) => {
                 <div className="home-line1"></div>
               </div>
               <div className="home-container08">
-                <h1 className="home-text45">Research</h1>
-                <span className="home-text46">
+                <h1 className="home-text41">Recherche</h1>
+                <span className="home-text42">
                   {' '}
-                  Lay the groundwork with insightful research.
+                  Posez les bases avec une recherche perspicace
                 </span>
               </div>
             </div>
@@ -193,9 +191,11 @@ const Home = (props) => {
                 <div className="home-line3"></div>
               </div>
               <div className="home-container11">
-                <h1 className="home-text47">Browse</h1>
-                <span className="home-text48">
-                  <span>Discover a world of investment possibilities.</span>
+                <h1 className="home-text43">Parcours</h1>
+                <span className="home-text44">
+                  <span>
+                    Découvrez un monde de possibilités d&apos;investissement
+                  </span>
                   <br></br>
                 </span>
               </div>
@@ -214,11 +214,12 @@ const Home = (props) => {
                 <div className="home-line5"></div>
               </div>
               <div className="home-container14">
-                <h1 className="home-text51">Evaluate</h1>
-                <span className="home-text52">
+                <h1 className="home-text47">Évaluation</h1>
+                <span className="home-text48">
                   <span>
                     {' '}
-                    Make informed choices through thorough assessment.
+                    Prenez des décisions éclairées grâce à une évaluation
+                    approfondie
                   </span>
                   <br></br>
                 </span>
@@ -235,9 +236,11 @@ const Home = (props) => {
                 <div className="home-line7"></div>
               </div>
               <div className="home-container17">
-                <h1 className="home-text55">Purchase</h1>
-                <span className="home-text56">
-                  <span>Seal the deal and own your investment success.</span>
+                <h1 className="home-text51">Achat</h1>
+                <span className="home-text52">
+                  <span>
+                    Devenez le maître de votre succès en investissement
+                  </span>
                   <br></br>
                 </span>
               </div>
@@ -246,31 +249,29 @@ const Home = (props) => {
         </div>
         <div className="home-separator3"></div>
         <div className="home-testimonial">
-          <h1 className="home-text59">
-            <span>Our clients speak</span>
-          </h1>
-          <span className="home-text61">
-            Discover the stories of those who turned their real estate
-            aspirations into reality with us. Our valued clients share their
-            journey, highlighting the trust, satisfaction, and success they
-            found through our services.
+          <h1 className="home-text55">Nos clients témoignent</h1>
+          <span className="home-text56">
+            Découvrez les histoires de ceux qui ont transformé leurs aspirations
+            immobilières en réalité avec nous. Nos clients précieux partagent
+            leur parcours, mettant en avant la confiance, la satisfaction et le
+            succès qu&apos;ils ont trouvés grâce à nos services.
           </span>
           <div className="home-container18">
             <TestimonialCard
-              name="TEST"
-              quote="Choosing this agency was a game-changer for me. From initial consultation to property purchase, they guided me seamlessly. Their expertise turned my investment into a success story. Highly recommended!"
+              name="FLEN"
+              quote="Choisir cette agence a été un tournant décisif pour moi. De la première consultation à l'achat de la propriété, ils m'ont guidé de manière transparente. Leur expertise a transformé mon investissement en une histoire à succès. Je les recommande vivement !"
               pictureSrc="https://images.unsplash.com/photo-1633409361618-c73427e4e206?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=880&amp;q=80"
               rootClassName="rootClassName"
             ></TestimonialCard>
             <TestimonialCard
-              name="TEST"
-              quote="I can't thank this team enough for their dedication. They not only understood my preferences but also helped me discover options I hadn't considered. The result? A property that exceeded my expectations."
+              name="FLEN"
+              quote="Je ne peux pas remercier assez cette équipe pour leur dévouement. Ils ont non seulement compris mes préférences, mais m'ont aussi aidé à découvrir des options que je n'avais pas envisagées. Le résultat ? Une propriété qui a dépassé mes attentes."
               pictureSrc="https://images.unsplash.com/photo-1633409361618-c73427e4e206?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=880&amp;q=80"
               rootClassName="rootClassName"
             ></TestimonialCard>
             <TestimonialCard
-              name="TEST"
-              quote="The professionalism of this agency is unmatched. They made the process smooth and transparent, keeping me informed at every step. With their support, I found a valuable investment that's now a cornerstone of my portfolio."
+              name="FLEN"
+              quote="Le professionnalisme de cette agence est incomparable. Ils ont rendu le processus fluide et transparent, me tenant informé à chaque étape. Avec leur soutien, j'ai trouvé un investissement précieux qui est maintenant un pilier de mon portefeuille."
               pictureSrc="https://images.unsplash.com/photo-1633409361618-c73427e4e206?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=880&amp;q=80"
               rootClassName="rootClassName"
             ></TestimonialCard>

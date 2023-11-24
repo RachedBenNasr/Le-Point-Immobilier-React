@@ -22,14 +22,14 @@ const Contact = (props) => {
         />
         <meta
           property="og:image"
-          content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/c9c7ea5e-99e3-47ab-b80b-7093b1c26267/88d48a30-d400-4a40-ab6c-cec76baadcc7?org_if_sml=1"
+          content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/c9c7ea5e-99e3-47ab-b80b-7093b1c26267/88d48a30-d400-4a40-ab6c-cec76baadcc7?org_if_sml=1&amp;force_format=original"
         />
       </Helmet>
       <div className="contact-container1">
         <Header rootClassName="header-root-class-name1"></Header>
         <div className="contact-banner">
-          <span className="contact-text">Contact us</span>
-          <h1 className="contact-text01">Let&apos;s start a conversation!</h1>
+          <span className="contact-text">Contactez-nous.</span>
+          <h1 className="contact-text01">Commençons une conversation !</h1>
           <span className="contact-text02">
             <span>
               <span>
@@ -75,7 +75,7 @@ const Contact = (props) => {
                 </svg>
                 <a href="tel:+216 29 791 660" className="contact-link">
                   <div className="contact-container2">
-                    <h2 className="contact-text09">Phone number</h2>
+                    <h2 className="contact-text09">Numéro de téléphone</h2>
                     <span className="contact-text10">+216 29 791 660</span>
                   </div>
                 </a>
@@ -110,7 +110,7 @@ const Contact = (props) => {
                   className="contact-link2"
                 >
                   <div className="contact-container4">
-                    <h2 className="contact-text12">Location</h2>
+                    <h2 className="contact-text12">Emplacement</h2>
                     <span className="contact-text13">
                       Immeuble , Montplaisir 1073 Tunis / Les Berges du Lac, Rue
                       Lenon, Tunis, Tunisia
@@ -124,7 +124,7 @@ const Contact = (props) => {
                 type="text"
                 id="name"
                 required="true"
-                placeholder="Full Name"
+                placeholder="Nom et Prenom"
                 className="contact-name input"
               />
               <input
@@ -138,16 +138,16 @@ const Contact = (props) => {
                 type="text"
                 id="Phone Number"
                 required="true"
-                placeholder="Number"
+                placeholder="Numéro"
                 className="contact-name2 input"
               />
               <textarea
-                placeholder="Purpose"
+                placeholder="Sujet"
                 className="contact-textarea textarea"
               ></textarea>
               <button type="submit" className="contact-button button">
                 <span>
-                  <span className="contact-text15">Submit</span>
+                  <span className="contact-text15">Envoyer</span>
                   <br></br>
                 </span>
               </button>

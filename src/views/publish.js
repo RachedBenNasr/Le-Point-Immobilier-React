@@ -25,9 +25,9 @@ const Publish = (props) => {
       <div className="publish-container01">
         <Header rootClassName="header-root-class-name2"></Header>
         <div className="publish-contents">
-          <span className="publish-text">Publish a listing</span>
+          <span className="publish-text">Publier une annonce</span>
           <h1 className="publish-text01">
-            Ample reach. Unparalleled exposure.
+            Portée considérable. Exposition inégalée.
           </h1>
           <span className="publish-text02">
             <span>
@@ -74,25 +74,25 @@ const Publish = (props) => {
             />
             <form className="publish-form">
               <h1 className="publish-title">
-                Carefully fill out the form below
+                Remplissez soigneusement le formulaire ci-dessous
               </h1>
               <div className="publish-personal">
                 <span className="publish-text09">
-                  <span>Personal details</span>
+                  <span>Informations personnelles</span>
                   <br></br>
                 </span>
                 <input
                   type="text"
                   id="name"
                   required="true"
-                  placeholder="Full Name"
+                  placeholder="Nom et Prenom"
                   className="publish-name input"
                 />
                 <input
                   type="text"
                   id="Phone Number"
                   required="true"
-                  placeholder="Number"
+                  placeholder="Numéro"
                   className="publish-number input"
                 />
                 <input
@@ -104,7 +104,7 @@ const Publish = (props) => {
                 />
               </div>
               <div className="publish-purpose">
-                <span className="publish-text12">Purpose</span>
+                <span className="publish-text12">Type d&apos;annonce</span>
                 <div className="publish-container02">
                   <input
                     type="radio"
@@ -112,7 +112,7 @@ const Publish = (props) => {
                     required="true"
                     className="publish-radiobutton"
                   />
-                  <span>For rent</span>
+                  <span>A Louer</span>
                 </div>
                 <div className="publish-container03">
                   <input
@@ -121,20 +121,20 @@ const Publish = (props) => {
                     required="true"
                     className="publish-radiobutton01"
                   />
-                  <span>For sale</span>
+                  <span>A vendre</span>
                 </div>
               </div>
               <div className="publish-nature">
                 <span className="publish-text15">Nature</span>
                 <select required="true" className="publish-select">
                   <option value="0">
-                    Please select the nature of your listing
+                    Veuillez sélectionner la nature de votre annonce
                   </option>
-                  <option value="Appartment">Appartment</option>
+                  <option value="Appartement">Appartement</option>
                   <option value="Penthouse">Penthouse</option>
                   <option value="Villa">Villa</option>
                   <option value="Commercial">Commercial</option>
-                  <option value="Plot of land">Plot of land</option>
+                  <option value="Terrain">Terrain</option>
                 </select>
               </div>
               <div className="publish-residential">
@@ -144,7 +144,7 @@ const Publish = (props) => {
                 </span>
                 <div className="publish-boxes">
                   <div className="publish-container04">
-                    <span>Number of rooms</span>
+                    <span>Chambres</span>
                     <input
                       type="text"
                       placeholder="(1, 2 3,...)"
@@ -152,7 +152,7 @@ const Publish = (props) => {
                     />
                   </div>
                   <div className="publish-container05">
-                    <span className="publish-text20">Number of bathrooms</span>
+                    <span className="publish-text20">Salles de bain</span>
                     <input
                       type="text"
                       placeholder="(1, 2 3,...)"
@@ -160,7 +160,7 @@ const Publish = (props) => {
                     />
                   </div>
                   <div className="publish-container06">
-                    <span>does it contain a garden</span>
+                    <span>Contient-il un jardin</span>
                     <div className="publish-container07">
                       <input
                         type="radio"
@@ -168,7 +168,7 @@ const Publish = (props) => {
                         required="true"
                         className="publish-radiobutton02"
                       />
-                      <span>Yes</span>
+                      <span>Oui</span>
                     </div>
                     <div className="publish-container08">
                       <input
@@ -177,13 +177,13 @@ const Publish = (props) => {
                         required="true"
                         className="publish-radiobutton03"
                       />
-                      <span>No</span>
+                      <span>Non</span>
                     </div>
                   </div>
                 </div>
                 <div className="publish-boxes1">
                   <div className="publish-container09">
-                    <span>does it have a pool</span>
+                    <span>Dispose-t-il d&apos;une piscine</span>
                     <div className="publish-container10">
                       <input
                         type="radio"
@@ -191,7 +191,7 @@ const Publish = (props) => {
                         required="true"
                         className="publish-radiobutton04"
                       />
-                      <span>Yes</span>
+                      <span>Oui</span>
                     </div>
                     <div className="publish-container11">
                       <input
@@ -200,11 +200,11 @@ const Publish = (props) => {
                         required="true"
                         className="publish-radiobutton05"
                       />
-                      <span>No</span>
+                      <span>Non</span>
                     </div>
                   </div>
                   <div className="publish-container12">
-                    <span>does it contain a cellar</span>
+                    <span>Contient-il une cave</span>
                     <div className="publish-container13">
                       <input
                         type="radio"
@@ -212,7 +212,7 @@ const Publish = (props) => {
                         required="true"
                         className="publish-radiobutton06"
                       />
-                      <span>Yes</span>
+                      <span>Oui</span>
                     </div>
                     <div className="publish-container14">
                       <input
@@ -221,11 +221,11 @@ const Publish = (props) => {
                         required="true"
                         className="publish-radiobutton07"
                       />
-                      <span>No</span>
+                      <span>Non</span>
                     </div>
                   </div>
                   <div className="publish-container15">
-                    <span>does it contain a garage</span>
+                    <span>Contient-il un garage</span>
                     <div className="publish-container16">
                       <input
                         type="radio"
@@ -233,7 +233,7 @@ const Publish = (props) => {
                         required="true"
                         className="publish-radiobutton08"
                       />
-                      <span>Yes</span>
+                      <span>Oui</span>
                     </div>
                     <div className="publish-container17">
                       <input
@@ -242,25 +242,25 @@ const Publish = (props) => {
                         required="true"
                         className="publish-radiobutton09"
                       />
-                      <span>No</span>
+                      <span>Non</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="publish-commercial">
                 <span className="publish-text33">
-                  What type of commercial property
+                  Quel type de propriété commerciale ?
                 </span>
                 <input
                   type="text"
                   id="Type"
-                  placeholder="Please indicate the type"
+                  placeholder="Veuillez indiquer le type"
                   className="publish-type input"
                 />
               </div>
               <div className="publish-location">
                 <span className="publish-text34">
-                  <span>Where is your property located</span>
+                  <span>Où se situe votre propriété</span>
                   <br></br>
                 </span>
                 <select required="true" className="publish-select1">
@@ -278,31 +278,32 @@ const Publish = (props) => {
               </div>
               <div className="publish-area">
                 <span className="publish-text37">
-                  What is the exact address
+                  Quelle est l&apos;adresse exacte
                 </span>
                 <input
                   type="text"
                   id="address"
                   required="true"
-                  placeholder="Address"
+                  placeholder="Adresse "
                   className="publish-type1 input"
                 />
               </div>
               <div className="publish-area1">
                 <span className="publish-text38">
-                  What is the full area of your property in M²
+                  Quelle est la superficie totale de votre propriété en mètres
+                  carrés
                 </span>
                 <input
                   type="text"
                   id="Area"
                   required="true"
-                  placeholder="Area"
+                  placeholder="Superficie"
                   className="publish-type2 input"
                 />
               </div>
               <div className="publish-services">
                 <span className="publish-text39">
-                  Is your property serviced? (Water - Electricity - Gas)
+                  Votre propriété est-elle viabilisé (eau, électricité, gaz)
                 </span>
                 <div className="publish-container18">
                   <input
@@ -311,7 +312,7 @@ const Publish = (props) => {
                     required="true"
                     className="publish-radiobutton10"
                   />
-                  <span>Yes</span>
+                  <span>Oui</span>
                 </div>
                 <div className="publish-container19">
                   <input
@@ -320,12 +321,12 @@ const Publish = (props) => {
                     required="true"
                     className="publish-radiobutton11"
                   />
-                  <span>No</span>
+                  <span>Non</span>
                 </div>
               </div>
               <div className="publish-legal">
                 <span className="publish-text42">
-                  What kind of title does your property hold
+                  Quel type de titre de propriété détient votre propriété
                 </span>
                 <div className="publish-container20">
                   <input
@@ -334,7 +335,7 @@ const Publish = (props) => {
                     required="true"
                     className="publish-radiobutton12"
                   />
-                  <span>Blue / Individual title</span>
+                  <span>Titre Bleu / Titre Individuel</span>
                 </div>
                 <div className="publish-container21">
                   <input
@@ -343,50 +344,54 @@ const Publish = (props) => {
                     required="true"
                     className="publish-radiobutton13"
                   />
-                  <span>&quot;titre jumelée&quot;</span>
+                  <span>Titre Jumelé</span>
                 </div>
               </div>
               <div className="publish-uploads">
                 <span className="publish-text45">
-                  <span>Upload photos of your property</span>
-                  <br></br>
+                  Téléchargez des photos de votre propriéte
                 </span>
-                <div className="publish-div">
-                  <React.Fragment>
+                <div className="publish-container22">
+                  <div className="publish-container23">
                     <React.Fragment>
-                      <style
-                        dangerouslySetInnerHTML={{
-                          __html:
-                            '\n    input[type="file"] {\n        display: none;\n    }\n\n    .custom-upload {\n        display: inline-block;\n        padding: 8px 12px;\n        background-color: #a0221a;\n        color: white;\n        border: none;\n        border-radius: 4px;\n        cursor: pointer;\n        transition: background-color 0.3s;\n    }\n\n    .custom-upload:hover {\n        background-color: #a0221a;\n    }\n',
-                        }}
-                      />
+                      <React.Fragment>
+                        <style
+                          dangerouslySetInnerHTML={{
+                            __html:
+                              '\n    input[type="file"] {\n        display: none;\n    }\n\n    .custom-upload {\n        display: inline-block;\n        padding: 8px 12px;\n        background-color: #a0221a;\n        color: white;\n        border: none;\n        border-radius: 4px;\n        cursor: pointer;\n        transition: background-color 0.3s;\n    }\n\n    .custom-upload:hover {\n        background-color: #a0221a;\n    }\n',
+                          }}
+                        />
 
-                      <label htmlFor="file-upload" className="custom-upload">
-                        Choose Photos
-                      </label>
-                      <input
-                        type="file"
-                        id="file-upload"
-                        name="photos[]"
-                        accept="image/*"
-                        multiple={true}
-                      />
+                        <label htmlFor="file-upload" className="custom-upload">
+                          Choisir des Photos
+                        </label>
+                        <input
+                          type="file"
+                          id="file-upload"
+                          name="photos[]"
+                          accept="image/*"
+                          multiple={true}
+                        />
+                      </React.Fragment>
                     </React.Fragment>
-                  </React.Fragment>
+                  </div>
                 </div>
               </div>
               <div className="publish-price">
-                <span className="publish-text48">Asking price (TND)</span>
+                <span className="publish-text46">Prix demandé (TND)</span>
                 <input
                   type="text"
                   id="Price"
+                  rows="Prix"
                   required="true"
                   placeholder="Price"
                   className="publish-type3 input"
                 />
               </div>
               <div className="publish-additional">
-                <span className="publish-text49">Additional information</span>
+                <span className="publish-text47">
+                  Informations supplémentaires
+                </span>
                 <textarea
                   placeholder="Details"
                   className="publish-textarea textarea"
@@ -394,7 +399,7 @@ const Publish = (props) => {
               </div>
               <button type="submit" className="publish-button button">
                 <span>
-                  <span className="publish-text51">Submit</span>
+                  <span className="publish-text49">Envoyer</span>
                   <br></br>
                 </span>
               </button>

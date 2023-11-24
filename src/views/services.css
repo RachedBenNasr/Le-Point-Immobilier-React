@@ -56,6 +56,9 @@
 .services-link:hover {
   transform: scale(1.02);
 }
+.services-text3:hover {
+  transform: scale(1.02);
+}
 .services-blog {
   width: 100%;
   display: flex;

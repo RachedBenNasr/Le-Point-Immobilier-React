@@ -24,25 +24,27 @@ const Buying = (props) => {
         />
         <meta
           property="og:image"
-          content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/c9c7ea5e-99e3-47ab-b80b-7093b1c26267/53cd6d90-a431-4578-b8cd-fd4e4a17983d?org_if_sml=1"
+          content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/c9c7ea5e-99e3-47ab-b80b-7093b1c26267/53cd6d90-a431-4578-b8cd-fd4e4a17983d?org_if_sml=1&amp;force_format=original"
         />
       </Helmet>
       <div className="buying-container1">
         <Header rootClassName="header-root-class-name4"></Header>
         <div className="buying-container2">
           <div className="buying-hero">
-            <h1 className="buying-text">Sponsored content</h1>
-            <span className="buying-text1">Want your listing here?</span>
+            <h1 className="buying-text">Contenu sponsorisé</h1>
+            <span className="buying-text1">
+              Vous souhaitez voir votre annonce ici ?
+            </span>
             <div className="buying-btn-group">
               <Link to="/promote" className="buying-navlink button">
-                Learn More
+                En savoir plus
               </Link>
             </div>
           </div>
         </div>
         <div className="buying-container3">
           <div className="buying-container4">
-            <h1 className="buying-text2">Advanced search</h1>
+            <h1 className="buying-text2">Recherche avancée</h1>
             <div className="buying-container5">
               <input
                 type="text"
@@ -63,11 +65,11 @@ const Buying = (props) => {
               <option value="Penthouse">Penthouse</option>
               <option value="Villa">Villa</option>
               <option value="Commercial">Commercial</option>
-              <option value="Plot of land">Plot of land</option>
+              <option value="Terrain">Terrain</option>
             </select>
             <select className="buying-select1">
               <option value="0" selected>
-                City
+                Ville
               </option>
               <option value="Tunis">Tunis</option>
               <option value="Ariana">Ariana</option>
@@ -75,25 +77,25 @@ const Buying = (props) => {
               <option value="Ben Arous">Ben Arous</option>
               <option value="Monastir">Monastir</option>
               <option value="Sousse">Sousse</option>
-              <option value="Other">Other</option>
+              <option value="Autre">Autre</option>
             </select>
             <select className="buying-select2">
               <option value="0" selected>
-                Sort By
+                Trier Par
               </option>
-              <option value="price">Price</option>
-              <option value="date">Date posted</option>
+              <option value="Prix">prix</option>
+              <option value="date">Date de publication</option>
             </select>
             <div className="buying-container6">
               <button type="button" className="buying-button button">
                 <span>
-                  <span className="buying-text4">Apply</span>
+                  <span className="buying-text4">Appliquer</span>
                   <br></br>
                 </span>
               </button>
               <button type="reset" className="buying-button1 button">
                 <span className="buying-text6">
-                  <span className="buying-text7">Reset</span>
+                  <span className="buying-text7">Réinitialiser</span>
                   <br></br>
                 </span>
               </button>

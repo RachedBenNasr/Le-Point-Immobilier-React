@@ -113,12 +113,12 @@ const Details = (props) => {
             <div className="details-container8">
               <input
                 type="text"
-                placeholder="Email here..."
+                placeholder="Email ici"
                 className="details-textinput input"
               />
               <button className="details-button button">
                 <span className="details-text13">
-                  <span>Send request</span>
+                  <span>Demander</span>
                   <br></br>
                 </span>
               </button>
@@ -133,17 +133,17 @@ const Details = (props) => {
 Details.defaultProps = {
   area: '1200',
   baths: '3',
-  ownership: 'Private',
-  title: 'Cosy apartment for sale',
+  ownership: 'Privé',
+  title: 'Villa de luxe',
   beds: '2',
   cars: '2',
   description: 'Description:',
-  quote: 'Request an Exact Quote',
-  location: 'City, Gouv',
+  quote: 'Demandez un devis précis',
+  location: 'Ville, Gouv',
   price: '800,000 DT - 900,000 DT',
-  range: 'Range',
+  range: 'Fourchette',
   body: 'Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  owner: 'Owner:',
+  owner: 'Propriétaire:',
   rootClassName: '',
 }
 

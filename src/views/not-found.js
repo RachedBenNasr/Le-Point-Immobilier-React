@@ -23,7 +23,7 @@ const NotFound = (props) => {
         />
         <meta
           property="og:image"
-          content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/c9c7ea5e-99e3-47ab-b80b-7093b1c26267/d697306b-9985-4334-937c-1df08a633632?org_if_sml=1"
+          content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/c9c7ea5e-99e3-47ab-b80b-7093b1c26267/d697306b-9985-4334-937c-1df08a633632?org_if_sml=1&amp;force_format=original"
         />
       </Helmet>
       <div className="not-found-container1">
@@ -37,12 +37,11 @@ const NotFound = (props) => {
           <div className="not-found-container2">
             <h1 className="not-found-text">404!</h1>
             <span className="not-found-text1">
-              <span>The page you are looking for does not seem to exist</span>
-              <br></br>
+              La page que vous recherchez ne semble pas exister
             </span>
             <Link to="/" className="not-found-navlink button">
               <span>
-                <span>Go back home</span>
+                <span>Revenir a l&apos;acceuil</span>
                 <br></br>
               </span>
             </Link>

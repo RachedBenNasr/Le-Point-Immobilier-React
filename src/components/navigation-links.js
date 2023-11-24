@@ -22,17 +22,13 @@ const NavigationLinks = (props) => {
 }
 
 NavigationLinks.defaultProps = {
-  text3: 'Opportunities',
-  text2: 'Buying',
   text1: 'Services',
   rootClassName: '',
-  text: 'Homepage',
-  text4: 'Contact Us',
+  text: 'Acceuil',
+  text4: 'Contactez nous',
 }
 
 NavigationLinks.propTypes = {
-  text3: PropTypes.string,
-  text2: PropTypes.string,
   text1: PropTypes.string,
   rootClassName: PropTypes.string,
   text: PropTypes.string,
