@@ -1,17 +1,17 @@
-import React from 'react'
+import React from "react";
 
-import Script from 'dangerous-html/react'
-import { Helmet } from 'react-helmet'
+import Script from "dangerous-html/react";
+import { Helmet } from "react-helmet";
 
-import Header from '../components/header'
-import Footer from '../components/footer'
-import './publish.css'
+import Header from "../components/header";
+import Footer from "../components/footer";
+import "./publish.css";
 
 const Publish = (props) => {
   return (
     <div className="publish-container">
       <Helmet>
-        <title>publish</title>
+        <title>Publish</title>
         <meta
           name="description"
           content="Trouvez votre bien parmi nos annonces immobilières en Tunisie : choisissez directement vente maison"
@@ -29,43 +29,7 @@ const Publish = (props) => {
           <h1 className="publish-text01">
             Portée considérable. Exposition inégalée.
           </h1>
-          <span className="publish-text02">
-            <span>
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-                volutpat turpis.
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-            </span>
-            <span>
-              <span>
-                Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor.
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-            </span>
-          </span>
+
           <div className="publish-cards">
             <img
               alt="image"
@@ -265,7 +229,7 @@ const Publish = (props) => {
                 </span>
                 <select required="true" className="publish-select1">
                   <option value="0" selected>
-                    Please select a city
+                    Veuillez sélectionner une ville
                   </option>
                   <option value="Tunis">Tunis</option>
                   <option value="Ariana">Ariana</option>
@@ -409,7 +373,7 @@ const Publish = (props) => {
         <Footer rootClassName="footer-root-class-name2"></Footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Publish
+export default Publish;
