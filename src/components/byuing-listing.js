@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-import './byuing-listing.css'
+import "./byuing-listing.css";
 
 const ByuingListing = (props) => {
   return (
@@ -19,12 +19,9 @@ const ByuingListing = (props) => {
                 className=""
               ></path>
             </svg>
-            <span className="byuing-listing-text">{props.text6}</span>
+            <span className="byuing-listing-text">{props.photos}</span>
           </div>
-          <div className="byuing-listing-state">
-            <span className="byuing-listing-text1">{props.text5}</span>
           </div>
-        </div>
         <div className="byuing-listing-bottom">
           <div className="byuing-listing-location">
             <svg
@@ -36,14 +33,14 @@ const ByuingListing = (props) => {
                 className=""
               ></path>
             </svg>
-            <span className="byuing-listing-text2">{props.text61}</span>
+            <span className="byuing-listing-text2">{props.location}</span>
           </div>
         </div>
       </div>
       <div className="byuing-listing-container">
-        <span className="byuing-listing-text3">{props.text}</span>
-        <span className="byuing-listing-text4">{props.text1}</span>
-        <span className="byuing-listing-text5">{props.text2}</span>
+        <span className="byuing-listing-text3">{props.header}</span>
+        <span className="byuing-listing-text4">{props.price}</span>
+        <span className="byuing-listing-text5">{props.body}</span>
         <div className="byuing-listing-container1">
           <svg
             viewBox="0 0 1170.2857142857142 1024"
@@ -54,14 +51,14 @@ const ByuingListing = (props) => {
               className=""
             ></path>
           </svg>
-          <span className="byuing-listing-text6">{props.text4}</span>
+          <span className="byuing-listing-text6">{props.beds}</span>
           <svg viewBox="0 0 1024 1024" className="byuing-listing-icon06">
             <path
               d="M950.857 621.714v109.714c0 65.143-28.571 122.857-73.143 163.429v110.857c0 10.286-8 18.286-18.286 18.286h-36.571c-10.286 0-18.286-8-18.286-18.286v-67.429c-22.857 8-47.429 12.571-73.143 12.571h-438.857c-25.714 0-50.286-4.571-73.143-12.571v62.857c0 12.571-8 22.857-18.286 22.857h-36.571c-10.286 0-18.286-10.286-18.286-22.857v-106.286c-44.571-40.571-73.143-98.286-73.143-163.429v-109.714h877.714zM402.286 384c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM438.857 347.429c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM402.286 310.857c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM475.429 310.857c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM438.857 274.286c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM402.286 237.714c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM1024 530.286v36.571c0 10.286-8 18.286-18.286 18.286h-987.429c-10.286 0-18.286-8-18.286-18.286v-36.571c0-10.286 8-18.286 18.286-18.286h54.857v-365.714c0-80.571 65.714-146.286 146.286-146.286 41.143 0 78.286 17.143 105.143 44.571 35.429-14.286 77.714-9.143 109.143 15.429l12.571-12.571c3.429-3.429 9.143-3.429 12.571 0l24 24c3.429 3.429 3.429 9.143 0 12.571l-179.429 179.429c-3.429 3.429-9.143 3.429-12.571 0l-24-24c-3.429-3.429-3.429-9.143 0-12.571l12.571-12.571c-27.429-34.857-30.857-82.857-9.714-121.143-13.143-12.571-30.857-20-50.286-20-40.571 0-73.143 32.571-73.143 73.143v365.714h859.429c10.286 0 18.286 8 18.286 18.286zM512 274.286c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM475.429 237.714c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM438.857 201.143c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM548.571 237.714c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM512 201.143c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM475.429 164.571c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM585.143 201.143c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM548.571 164.571c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286zM621.714 164.571c0 10.286-8 18.286-18.286 18.286s-18.286-8-18.286-18.286 8-18.286 18.286-18.286 18.286 8 18.286 18.286z"
               className=""
             ></path>
           </svg>
-          <span className="byuing-listing-text7">{props.text42}</span>
+          <span className="byuing-listing-text7">{props.baths}</span>
           <svg viewBox="0 0 1024 1024" className="byuing-listing-icon08">
             <path
               d="M853.333 256c0-25.045-10.965-49.792-32-66.645-36.821-29.44-90.496-23.509-119.979 13.312l-118.997 148.736-104.491-78.336c-36.864-27.648-89.045-21.035-117.845 14.976l-170.667 213.333c-12.544 15.701-18.688 34.603-18.688 53.291v128h682.667v-426.667z"
@@ -72,38 +69,37 @@ const ByuingListing = (props) => {
               className=""
             ></path>
           </svg>
-          <span className="byuing-listing-text8">{props.text41}</span>
+          <span className="byuing-listing-text8">{props.area}</span>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 ByuingListing.defaultProps = {
-  text6: '5',
-  text1: '[1MD - 1.5MD]',
-  text42: '2',
-  text: 'Villa de luxe avec piscine',
-  text61: 'Soukra, Ariana, Tunisie',
-  text41: '300000 m²',
-  text5: 'NEW',
-  text2:
-    "Découvrez une vie de luxe dans cette villa exquise avec piscine. Nichée au cœur d'un cadre paisible, cette retraite spacieuse offre le mélange parfait de confort et d'élégance. Plongez dans les eaux rafraîchissantes de votre piscine privée ou détendez-vous dans l'oasis du jardin luxuriant.\"",
-  rootClassName: '',
-  text4: '3',
-}
+  photos: "5",
+  price: "[1MD - 1.5MD]",
+  baths: "2",
+  header: "Villa de luxe avec piscine",
+  location: "Soukra, Ariana, Tunisie",
+  area: "300000 m²",
+
+  body: "Découvrez une vie de luxe dans cette villa exquise avec piscine. Nichée au cœur d'un cadre paisible, cette retraite spacieuse offre le mélange parfait de confort et d'élégance. Plongez dans les eaux rafraîchissantes de votre piscine privée ou détendez-vous dans l'oasis du jardin luxuriant.\"",
+  rootClassName: "",
+  beds: "3",
+};
 
 ByuingListing.propTypes = {
-  text6: PropTypes.string,
-  text1: PropTypes.string,
-  text42: PropTypes.string,
-  text: PropTypes.string,
-  text61: PropTypes.string,
-  text41: PropTypes.string,
-  text5: PropTypes.string,
-  text2: PropTypes.string,
-  rootClassName: PropTypes.string,
-  text4: PropTypes.string,
-}
+  photos: PropTypes.string,
+  price: PropTypes.string,
+  baths: PropTypes.string,
+  header: PropTypes.string,
+  location: PropTypes.string,
+  area: PropTypes.string,
 
-export default ByuingListing
+  body: PropTypes.string,
+  rootClassName: PropTypes.string,
+  beds: PropTypes.string,
+};
+
+export default ByuingListing;

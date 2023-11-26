@@ -26,6 +26,8 @@ import opportunities from "./views/opportunities";
 const firebaseConfig = {
   apiKey: "AIzaSyDM-Zt-YIpUKD7CaSaVFHiJdY7HnD-A8p0",
   authDomain: "le-point-immobilier.firebaseapp.com",
+  databaseURL:
+    "https://le-point-immobilier-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "le-point-immobilier",
   storageBucket: "le-point-immobilier.appspot.com",
   messagingSenderId: "711594524556",

@@ -169,13 +169,17 @@
   padding-right: var(--dl-space-space-unit);
   padding-bottom: var(--dl-space-space-halfunit);
   background-color: #000000;
+  width: 40%;
 }
+
 .buying-button:hover {
   transform: scale(1.02);
 }
+
 .buying-text4:hover {
   transform: scale(1.02);
 }
+
 .buying-button1 {
   color: var(--dl-color-gray-white);
   font-style: normal;
@@ -191,13 +195,17 @@
   padding-right: var(--dl-space-space-unit);
   padding-bottom: var(--dl-space-space-halfunit);
   background-color: transparent;
+  width: 40%;
 }
+
 .buying-button1:hover {
   transform: scale(1.02);
 }
+
 .buying-text6 {
   color: rgb(0, 0, 0);
 }
+
 .buying-text7:hover {
   transform: scale(1.02);
 }

@@ -1,14 +1,43 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Helmet } from 'react-helmet'
+import { Helmet } from "react-helmet";
 
-import Header from '../components/header'
-import ByuingListing from '../components/byuing-listing'
-import Footer from '../components/footer'
-import './buying.css'
+import Header from "../components/header";
+import ByuingListing from "../components/byuing-listing";
+import Footer from "../components/footer";
+import "./buying.css";
+
+import { getDatabase, ref, onValue } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
 const Buying = (props) => {
+  // State to hold sale listings
+
+  const [saleListings, setSaleListings] = useState([]);
+
+  // Effect to fetch sale listings from Firebase
+  useEffect(() => {
+    const fetchSaleListings = async () => {
+      // Assuming you have initialized Firebase elsewhere in your app
+      const database = getDatabase();
+      // const saleListingsRef = database.ref("listings/sale");
+      const saleListingsRef = ref(database, "listings/sale");
+
+      // Fetch data from Firebase
+      onValue(saleListingsRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          // Convert object to array and set state
+          const listingsArray = Object.values(data);
+          setSaleListings(listingsArray);
+        }
+      });
+    };
+
+    fetchSaleListings();
+  }, []);
+
   return (
     <div className="buying-container">
       <Helmet>
@@ -58,9 +87,7 @@ const Buying = (props) => {
               />
             </div>
             <select className="buying-select">
-              <option value="0" selected>
-                Type
-              </option>
+              <option defaultValue={0}>Type</option>
               <option value="Appartment">Appartment</option>
               <option value="Penthouse">Penthouse</option>
               <option value="Villa">Villa</option>
@@ -68,7 +95,7 @@ const Buying = (props) => {
               <option value="Terrain">Terrain</option>
             </select>
             <select className="buying-select1">
-              <option value="0" selected>
+              <option value="0" defaultValue={0}>
                 Ville
               </option>
               <option value="Tunis">Tunis</option>
@@ -80,7 +107,7 @@ const Buying = (props) => {
               <option value="Autre">Autre</option>
             </select>
             <select className="buying-select2">
-              <option value="0" selected>
+              <option value="0" defaultValue={0}>
                 Trier Par
               </option>
               <option value="Prix">prix</option>
@@ -94,29 +121,31 @@ const Buying = (props) => {
                 </span>
               </button>
               <button type="reset" className="buying-button1 button">
-                <span className="buying-text6">
-                  <span className="buying-text7">Réinitialiser</span>
-                  <br></br>
-                </span>
+                <span className="buying-text6">Réinitialiser</span>
+                <br></br>
               </button>
             </div>
           </div>
           <div className="buying-container7">
-            <ByuingListing rootClassName="byuing-listing-root-class-name"></ByuingListing>
-            <ByuingListing rootClassName="byuing-listing-root-class-name20"></ByuingListing>
-            <ByuingListing rootClassName="byuing-listing-root-class-name19"></ByuingListing>
-            <ByuingListing rootClassName="byuing-listing-root-class-name18"></ByuingListing>
-            <ByuingListing rootClassName="byuing-listing-root-class-name17"></ByuingListing>
-            <ByuingListing rootClassName="byuing-listing-root-class-name16"></ByuingListing>
-            <ByuingListing rootClassName="byuing-listing-root-class-name3"></ByuingListing>
-            <ByuingListing rootClassName="byuing-listing-root-class-name2"></ByuingListing>
-            <ByuingListing rootClassName="byuing-listing-root-class-name1"></ByuingListing>
+            {saleListings.map((listing) => (
+              <ByuingListing
+                key={listing.listingId} // Make sure to replace 'listingId' with the actual unique identifier for each listing
+                photos={listing.photos}
+                price={listing.price}
+                baths={listing.baths}
+                header={listing.header}
+                location={listing.location}
+                area={listing.area}
+                body={listing.body}
+                beds={listing.beds}
+              />
+            ))}
           </div>
         </div>
         <Footer rootClassName="footer-root-class-name4"></Footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Buying
+export default Buying;
