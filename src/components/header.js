@@ -7,12 +7,18 @@ import NavigationLinks from "./navigation-links";
 import "./header.css";
 
 const Header = (props) => {
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
+  };
+
   return (
     <header
       data-role="Header"
       className={`header-header ${props.rootClassName} `}
     >
-      <Link to="/home" className="header-navlink">
+      <Link to="/" className="header-navlink">
         <img alt="image" src="/horizontal-1500h.png" className="header-image" />
       </Link>
       <div className="header-nav">
@@ -29,7 +35,11 @@ const Header = (props) => {
           </span>
         </Link>
       </div>
-      <div data-role="BurgerMenu" className="header-burger-menu">
+      <div
+        data-role="BurgerMenu"
+        className="header-burger-menu"
+        onClick={toggleSidebar}
+      >
         <svg viewBox="0 0 1024 1024" className="header-icon">
           <path
             d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
@@ -37,7 +47,12 @@ const Header = (props) => {
           ></path>
         </svg>
       </div>
-      <div data-role="MobileMenu" className="header-mobile-menu">
+      <div
+        data-role="MobileMenu"
+        className={`header-mobile-menu ${
+          sidebarVisible ? "showing" : "notShowing"
+        }`}
+      >
         <div className="header-logo">
           <div className="header-container1">
             <div data-role="CloseMobileMenu" className="header-menu-close">
@@ -57,16 +72,16 @@ const Header = (props) => {
           </div>
         </div>
         <div className="header-nav1">
-          <Link to="/home" className="header-navlinks">
+          <Link to="/" className="header-navlinks">
             Acceuil
           </Link>
-          <Link to="/services" className="header-navlinks">
+          <Link to="/service" className="header-navlinks">
             Services
           </Link>
           <Link to="/buying" className="header-navlinks">
             Achat
           </Link>
-          <Link to="/buying" className="header-navlinks">
+          <Link to="/renting" className="header-navlinks">
             Location
           </Link>
           <Link to="/contact" className="header-navlinks">
@@ -106,6 +121,12 @@ const Header = (props) => {
           </a>
         </div>
       </div>
+      <div
+        className={`header-semi-transparent-layer ${
+          sidebarVisible ? "showing" : "notShowing"
+        }`}
+        onClick={toggleSidebar}
+      ></div>
     </header>
   );
 };

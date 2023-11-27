@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { Helmet } from 'react-helmet'
+import { Helmet } from "react-helmet";
 
-import Header from '../components/header'
-import GalleryCard3 from '../components/gallery-card3'
-import TestimonialCard from '../components/testimonial-card'
-import Footer from '../components/footer'
-import './home.css'
+import Header from "../components/header";
+import GalleryCard3 from "../components/gallery-card3";
+import TestimonialCard from "../components/testimonial-card";
+import Footer from "../components/footer";
+import "./home.css";
 
 const Home = (props) => {
   return (
@@ -60,14 +60,14 @@ const Home = (props) => {
                 volutpat turpis.
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: ' ',
+                    __html: " ",
                   }}
                 />
               </span>
               <span>
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: ' ',
+                    __html: " ",
                   }}
                 />
               </span>
@@ -78,14 +78,14 @@ const Home = (props) => {
                 Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor.
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: ' ',
+                    __html: " ",
                   }}
                 />
               </span>
               <span>
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: ' ',
+                    __html: " ",
                   }}
                 />
               </span>
@@ -121,7 +121,7 @@ const Home = (props) => {
               <h1 className="home-text21">3000+</h1>
               <span className="home-text22">clients satisfaits</span>
               <span className="home-text23">
-                {' '}
+                {" "}
                 Waiting for your to be among them
               </span>
             </div>
@@ -129,7 +129,7 @@ const Home = (props) => {
               <h1 className="home-text24">1000+</h1>
               <span className="home-text25"> Projets accomplis</span>
               <span className="home-text26">
-                {' '}
+                {" "}
                 Adoptez des investissements exceptionnels
               </span>
             </div>
@@ -143,7 +143,7 @@ const Home = (props) => {
             </div>
             <div className="home-stat3">
               <h1 className="home-text32">7</h1>
-              <span className="home-text33">Cities</span>
+              <span className="home-text33">Villes</span>
               <span className="home-text34">
                 <span>D&apos;innombrables opportunités</span>
                 <br></br>
@@ -172,7 +172,7 @@ const Home = (props) => {
               <div className="home-container08">
                 <h1 className="home-text41">Recherche</h1>
                 <span className="home-text42">
-                  {' '}
+                  {" "}
                   Posez les bases avec une recherche perspicace
                 </span>
               </div>
@@ -217,7 +217,7 @@ const Home = (props) => {
                 <h1 className="home-text47">Évaluation</h1>
                 <span className="home-text48">
                   <span>
-                    {' '}
+                    {" "}
                     Prenez des décisions éclairées grâce à une évaluation
                     approfondie
                   </span>
@@ -281,7 +281,7 @@ const Home = (props) => {
         <Footer></Footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
