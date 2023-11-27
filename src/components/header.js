@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import PropTypes from "prop-types";
@@ -40,12 +40,6 @@ const Header = (props) => {
       <div data-role="MobileMenu" className="header-mobile-menu">
         <div className="header-logo">
           <div className="header-container1">
-            <img
-              alt="image"
-              src="/horizontal-1500h.png"
-              loading="lazy"
-              className="header-image1"
-            />
             <div data-role="CloseMobileMenu" className="header-menu-close">
               <svg viewBox="0 0 1024 1024" className="header-icon02">
                 <path
@@ -54,23 +48,29 @@ const Header = (props) => {
                 ></path>
               </svg>
             </div>
+            <img
+              alt="image"
+              src="/horizontal-1500h.png"
+              loading="lazy"
+              className="header-image1"
+            />
           </div>
         </div>
         <div className="header-nav1">
-          <Link to="/home" className="header-navlink1">
-            {props.one}
+          <Link to="/home" className="header-navlinks">
+            Acceuil
           </Link>
-          <Link to="/services" className="header-navlink2">
-            {props.two}
+          <Link to="/services" className="header-navlinks">
+            Services
           </Link>
-          <Link to="/buying" className="header-navlink3">
-            {props.three}
+          <Link to="/buying" className="header-navlinks">
+            Achat
           </Link>
-          <Link to="/buying" className="header-navlink4">
-            {props.four}
+          <Link to="/buying" className="header-navlinks">
+            Location
           </Link>
-          <Link to="/contact" className="header-navlink5">
-            {props.five}
+          <Link to="/contact" className="header-navlinks">
+            Contactez nous
           </Link>
         </div>
         <div className="header-icon-group">
@@ -112,20 +112,10 @@ const Header = (props) => {
 
 Header.defaultProps = {
   rootClassName: "",
-  one: "Acceuil",
-  five: "Contactez nous",
-  four: "Location",
-  three: "Achat",
-  two: "Services",
 };
 
 Header.propTypes = {
   rootClassName: PropTypes.string,
-  one: PropTypes.string,
-  five: PropTypes.string,
-  four: PropTypes.string,
-  three: PropTypes.string,
-  two: PropTypes.string,
 };
 
 export default Header;
