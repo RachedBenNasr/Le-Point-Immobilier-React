@@ -21,7 +21,7 @@ const ByuingListing = (props) => {
             </svg>
             <span className="byuing-listing-text">{props.photos}</span>
           </div>
-          </div>
+        </div>
         <div className="byuing-listing-bottom">
           <div className="byuing-listing-location">
             <svg
@@ -77,26 +77,26 @@ const ByuingListing = (props) => {
 };
 
 ByuingListing.defaultProps = {
+  id: "0",
   photos: "5",
   price: "[1MD - 1.5MD]",
   baths: "2",
   header: "Villa de luxe avec piscine",
   location: "Soukra, Ariana, Tunisie",
   area: "300000 m²",
-
   body: "Découvrez une vie de luxe dans cette villa exquise avec piscine. Nichée au cœur d'un cadre paisible, cette retraite spacieuse offre le mélange parfait de confort et d'élégance. Plongez dans les eaux rafraîchissantes de votre piscine privée ou détendez-vous dans l'oasis du jardin luxuriant.\"",
   rootClassName: "",
   beds: "3",
 };
 
 ByuingListing.propTypes = {
+  id: PropTypes.string,
   photos: PropTypes.string,
   price: PropTypes.string,
   baths: PropTypes.string,
   header: PropTypes.string,
   location: PropTypes.string,
   area: PropTypes.string,
-
   body: PropTypes.string,
   rootClassName: PropTypes.string,
   beds: PropTypes.string,

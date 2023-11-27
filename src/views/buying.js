@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import Header from "../components/header";
 import ByuingListing from "../components/byuing-listing";
 import Footer from "../components/footer";
+import Details from "../components/details";
 import "./buying.css";
 
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -15,6 +16,21 @@ const Buying = (props) => {
   // State to hold sale listings
 
   const [saleListings, setSaleListings] = useState([]);
+
+  //Detail.js code
+
+  const [detailsVisible, setDetailsVisible] = useState(false);
+  const [selectedListing, setSelectedListing] = useState(null);
+
+  const handleListingClick = (listing) => {
+    setSelectedListing(listing);
+    setDetailsVisible(true);
+  };
+
+  const handleCloseDetails = () => {
+    setDetailsVisible(false);
+    setSelectedListing(null);
+  };
 
   // Effect to fetch sale listings from Firebase
   useEffect(() => {
@@ -114,13 +130,13 @@ const Buying = (props) => {
               <option value="date">Date de publication</option>
             </select>
             <div className="buying-container6">
-              <button type="button" className="buying-button button">
+              <button type="button" className="buying-button ">
                 <span>
                   <span className="buying-text4">Appliquer</span>
                   <br></br>
                 </span>
               </button>
-              <button type="reset" className="buying-button1 button">
+              <button type="reset" className="buying-button1 ">
                 <span className="buying-text6">Réinitialiser</span>
                 <br></br>
               </button>
@@ -128,20 +144,47 @@ const Buying = (props) => {
           </div>
           <div className="buying-container7">
             {saleListings.map((listing) => (
-              <ByuingListing
-                key={listing.listingId} // Make sure to replace 'listingId' with the actual unique identifier for each listing
-                photos={listing.photos}
-                price={listing.price}
-                baths={listing.baths}
-                header={listing.header}
-                location={listing.location}
-                area={listing.area}
-                body={listing.body}
-                beds={listing.beds}
-              />
+              <div
+                key={listing.listingId}
+                onClick={() => handleListingClick(listing)}
+              >
+                <ByuingListing
+                  id={listing.listingId}
+                  photos={listing.photos}
+                  price={listing.price}
+                  baths={listing.baths}
+                  header={listing.header}
+                  location={listing.location}
+                  area={listing.area}
+                  body={listing.body}
+                  beds={listing.beds}
+                />
+              </div>
             ))}
           </div>
+          {detailsVisible && (
+            <>
+              <div
+                className="details-overlay"
+                onClick={handleCloseDetails}
+              ></div>
+
+              <Details
+                title={selectedListing.header}
+                photos={selectedListing.photos}
+                price={selectedListing.price}
+                baths={selectedListing.baths}
+                header={selectedListing.header}
+                location={selectedListing.location}
+                area={selectedListing.area}
+                body={selectedListing.body}
+                beds={selectedListing.beds}
+                closeDetails={handleCloseDetails}
+              />
+            </>
+          )}
         </div>
+
         <Footer rootClassName="footer-root-class-name4"></Footer>
       </div>
     </div>

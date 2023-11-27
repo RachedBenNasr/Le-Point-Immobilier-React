@@ -1,10 +1,11 @@
 .byuing-listing-blog-post-card {
-  width: 100%;
+  
   cursor: pointer;
   display: flex;
   
   position: relative;
-  max-width: 300px;
+  width: 300px;
+  min-width: 300px;
   box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
   transition: 0.3s;
   align-items: center;
@@ -218,8 +219,7 @@
 
 @media(max-width: 767px) {
   .byuing-listing-blog-post-card {
-    width: 90%;
-    max-width: 90%;
+    
     margin-top: var(--dl-space-space-unit);
     margin-bottom: var(--dl-space-space-unit);
   }

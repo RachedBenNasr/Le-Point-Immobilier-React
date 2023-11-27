@@ -1,14 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-import './details.css'
+import "./details.css";
 
 const Details = (props) => {
   return (
-    <div className={`details-blog-post-card ${props.rootClassName} `}>
+    <div className={`details-blog-post-card`}>
       <div className="details-container">
-        <svg viewBox="0 0 804.5714285714286 1024" className="details-icon">
+        <svg
+          viewBox="0 0 804.5714285714286 1024"
+          className="details-icon"
+          onClick={props.closeDetails}
+        >
           <path d="M741.714 755.429c0 14.286-5.714 28.571-16 38.857l-77.714 77.714c-10.286 10.286-24.571 16-38.857 16s-28.571-5.714-38.857-16l-168-168-168 168c-10.286 10.286-24.571 16-38.857 16s-28.571-5.714-38.857-16l-77.714-77.714c-10.286-10.286-16-24.571-16-38.857s5.714-28.571 16-38.857l168-168-168-168c-10.286-10.286-16-24.571-16-38.857s5.714-28.571 16-38.857l77.714-77.714c10.286-10.286 24.571-16 38.857-16s28.571 5.714 38.857 16l168 168 168-168c10.286-10.286 24.571-16 38.857-16s28.571 5.714 38.857 16l77.714 77.714c10.286 10.286 16 24.571 16 38.857s-5.714 28.571-16 38.857l-168 168 168 168c10.286 10.286 16 24.571 16 38.857z"></path>
         </svg>
         <div className="details-container1">
@@ -32,7 +36,7 @@ const Details = (props) => {
               <span className="details-text01">{props.location}</span>
             </div>
             <div className="details-description">
-              <span className="details-text02">{props.description}</span>
+              <span className="details-text02">Description:</span>
               <span className="details-text03">{props.body}</span>
             </div>
           </div>
@@ -100,16 +104,16 @@ const Details = (props) => {
             </div>
             <div className="details-separator"></div>
             <div className="details-ownership">
-              <span className="details-text08">{props.owner}</span>
+              <span className="details-text08">Propriétaire</span>
               <span className="details-text09">{props.ownership}</span>
             </div>
             <div className="details-separator1"></div>
             <div className="details-price">
-              <span className="details-text10">{props.range}</span>
+              <span className="details-text10">Fourchette</span>
               <span className="details-text11">{props.price}</span>
             </div>
             <div className="details-separator2"></div>
-            <span className="details-text12">{props.quote}</span>
+            <span className="details-text12">Demandez un devis précis</span>
             <div className="details-container8">
               <input
                 type="text"
@@ -127,25 +131,26 @@ const Details = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+//TODO Implement missing data types
 
 Details.defaultProps = {
-  area: '1200',
-  baths: '3',
-  ownership: 'Privé',
-  title: 'Villa de luxe',
-  beds: '2',
-  cars: '2',
-  description: 'Description:',
-  quote: 'Demandez un devis précis',
-  location: 'Ville, Gouv',
-  price: '800,000 DT - 900,000 DT',
-  range: 'Fourchette',
-  body: 'Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  owner: 'Propriétaire:',
-  rootClassName: '',
-}
+  area: "DEFAULT",
+  baths: "DEFAULT",
+  ownership: "DEFAULT",
+  title: "DEFAULT",
+  beds: "DEFAULT",
+  cars: "DEFAULT",
+  description: "DEFAULT:",
+  quote: "DEFAULT",
+  location: "DEFAULT",
+  price: "DEFAULT",
+  range: "DEFAULT",
+  body: "DEFAULT",
+  closeDetails: "DEFAULT",
+};
 
 Details.propTypes = {
   area: PropTypes.string,
@@ -160,8 +165,7 @@ Details.propTypes = {
   price: PropTypes.string,
   range: PropTypes.string,
   body: PropTypes.string,
-  owner: PropTypes.string,
-  rootClassName: PropTypes.string,
-}
+  closeDetails: PropTypes.func,
+};
 
-export default Details
+export default Details;

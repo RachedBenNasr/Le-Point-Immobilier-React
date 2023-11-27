@@ -81,8 +81,9 @@
 }
 @media(max-width: 767px) {
   .footer-footer {
-    padding-left: var(--dl-space-space-twounits);
-    padding-right: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    flex-direction: column;
   }
   .footer-container {
     justify-content: center;
@@ -101,7 +102,7 @@
 @media(max-width: 479px) {
   .footer-footer {
     padding: var(--dl-space-space-unit);
-    flex-direction: column;
+    
   }
   .footer-text {
     margin-left: 0px;
