@@ -15,7 +15,6 @@ const ByuingListing = (props) => {
       try {
         const storage = getStorage();
         const listingRef = ref(storage, `sale/${props.id}`);
-
         // List all items in the folder
         const listingImages = await listAll(listingRef);
 

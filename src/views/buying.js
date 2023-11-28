@@ -170,6 +170,7 @@ const Buying = (props) => {
               ></div>
 
               <Details
+                id={selectedListing.id}
                 title={selectedListing.header}
                 photos={selectedListing.photos}
                 price={selectedListing.price}
@@ -179,7 +180,7 @@ const Buying = (props) => {
                 area={selectedListing.area}
                 body={selectedListing.body}
                 beds={selectedListing.beds}
-                cars={selectedListing.cars}
+                garage={selectedListing.garage}
                 pool={selectedListing.pool}
                 garden={selectedListing.garden}
                 closeDetails={handleCloseDetails}

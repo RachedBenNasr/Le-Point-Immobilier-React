@@ -5,16 +5,16 @@ import PropTypes from "prop-types";
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
 import ImageGallery from "react-image-gallery";
-
+import "react-image-gallery/styles/css/image-gallery.css";
 
 import "./details.css";
 
 const Details = (props) => {
-  const [thumbnailURL, setThumbnailURL] = useState("");
+  const [imageList, setImageList] = useState([]);
 
   useEffect(() => {
-    // Function to fetch the first image URL for a listing from Firebase Storage
-    const fetchThumbnail = async () => {
+    // Function to fetch the images for a listing from Firebase Storage
+    const fetchImages = async () => {
       try {
         const storage = getStorage();
         const listingRef = ref(storage, `sale/${props.id}`);
@@ -22,20 +22,28 @@ const Details = (props) => {
         // List all items in the folder
         const listingImages = await listAll(listingRef);
 
-        // Get the first image URL
-        if (listingImages.items.length > 0) {
-          const firstImageRef = listingImages.items[0];
-          const thumbnailURL = await getDownloadURL(firstImageRef);
-          setThumbnailURL(thumbnailURL);
-        }
+        // Create an array of objects with the required format
+        const imagesArray = await Promise.all(
+          listingImages.items.map(async (item) => ({
+            original: await getDownloadURL(item),
+          }))
+        );
+
+        // Set the state with the formatted images
+        setImageList(imagesArray);
       } catch (error) {
-        console.error("Error fetching thumbnail:", error);
+        console.error("Error fetching images:", error);
       }
     };
 
-    // Call the function to fetch the thumbnail URL
-    fetchThumbnail();
+    // Call the function to fetch the images
+    fetchImages();
   }, [props.id]);
+
+  // Use another useEffect to observe changes in imageList
+  useEffect(() => {
+    console.log(imageList);
+  }, [imageList]);
 
   return (
     <div className={`details-blog-post-card`}>
@@ -47,14 +55,9 @@ const Details = (props) => {
         >
           <path d="M741.714 755.429c0 14.286-5.714 28.571-16 38.857l-77.714 77.714c-10.286 10.286-24.571 16-38.857 16s-28.571-5.714-38.857-16l-168-168-168 168c-10.286 10.286-24.571 16-38.857 16s-28.571-5.714-38.857-16l-77.714-77.714c-10.286-10.286-16-24.571-16-38.857s5.714-28.571 16-38.857l168-168-168-168c-10.286-10.286-16-24.571-16-38.857s5.714-28.571 16-38.857l77.714-77.714c10.286-10.286 24.571-16 38.857-16s28.571 5.714 38.857 16l168 168 168-168c10.286-10.286 24.571-16 38.857-16s28.571 5.714 38.857 16l77.714 77.714c10.286 10.286 16 24.571 16 38.857s-5.714 28.571-16 38.857l-168 168 168 168c10.286 10.286 16 24.571 16 38.857z"></path>
         </svg>
-        <div className="details-container1">
-          <svg viewBox="0 0 768 1024" className="details-icon02 hover">
-            <path d="M669.143 172l-303.429 303.429 303.429 303.429c14.286 14.286 14.286 37.143 0 51.429l-94.857 94.857c-14.286 14.286-37.143 14.286-51.429 0l-424-424c-14.286-14.286-14.286-37.143 0-51.429l424-424c14.286-14.286 37.143-14.286 51.429 0l94.857 94.857c14.286 14.286 14.286 37.143 0 51.429z"></path>
-          </svg>
-          <svg viewBox="0 0 694.8571428571428 1024" className="details-icon04">
-            <path d="M632.571 501.143l-424 424c-14.286 14.286-37.143 14.286-51.429 0l-94.857-94.857c-14.286-14.286-14.286-37.143 0-51.429l303.429-303.429-303.429-303.429c-14.286-14.286-14.286-37.143 0-51.429l94.857-94.857c14.286-14.286 37.143-14.286 51.429 0l424 424c14.286 14.286 14.286 37.143 0 51.429z"></path>
-          </svg>
-        </div>
+
+        <ImageGallery items={imageList} showIndex={true} />
+
         <div className="details-content">
           <div className="details-left">
             <span className="details-text">{props.title}</span>
@@ -108,7 +111,21 @@ const Details = (props) => {
                   >
                     <path d="M274.286 621.714c0-50.286-41.143-91.429-91.429-91.429s-91.429 41.143-91.429 91.429 41.143 91.429 91.429 91.429 91.429-41.143 91.429-91.429zM294.857 438.857h580.571l-50.857-204c-1.714-6.286-13.143-15.429-20-15.429h-438.857c-6.857 0-18.286 9.143-20 15.429zM1078.857 621.714c0-50.286-41.143-91.429-91.429-91.429s-91.429 41.143-91.429 91.429 41.143 91.429 91.429 91.429 91.429-41.143 91.429-91.429zM1170.286 566.857v219.429c0 10.286-8 18.286-18.286 18.286h-54.857v73.143c0 60.571-49.143 109.714-109.714 109.714s-109.714-49.143-109.714-109.714v-73.143h-585.143v73.143c0 60.571-49.143 109.714-109.714 109.714s-109.714-49.143-109.714-109.714v-73.143h-54.857c-10.286 0-18.286-8-18.286-18.286v-219.429c0-70.857 57.143-128 128-128h16l60-239.429c17.714-72 87.429-126.286 161.714-126.286h438.857c74.286 0 144 54.286 161.714 126.286l60 239.429h16c70.857 0 128 57.143 128 128z"></path>
                   </svg>
-                  <span className="details-text07">{props.cars}</span>
+                  {/* garage verification */}
+                  <div>
+                    {props.garage ? (
+                      <svg viewBox="0 0 1024 1024" className="details-icon22">
+                        <path d="M954.857 323.429c0 14.286-5.714 28.571-16 38.857l-491.429 491.429c-10.286 10.286-24.571 16-38.857 16s-28.571-5.714-38.857-16l-284.571-284.571c-10.286-10.286-16-24.571-16-38.857s5.714-28.571 16-38.857l77.714-77.714c10.286-10.286 24.571-16 38.857-16s28.571 5.714 38.857 16l168 168.571 374.857-375.429c10.286-10.286 24.571-16 38.857-16s28.571 5.714 38.857 16l77.714 77.714c10.286 10.286 16 24.571 16 38.857z"></path>
+                      </svg>
+                    ) : (
+                      <svg
+                        viewBox="0 0 804.5714285714286 1024"
+                        className="details-icon18"
+                      >
+                        <path d="M741.714 755.429c0 14.286-5.714 28.571-16 38.857l-77.714 77.714c-10.286 10.286-24.571 16-38.857 16s-28.571-5.714-38.857-16l-168-168-168 168c-10.286 10.286-24.571 16-38.857 16s-28.571-5.714-38.857-16l-77.714-77.714c-10.286-10.286-16-24.571-16-38.857s5.714-28.571 16-38.857l168-168-168-168c-10.286-10.286-16-24.571-16-38.857s5.714-28.571 16-38.857l77.714-77.714c10.286-10.286 24.571-16 38.857-16s28.571 5.714 38.857 16l168 168 168-168c10.286-10.286 24.571-16 38.857-16s28.571 5.714 38.857 16l77.714 77.714c10.286 10.286 16 24.571 16 38.857s-5.714 28.571-16 38.857l-168 168 168 168c10.286 10.286 16 24.571 16 38.857z"></path>
+                      </svg>
+                    )}
+                  </div>
                 </div>
                 <div className="details-container6">
                   <svg viewBox="0 0 1024 1024" className="details-icon16">
@@ -190,12 +207,14 @@ const Details = (props) => {
 //TODO Implement missing data types
 
 Details.defaultProps = {
+  id: "0",
+
   area: "DEFAULT",
   baths: "DEFAULT",
   ownership: "DEFAULT",
   title: "DEFAULT",
   beds: "DEFAULT",
-  cars: "DEFAULT",
+  garage: "",
   description: "DEFAULT:",
   quote: "DEFAULT",
   location: "DEFAULT",
@@ -210,12 +229,14 @@ Details.defaultProps = {
 };
 
 Details.propTypes = {
+  id: PropTypes.string,
+
   area: PropTypes.string,
   baths: PropTypes.string,
   ownership: PropTypes.string,
   title: PropTypes.string,
   beds: PropTypes.string,
-  cars: PropTypes.string,
+  garage: PropTypes.bool,
   description: PropTypes.string,
   quote: PropTypes.string,
   location: PropTypes.string,
