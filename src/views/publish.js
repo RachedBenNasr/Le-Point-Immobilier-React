@@ -167,27 +167,7 @@ const Publish = (props) => {
                       <span>Non</span>
                     </div>
                   </div>
-                  <div className="publish-container12">
-                    <span>Contient-il une cave</span>
-                    <div className="publish-container13">
-                      <input
-                        type="radio"
-                        name="cellar"
-                        required="true"
-                        className="publish-radiobutton06"
-                      />
-                      <span>Oui</span>
-                    </div>
-                    <div className="publish-container14">
-                      <input
-                        type="radio"
-                        name="cellar"
-                        required="true"
-                        className="publish-radiobutton07"
-                      />
-                      <span>Non</span>
-                    </div>
-                  </div>
+
                   <div className="publish-container15">
                     <span>Contient-il un garage</span>
                     <div className="publish-container16">
@@ -290,7 +270,7 @@ const Publish = (props) => {
               </div>
               <div className="publish-legal">
                 <span className="publish-text42">
-                  Quel type de titre de propriété détient votre propriété
+                  Quel type de titre détient votre propriété
                 </span>
                 <div className="publish-container20">
                   <input
