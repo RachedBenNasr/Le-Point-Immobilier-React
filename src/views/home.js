@@ -128,7 +128,6 @@ const Home = (props) => {
               <h1 className="home-text24">1000+</h1>
               <span className="home-text25"> Projets accomplis</span>
               <span className="home-text26">
-                {" "}
                 Adoptez des investissements exceptionnels
               </span>
             </div>

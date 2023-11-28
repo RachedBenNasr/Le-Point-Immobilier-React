@@ -158,6 +158,9 @@ const Buying = (props) => {
                   area={listing.area}
                   body={listing.body}
                   beds={listing.beds}
+                  cars={listing.cars}
+                  pool={listing.pool}
+                  garden={listing.garden}
                 />
               </div>
             ))}
@@ -179,6 +182,9 @@ const Buying = (props) => {
                 area={selectedListing.area}
                 body={selectedListing.body}
                 beds={selectedListing.beds}
+                cars={selectedListing.cars}
+                pool={selectedListing.pool}
+                garden={selectedListing.garden}
                 closeDetails={handleCloseDetails}
               />
             </>

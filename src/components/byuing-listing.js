@@ -87,6 +87,9 @@ ByuingListing.defaultProps = {
   body: "Découvrez une vie de luxe dans cette villa exquise avec piscine. Nichée au cœur d'un cadre paisible, cette retraite spacieuse offre le mélange parfait de confort et d'élégance. Plongez dans les eaux rafraîchissantes de votre piscine privée ou détendez-vous dans l'oasis du jardin luxuriant.\"",
   rootClassName: "",
   beds: "3",
+  cars: "2",
+  pool: "",
+  garden: "",
 };
 
 ByuingListing.propTypes = {
@@ -100,6 +103,9 @@ ByuingListing.propTypes = {
   body: PropTypes.string,
   rootClassName: PropTypes.string,
   beds: PropTypes.string,
+  cars: PropTypes.string,
+  pool: PropTypes.bool,
+  garden: PropTypes.bool,
 };
 
 export default ByuingListing;

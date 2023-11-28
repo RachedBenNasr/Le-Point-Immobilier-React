@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
-import { Helmet } from 'react-helmet'
+import { Helmet } from "react-helmet";
 
-import Header from '../components/header'
-import Footer from '../components/footer'
-import './contact.css'
+import Header from "../components/header";
+import Footer from "../components/footer";
+import "./contact.css";
 
 const Contact = (props) => {
   return (
@@ -30,43 +30,7 @@ const Contact = (props) => {
         <div className="contact-banner">
           <span className="contact-text">Contactez-nous.</span>
           <h1 className="contact-text01">Commençons une conversation !</h1>
-          <span className="contact-text02">
-            <span>
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-                volutpat turpis.
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-            </span>
-            <span>
-              <span>
-                Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor.
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-            </span>
-          </span>
+
           <div className="contact-cards">
             <div className="contact-left">
               <div className="contact-feature-card">
@@ -157,7 +121,7 @@ const Contact = (props) => {
         <Footer rootClassName="footer-root-class-name1"></Footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
