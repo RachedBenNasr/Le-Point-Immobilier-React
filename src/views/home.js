@@ -121,8 +121,7 @@ const Home = (props) => {
               <h1 className="home-text21">3000+</h1>
               <span className="home-text22">clients satisfaits</span>
               <span className="home-text23">
-                {" "}
-                Waiting for your to be among them
+                Votre satisfaction, notre attente
               </span>
             </div>
             <div className="home-stat1">
