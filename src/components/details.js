@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
+
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+
+import ImageGallery from "react-image-gallery";
+
 
 import "./details.css";
 
 const Details = (props) => {
+  const [thumbnailURL, setThumbnailURL] = useState("");
+
+  useEffect(() => {
+    // Function to fetch the first image URL for a listing from Firebase Storage
+    const fetchThumbnail = async () => {
+      try {
+        const storage = getStorage();
+        const listingRef = ref(storage, `sale/${props.id}`);
+
+        // List all items in the folder
+        const listingImages = await listAll(listingRef);
+
+        // Get the first image URL
+        if (listingImages.items.length > 0) {
+          const firstImageRef = listingImages.items[0];
+          const thumbnailURL = await getDownloadURL(firstImageRef);
+          setThumbnailURL(thumbnailURL);
+        }
+      } catch (error) {
+        console.error("Error fetching thumbnail:", error);
+      }
+    };
+
+    // Call the function to fetch the thumbnail URL
+    fetchThumbnail();
+  }, [props.id]);
+
   return (
     <div className={`details-blog-post-card`}>
       <div className="details-container">

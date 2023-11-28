@@ -1,13 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
+
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
 import "./byuing-listing.css";
 
 const ByuingListing = (props) => {
+  const [thumbnailURL, setThumbnailURL] = useState("");
+
+  useEffect(() => {
+    // Function to fetch the first image URL for a listing from Firebase Storage
+    const fetchThumbnail = async () => {
+      try {
+        const storage = getStorage();
+        const listingRef = ref(storage, `sale/${props.id}`);
+
+        // List all items in the folder
+        const listingImages = await listAll(listingRef);
+
+        // Get the first image URL
+        if (listingImages.items.length > 0) {
+          const firstImageRef = listingImages.items[0];
+          const thumbnailURL = await getDownloadURL(firstImageRef);
+          setThumbnailURL(thumbnailURL);
+        }
+      } catch (error) {
+        console.error("Error fetching thumbnail:", error);
+      }
+    };
+
+    // Call the function to fetch the thumbnail URL
+    fetchThumbnail();
+  }, [props.id]);
+
   return (
     <div className={`byuing-listing-blog-post-card ${props.rootClassName} `}>
-      <div className="byuing-listing-hero">
+      <div
+        className="byuing-listing-hero"
+        style={{
+          backgroundImage: `url(${thumbnailURL})`,
+        }}
+      >
         <div className="byuing-listing-top">
           <div className="byuing-listing-images">
             <svg

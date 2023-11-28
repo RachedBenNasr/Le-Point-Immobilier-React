@@ -144,12 +144,9 @@ const Buying = (props) => {
           </div>
           <div className="buying-container7">
             {saleListings.map((listing) => (
-              <div
-                key={listing.listingId}
-                onClick={() => handleListingClick(listing)}
-              >
+              <div key={listing.id} onClick={() => handleListingClick(listing)}>
                 <ByuingListing
-                  id={listing.listingId}
+                  id={listing.id}
                   photos={listing.photos}
                   price={listing.price}
                   baths={listing.baths}
