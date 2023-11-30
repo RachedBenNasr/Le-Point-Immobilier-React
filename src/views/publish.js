@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Script from "dangerous-html/react";
 import { Helmet } from "react-helmet";
@@ -8,6 +8,31 @@ import Footer from "../components/footer";
 import "./publish.css";
 
 const Publish = (props) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phoneNumber: "",
+    email: "",
+    Nature: "",
+    beds: "",
+    baths: "",
+    garden: false,
+    commercialType: "",
+    city: "",
+    location: "",
+    area: "",
+    viabilise: "",
+    propertyTitle: "",
+    price: "",
+    body: "",
+  });
+
+  const [propertyType, setPropertyType] = useState("0");
+
+  const handlePropertyTypeChange = (e) => {
+    setPropertyType(e.target.value);
+    console.log(propertyType);
+  };
+
   return (
     <div className="publish-container">
       <Helmet>
@@ -88,9 +113,14 @@ const Publish = (props) => {
                   <span>A vendre</span>
                 </div>
               </div>
+              {/* CONDITIONAL RENDERING  */}
               <div className="publish-nature">
                 <span className="publish-text15">Nature</span>
-                <select required="true" className="publish-select">
+                <select
+                  required="true"
+                  className="publish-select"
+                  onChange={handlePropertyTypeChange}
+                >
                   <option value="0">
                     Veuillez sélectionner la nature de votre annonce
                   </option>
@@ -101,107 +131,112 @@ const Publish = (props) => {
                   <option value="Terrain">Terrain</option>
                 </select>
               </div>
-              <div className="publish-residential">
-                <span className="publish-text16">
-                  <span>Details</span>
-                  <br></br>
-                </span>
-                <div className="publish-boxes">
-                  <div className="publish-container04">
-                    <span>Chambres</span>
-                    <input
-                      type="text"
-                      placeholder="(1, 2 3,...)"
-                      className="publish-textinput input"
-                    />
-                  </div>
-                  <div className="publish-container05">
-                    <span className="publish-text20">Salles de bain</span>
-                    <input
-                      type="text"
-                      placeholder="(1, 2 3,...)"
-                      className="publish-textinput1 input"
-                    />
-                  </div>
-                  <div className="publish-container06">
-                    <span>Contient-il un jardin</span>
-                    <div className="publish-container07">
+              {propertyType != "0" && propertyType != "commercial" && (
+                <div className="publish-residential">
+                  <span className="publish-text16">
+                    <span>Details</span>
+                    <br />
+                  </span>
+                  <div className="publish-boxes">
+                    <div className="publish-container04">
+                      <span>Chambres</span>
                       <input
-                        type="radio"
-                        name="garden"
-                        required="true"
-                        className="publish-radiobutton02"
+                        type="text"
+                        placeholder="(1, 2 3,...)"
+                        className="publish-textinput input"
                       />
-                      <span>Oui</span>
                     </div>
-                    <div className="publish-container08">
+                    <div className="publish-container05">
+                      <span className="publish-text20">Salles de bain</span>
                       <input
-                        type="radio"
-                        name="garden"
-                        required="true"
-                        className="publish-radiobutton03"
+                        type="text"
+                        placeholder="(1, 2 3,...)"
+                        className="publish-textinput1 input"
                       />
-                      <span>Non</span>
                     </div>
-                  </div>
-                </div>
-                <div className="publish-boxes1">
-                  <div className="publish-container09">
-                    <span>Dispose-t-il d&apos;une piscine</span>
-                    <div className="publish-container10">
-                      <input
-                        type="radio"
-                        name="pool"
-                        required="true"
-                        className="publish-radiobutton04"
-                      />
-                      <span>Oui</span>
-                    </div>
-                    <div className="publish-container11">
-                      <input
-                        type="radio"
-                        name="pool"
-                        required="true"
-                        className="publish-radiobutton05"
-                      />
-                      <span>Non</span>
+                    <div className="publish-container06">
+                      <span>Contient-il un jardin</span>
+                      <div className="publish-container07">
+                        <input
+                          type="radio"
+                          name="garden"
+                          required="true"
+                          className="publish-radiobutton02"
+                        />
+                        <span>Oui</span>
+                      </div>
+                      <div className="publish-container08">
+                        <input
+                          type="radio"
+                          name="garden"
+                          required="true"
+                          className="publish-radiobutton03"
+                        />
+                        <span>Non</span>
+                      </div>
                     </div>
                   </div>
+                  <div className="publish-boxes1">
+                    <div className="publish-container09">
+                      <span>Dispose-t-il d&apos;une piscine</span>
+                      <div className="publish-container10">
+                        <input
+                          type="radio"
+                          name="pool"
+                          required="true"
+                          className="publish-radiobutton04"
+                        />
+                        <span>Oui</span>
+                      </div>
+                      <div className="publish-container11">
+                        <input
+                          type="radio"
+                          name="pool"
+                          required="true"
+                          className="publish-radiobutton05"
+                        />
+                        <span>Non</span>
+                      </div>
+                    </div>
 
-                  <div className="publish-container15">
-                    <span>Contient-il un garage</span>
-                    <div className="publish-container16">
-                      <input
-                        type="radio"
-                        name="garage"
-                        required="true"
-                        className="publish-radiobutton08"
-                      />
-                      <span>Oui</span>
-                    </div>
-                    <div className="publish-container17">
-                      <input
-                        type="radio"
-                        name="garage"
-                        required="true"
-                        className="publish-radiobutton09"
-                      />
-                      <span>Non</span>
+                    <div className="publish-container15">
+                      <span>Contient-il un garage</span>
+                      <div className="publish-container16">
+                        <input
+                          type="radio"
+                          name="garage"
+                          required="true"
+                          className="publish-radiobutton08"
+                        />
+                        <span>Oui</span>
+                      </div>
+                      <div className="publish-container17">
+                        <input
+                          type="radio"
+                          name="garage"
+                          required="true"
+                          className="publish-radiobutton09"
+                        />
+                        <span>Non</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="publish-commercial">
-                <span className="publish-text33">
-                  Quel type de propriété commerciale ?
-                </span>
-                <input
-                  type="text"
-                  id="Type"
-                  placeholder="Veuillez indiquer le type"
-                  className="publish-type input"
-                />
-              </div>
+              )}
+
+              {propertyType === "Commercial" && (
+                <div className="publish-commercial">
+                  <span className="publish-text33">
+                    Quel type de propriété commerciale ?
+                  </span>
+                  <input
+                    type="text"
+                    id="Type"
+                    placeholder="Veuillez indiquer le type"
+                    className="publish-type input"
+                  />
+                </div>
+              )}
               <div className="publish-location">
                 <span className="publish-text34">
                   <span>Où se situe votre propriété</span>
@@ -217,7 +252,7 @@ const Publish = (props) => {
                   <option value="Ben Arous">Ben Arous</option>
                   <option value="Monastir">Monastir</option>
                   <option value="Sousse">Sousse</option>
-                  <option value="Other">Other</option>
+                  <option value="Autre">Autre...</option>
                 </select>
               </div>
               <div className="publish-area">
@@ -333,9 +368,7 @@ const Publish = (props) => {
                 />
               </div>
               <div className="publish-additional">
-                <span className="publish-text47">
-                  Informations supplémentaires
-                </span>
+                <span className="publish-text47">Description</span>
                 <textarea
                   placeholder="Details"
                   className="publish-textarea textarea"
