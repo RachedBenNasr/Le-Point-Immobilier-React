@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import Script from "dangerous-html/react";
 import { Helmet } from "react-helmet";
 
 import Header from "../components/header";
@@ -27,6 +26,7 @@ const Publish = (props) => {
     price: "",
     header: "",
     body: "",
+    id: "",
   });
 
   const saveData = (e) => {
@@ -65,15 +65,68 @@ const Publish = (props) => {
     setSelectedFiles(newFiles);
   };
 
-  const finalSend = (e) => {
+  // Function to resize and compress an image
+  const resizeAndCompressImage = async (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const img = new Image();
+        img.src = event.target.result;
+
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+
+          // Resize the image to a maximum width and height
+          const maxWidth = 800;
+          const maxHeight = 800;
+          let newWidth = img.width;
+          let newHeight = img.height;
+
+          if (img.width > maxWidth) {
+            newWidth = maxWidth;
+            newHeight = (img.height * maxWidth) / img.width;
+          }
+
+          if (img.height > maxHeight) {
+            newHeight = maxHeight;
+            newWidth = (img.width * maxHeight) / img.height;
+          }
+
+          canvas.width = newWidth;
+          canvas.height = newHeight;
+
+          // Draw the image on the canvas
+          ctx.drawImage(img, 0, 0, newWidth, newHeight);
+
+          // Convert the canvas content to a Blob (compressed image)
+          canvas.toBlob(
+            (blob) => {
+              resolve(new File([blob], file.name, { type: file.type }));
+            },
+            file.type,
+            0.75
+          ); // Adjust the compression quality (0.75 means 75% quality)
+        };
+      };
+
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const finalSend = async (e) => {
     e.preventDefault();
 
     if (selectedFiles.length < 3) {
-      alert("Veuillez selectionner au moins 3 photos.");
+      alert("Veuillez sélectionner au moins 3 photos.");
       return;
     }
 
-    console.log(formData);
+    // Compress and resize each selected file
+    const compressedFiles = await Promise.all(
+      selectedFiles.map(resizeAndCompressImage)
+    );
+    setSelectedFiles(compressedFiles);
   };
 
   return (
@@ -146,6 +199,8 @@ const Publish = (props) => {
                     name="purpose"
                     required
                     className="publish-radiobutton"
+                    value="rent"
+                    id="type"
                   />
                   <span>A Louer</span>
                 </div>
@@ -155,6 +210,8 @@ const Publish = (props) => {
                     name="purpose"
                     required
                     className="publish-radiobutton01"
+                    value="sale"
+                    id="type"
                   />
                   <span>A vendre</span>
                 </div>
