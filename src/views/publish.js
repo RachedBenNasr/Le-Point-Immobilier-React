@@ -12,10 +12,12 @@ const Publish = (props) => {
     name: "",
     phoneNumber: "",
     email: "",
-    Nature: "",
+    nature: "",
     beds: "",
     baths: "",
-    garden: false,
+    garden: "",
+    pool: "",
+    garage: "",
     commercialType: "",
     city: "",
     location: "",
@@ -23,14 +25,55 @@ const Publish = (props) => {
     viabilise: "",
     propertyTitle: "",
     price: "",
+    header: "",
     body: "",
   });
+
+  const saveData = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+    console.log("for " + id + " the value is now " + value);
+  };
 
   const [propertyType, setPropertyType] = useState("0");
 
   const handlePropertyTypeChange = (e) => {
+    console.log(e.target.value);
     setPropertyType(e.target.value);
-    console.log(propertyType);
+  };
+
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+
+    // Check if the number of selected files plus the previously selected files exceeds the limit of 20
+    if (files.length + selectedFiles.length > 20) {
+      alert("Vous ne pouvez télécharger que 20 photos maximum.");
+      return;
+    }
+
+    setSelectedFiles([...selectedFiles, ...files]);
+  };
+
+  const handleRemoveFile = (index) => {
+    const newFiles = [...selectedFiles];
+    newFiles.splice(index, 1);
+    setSelectedFiles(newFiles);
+  };
+
+  const finalSend = (e) => {
+    e.preventDefault();
+
+    if (selectedFiles.length < 3) {
+      alert("Veuillez selectionner au moins 3 photos.");
+      return;
+    }
+
+    console.log(formData);
   };
 
   return (
@@ -61,7 +104,7 @@ const Publish = (props) => {
               src="https://images.unsplash.com/photo-1564846824194-346b7871b855?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fHNpZ25pbmd8ZW58MHx8fHwxNjkyNTY0NTMzfDA&amp;ixlib=rb-4.0.3&amp;w=1400"
               className="publish-image"
             />
-            <form className="publish-form">
+            <form className="publish-form" onSubmit={finalSend}>
               <h1 className="publish-title">
                 Remplissez soigneusement le formulaire ci-dessous
               </h1>
@@ -73,23 +116,26 @@ const Publish = (props) => {
                 <input
                   type="text"
                   id="name"
-                  required="true"
+                  required
                   placeholder="Nom et Prenom"
                   className="publish-name input"
+                  onBlur={saveData}
                 />
                 <input
                   type="text"
-                  id="Phone Number"
-                  required="true"
+                  id="phoneNumber"
+                  required
                   placeholder="Numéro"
                   className="publish-number input"
+                  onBlur={saveData}
                 />
                 <input
                   type="text"
-                  id="mail"
-                  required="true"
+                  id="email"
+                  required
                   placeholder="Email"
                   className="publish-email input"
+                  onBlur={saveData}
                 />
               </div>
               <div className="publish-purpose">
@@ -98,7 +144,7 @@ const Publish = (props) => {
                   <input
                     type="radio"
                     name="purpose"
-                    required="true"
+                    required
                     className="publish-radiobutton"
                   />
                   <span>A Louer</span>
@@ -107,7 +153,7 @@ const Publish = (props) => {
                   <input
                     type="radio"
                     name="purpose"
-                    required="true"
+                    required
                     className="publish-radiobutton01"
                   />
                   <span>A vendre</span>
@@ -117,123 +163,153 @@ const Publish = (props) => {
               <div className="publish-nature">
                 <span className="publish-text15">Nature</span>
                 <select
-                  required="true"
+                  required
                   className="publish-select"
-                  onChange={handlePropertyTypeChange}
+                  onChange={(e) => {
+                    handlePropertyTypeChange(e);
+                    saveData(e);
+                  }}
+                  id="nature"
+                  defaultValue="0"
                 >
                   <option value="0">
                     Veuillez sélectionner la nature de votre annonce
                   </option>
-                  <option value="Appartement">Appartement</option>
-                  <option value="Penthouse">Penthouse</option>
-                  <option value="Villa">Villa</option>
-                  <option value="Commercial">Commercial</option>
-                  <option value="Terrain">Terrain</option>
+                  <option value="appartement">Appartement</option>
+                  <option value="penthouse">Penthouse</option>
+                  <option value="villa">Villa</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="terrain">Terrain</option>
                 </select>
               </div>
-              {propertyType != "0" && propertyType != "commercial" && (
-                <div className="publish-residential">
-                  <span className="publish-text16">
-                    <span>Details</span>
-                    <br />
-                  </span>
-                  <div className="publish-boxes">
-                    <div className="publish-container04">
-                      <span>Chambres</span>
-                      <input
-                        type="text"
-                        placeholder="(1, 2 3,...)"
-                        className="publish-textinput input"
-                      />
-                    </div>
-                    <div className="publish-container05">
-                      <span className="publish-text20">Salles de bain</span>
-                      <input
-                        type="text"
-                        placeholder="(1, 2 3,...)"
-                        className="publish-textinput1 input"
-                      />
-                    </div>
-                    <div className="publish-container06">
-                      <span>Contient-il un jardin</span>
-                      <div className="publish-container07">
+              {propertyType != "0" &&
+                propertyType != "commercial" &&
+                propertyType != "terrain" && (
+                  <div className="publish-residential">
+                    <span className="publish-text16">
+                      <span>Details</span>
+                      <br />
+                    </span>
+                    <div className="publish-boxes">
+                      <div className="publish-container04">
+                        <span>Chambres</span>
                         <input
-                          type="radio"
-                          name="garden"
-                          required="true"
-                          className="publish-radiobutton02"
+                          type="text"
+                          placeholder="(1, 2 3,...)"
+                          className="publish-textinput input"
+                          id="beds"
+                          onBlur={saveData}
                         />
-                        <span>Oui</span>
                       </div>
-                      <div className="publish-container08">
+                      <div className="publish-container05">
+                        <span className="publish-text20">Salles de bain</span>
                         <input
-                          type="radio"
-                          name="garden"
-                          required="true"
-                          className="publish-radiobutton03"
+                          type="text"
+                          placeholder="(1, 2 3,...)"
+                          className="publish-textinput1 input"
+                          id="baths"
+                          onBlur={saveData}
                         />
-                        <span>Non</span>
+                      </div>
+                      <div className="publish-container06">
+                        <span>Contient-il un jardin</span>
+                        <div className="publish-container07">
+                          <input
+                            type="radio"
+                            name="garden"
+                            required
+                            className="publish-radiobutton02"
+                            id="garden"
+                            value={true}
+                            onBlur={saveData}
+                          />
+                          <span>Oui</span>
+                        </div>
+                        <div className="publish-container08">
+                          <input
+                            type="radio"
+                            name="garden"
+                            required
+                            className="publish-radiobutton03"
+                            id="garden"
+                            value={false}
+                            onBlur={saveData}
+                          />
+                          <span>Non</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="publish-boxes1">
+                      <div className="publish-container09">
+                        <span>Dispose-t-il d&apos;une piscine</span>
+                        <div className="publish-container10">
+                          <input
+                            type="radio"
+                            name="pool"
+                            required
+                            className="publish-radiobutton04"
+                            id="pool"
+                            value={true}
+                            onBlur={saveData}
+                          />
+                          <span>Oui</span>
+                        </div>
+                        <div className="publish-container11">
+                          <input
+                            type="radio"
+                            name="pool"
+                            required
+                            className="publish-radiobutton05"
+                            id="pool"
+                            value={false}
+                            onBlur={saveData}
+                          />
+                          <span>Non</span>
+                        </div>
+                      </div>
+
+                      <div className="publish-container15">
+                        <span>Contient-il un garage</span>
+                        <div className="publish-container16">
+                          <input
+                            type="radio"
+                            name="garage"
+                            required
+                            className="publish-radiobutton08"
+                            id="garage"
+                            value={true}
+                            onBlur={saveData}
+                          />
+                          <span>Oui</span>
+                        </div>
+                        <div className="publish-container17">
+                          <input
+                            type="radio"
+                            name="garage"
+                            required
+                            className="publish-radiobutton09"
+                            id="garage"
+                            value={false}
+                            onBlur={saveData}
+                          />
+                          <span>Non</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="publish-boxes1">
-                    <div className="publish-container09">
-                      <span>Dispose-t-il d&apos;une piscine</span>
-                      <div className="publish-container10">
-                        <input
-                          type="radio"
-                          name="pool"
-                          required="true"
-                          className="publish-radiobutton04"
-                        />
-                        <span>Oui</span>
-                      </div>
-                      <div className="publish-container11">
-                        <input
-                          type="radio"
-                          name="pool"
-                          required="true"
-                          className="publish-radiobutton05"
-                        />
-                        <span>Non</span>
-                      </div>
-                    </div>
+                )}
 
-                    <div className="publish-container15">
-                      <span>Contient-il un garage</span>
-                      <div className="publish-container16">
-                        <input
-                          type="radio"
-                          name="garage"
-                          required="true"
-                          className="publish-radiobutton08"
-                        />
-                        <span>Oui</span>
-                      </div>
-                      <div className="publish-container17">
-                        <input
-                          type="radio"
-                          name="garage"
-                          required="true"
-                          className="publish-radiobutton09"
-                        />
-                        <span>Non</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {propertyType === "Commercial" && (
+              {propertyType === "commercial" && (
                 <div className="publish-commercial">
                   <span className="publish-text33">
                     Quel type de propriété commerciale ?
                   </span>
                   <input
                     type="text"
-                    id="Type"
+                    id="commercialType"
                     placeholder="Veuillez indiquer le type"
                     className="publish-type input"
+                    onBlur={saveData}
                   />
                 </div>
               )}
@@ -242,8 +318,13 @@ const Publish = (props) => {
                   <span>Où se situe votre propriété</span>
                   <br></br>
                 </span>
-                <select required="true" className="publish-select1">
-                  <option value="0" selected>
+                <select
+                  required
+                  className="publish-select1"
+                  id="city"
+                  onBlur={saveData}
+                >
+                  <option defaultValue={0}>
                     Veuillez sélectionner une ville
                   </option>
                   <option value="Tunis">Tunis</option>
@@ -261,10 +342,11 @@ const Publish = (props) => {
                 </span>
                 <input
                   type="text"
-                  id="address"
-                  required="true"
+                  id="location"
+                  required
                   placeholder="Adresse "
                   className="publish-type1 input"
+                  onBlur={saveData}
                 />
               </div>
               <div className="publish-area1">
@@ -274,10 +356,11 @@ const Publish = (props) => {
                 </span>
                 <input
                   type="text"
-                  id="Area"
-                  required="true"
+                  id="area"
+                  required
                   placeholder="Superficie"
                   className="publish-type2 input"
+                  onBlur={saveData}
                 />
               </div>
               <div className="publish-services">
@@ -288,8 +371,11 @@ const Publish = (props) => {
                   <input
                     type="radio"
                     name="service"
-                    required="true"
+                    required
                     className="publish-radiobutton10"
+                    id="viabilise"
+                    value={true}
+                    onBlur={saveData}
                   />
                   <span>Oui</span>
                 </div>
@@ -297,8 +383,11 @@ const Publish = (props) => {
                   <input
                     type="radio"
                     name="service"
-                    required="true"
+                    required
                     className="publish-radiobutton11"
+                    id="viabilise"
+                    value={false}
+                    onBlur={saveData}
                   />
                   <span>Non</span>
                 </div>
@@ -311,8 +400,11 @@ const Publish = (props) => {
                   <input
                     type="radio"
                     name="title"
-                    required="true"
+                    required
                     className="publish-radiobutton12"
+                    id="propertyTitle"
+                    value="bleu"
+                    onBlur={saveData}
                   />
                   <span>Titre Bleu / Titre Individuel</span>
                 </div>
@@ -320,8 +412,11 @@ const Publish = (props) => {
                   <input
                     type="radio"
                     name="title"
-                    required="true"
+                    required
                     className="publish-radiobutton13"
+                    id="propertyTitle"
+                    value="jumelé"
+                    onBlur={saveData}
                   />
                   <span>Titre Jumelé</span>
                 </div>
@@ -332,39 +427,60 @@ const Publish = (props) => {
                 </span>
                 <div className="publish-container22">
                   <div className="publish-container23">
-                    <React.Fragment>
-                      <React.Fragment>
-                        <style
-                          dangerouslySetInnerHTML={{
-                            __html:
-                              '\n    input[type="file"] {\n        display: none;\n    }\n\n    .custom-upload {\n        display: inline-block;\n        padding: 8px 12px;\n        background-color: #a0221a;\n        color: white;\n        border: none;\n        border-radius: 4px;\n        cursor: pointer;\n        transition: background-color 0.3s;\n    }\n\n    .custom-upload:hover {\n        background-color: #a0221a;\n    }\n',
-                          }}
-                        />
-
-                        <label htmlFor="file-upload" className="custom-upload">
-                          Choisir des Photos
-                        </label>
-                        <input
-                          type="file"
-                          id="file-upload"
-                          name="photos[]"
-                          accept="image/*"
-                          multiple={true}
-                        />
-                      </React.Fragment>
-                    </React.Fragment>
+                    <label htmlFor="file-upload" className="custom-upload">
+                      Choisir des Photos
+                    </label>
+                    <input
+                      type="file"
+                      id="file-upload"
+                      name="photos[]"
+                      accept="image/*"
+                      multiple
+                      style={{ display: "none" }}
+                      onChange={handleFileChange}
+                    />
                   </div>
                 </div>
+              </div>
+              <div id="preview" className="image-preview">
+                {selectedFiles.map((file, index) => (
+                  <div key={index} className="preview-item">
+                    <img
+                      src={URL.createObjectURL(file)}
+                      alt={`Preview ${index + 1}`}
+                      className="preview-image"
+                    />
+                    <span
+                      className="remove-icon"
+                      onClick={() => handleRemoveFile(index)}
+                    >
+                      X
+                    </span>
+                  </div>
+                ))}
               </div>
               <div className="publish-price">
                 <span className="publish-text46">Prix demandé (TND)</span>
                 <input
                   type="text"
-                  id="Price"
+                  id="price"
                   rows="Prix"
-                  required="true"
+                  required
                   placeholder="Price"
                   className="publish-type3 input"
+                  onBlur={saveData}
+                />
+              </div>
+              <div className="publish-price">
+                <span className="publish-text46">Titre de l'annonce </span>
+                <input
+                  type="text"
+                  id="header"
+                  rows="Prix"
+                  required
+                  placeholder="Titre"
+                  className="publish-type3 input"
+                  onBlur={saveData}
                 />
               </div>
               <div className="publish-additional">
@@ -372,6 +488,8 @@ const Publish = (props) => {
                 <textarea
                   placeholder="Details"
                   className="publish-textarea textarea"
+                  id="body"
+                  onBlur={saveData}
                 ></textarea>
               </div>
               <button type="submit" className="publish-button button">

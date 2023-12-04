@@ -511,15 +511,72 @@
   font-style: normal;
   font-weight: 700;
 }
+/* Add this CSS to your appropriate CSS file */
+
 .publish-container22 {
-  width: auto;
-  border-color: var(--dl-color-gray-black);
-  border-style: dotted;
-  border-width: 1px;
+  margin-top: 20px;
 }
+
 .publish-container23 {
-  display: contents;
+  display: flex;
+  flex-direction: column;
 }
+
+.custom-upload {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #a0221a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-upload:hover {
+  background-color: #56130e;
+}
+
+
+.image-preview {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.preview-item {
+  position: relative;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.preview-image {
+  width: 100px;
+  /* Adjust the width of the preview image */
+  height: 100px;
+  /* Adjust the height of the preview image */
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.remove-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+  font-size: 14px;
+  color: #fff;
+  background-color: #a0221a;
+  border-radius: 50%;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+.preview-item:hover .remove-icon {
+  display: block;
+}
+
 .publish-price {
   width: 100%;
   margin: 15px;
