@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Helmet } from "react-helmet";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
 import "./publish.css";
+
+import { getDatabase, ref, set, push, update } from "firebase/database";
+import { getStorage, ref as sref, uploadBytes } from "firebase/storage";
 
 const Publish = (props) => {
   const [formData, setFormData] = useState({
@@ -14,9 +17,9 @@ const Publish = (props) => {
     nature: "",
     beds: "",
     baths: "",
-    garden: "",
-    pool: "",
-    garage: "",
+    garden: false,
+    pool: false,
+    garage: false,
     commercialType: "",
     city: "",
     location: "",
@@ -27,7 +30,9 @@ const Publish = (props) => {
     header: "",
     body: "",
     id: "",
+    nbrimg: "",
   });
+  //TODO fix data types (bools and strings)
 
   const saveData = (e) => {
     const { id, value } = e.target;
@@ -63,6 +68,13 @@ const Publish = (props) => {
     const newFiles = [...selectedFiles];
     newFiles.splice(index, 1);
     setSelectedFiles(newFiles);
+  };
+
+  const [category, setCategory] = useState("");
+
+  const handleCategrotyChange = (e) => {
+    console.log("this property is for " + e.target.value);
+    setCategory(e.target.value);
   };
 
   // Function to resize and compress an image
@@ -127,6 +139,45 @@ const Publish = (props) => {
       selectedFiles.map(resizeAndCompressImage)
     );
     setSelectedFiles(compressedFiles);
+
+    // if (
+    //   !/^[a-zA-Z]{3,}$/.test(formData.name) ||
+    //   !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+    // ) {
+    //   alert("Veuillez entrer un nom valide et une adresse e-mail valide.");
+    //   return;
+    // }
+
+    try {
+      const db = getDatabase();
+      const storage = getStorage();
+
+      const listingsRef = ref(db, "listings/" + category);
+
+      const newListingKey = push(listingsRef);
+
+      set(newListingKey, formData);
+
+      const newID = newListingKey.toString().split("/").pop();
+      formData.id = newID;
+      formData.nbrimg = selectedFiles.length;
+      set(newListingKey, formData);
+
+      for (let i = 0; i < selectedFiles.length; i++) {
+        const imageRef = sref(
+          storage,
+          `/sale/${newID}/${selectedFiles[i].name}`
+        );
+
+        const result = await uploadBytes(imageRef, selectedFiles[i]).then(
+          () => {
+            console.log("success");
+          }
+        );
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -201,6 +252,7 @@ const Publish = (props) => {
                     className="publish-radiobutton"
                     value="rent"
                     id="type"
+                    onBlur={handleCategrotyChange}
                   />
                   <span>A Louer</span>
                 </div>
@@ -212,6 +264,7 @@ const Publish = (props) => {
                     className="publish-radiobutton01"
                     value="sale"
                     id="type"
+                    onBlur={handleCategrotyChange}
                   />
                   <span>A vendre</span>
                 </div>
