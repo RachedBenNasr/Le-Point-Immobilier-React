@@ -72,7 +72,7 @@ const ByuingListing = (props) => {
       </div>
       <div className="byuing-listing-container">
         <span className="byuing-listing-text3">{props.header}</span>
-        <span className="byuing-listing-text4">{props.price}</span>
+        <span className="byuing-listing-text4">{props.price} TND</span>
         <span className="byuing-listing-text5">{props.body}</span>
         <div className="byuing-listing-container1">
           <svg
@@ -102,7 +102,7 @@ const ByuingListing = (props) => {
               className=""
             ></path>
           </svg>
-          <span className="byuing-listing-text8">{props.area}</span>
+          <span className="byuing-listing-text8">{props.area} m²</span>
         </div>
       </div>
     </div>

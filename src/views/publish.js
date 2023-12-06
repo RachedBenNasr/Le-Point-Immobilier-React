@@ -6,6 +6,8 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import "./publish.css";
 
+//TODO kadhe kadhe
+
 import { getDatabase, ref, set, push, update } from "firebase/database";
 import { getStorage, ref as sref, uploadBytes } from "firebase/storage";
 
@@ -79,7 +81,9 @@ const Publish = (props) => {
 
   // Function to resize and compress an image
   const resizeAndCompressImage = async (file) => {
-    return new Promise((resolve) => {
+    console.log("Start resizing and compressing:", file.name);
+
+    return new Promise(async (resolve) => {
       const reader = new FileReader();
       reader.onload = (event) => {
         const img = new Image();
@@ -89,7 +93,6 @@ const Publish = (props) => {
           const canvas = document.createElement("canvas");
           const ctx = canvas.getContext("2d");
 
-          // Resize the image to a maximum width and height
           const maxWidth = 800;
           const maxHeight = 800;
           let newWidth = img.width;
@@ -108,17 +111,15 @@ const Publish = (props) => {
           canvas.width = newWidth;
           canvas.height = newHeight;
 
-          // Draw the image on the canvas
           ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
-          // Convert the canvas content to a Blob (compressed image)
           canvas.toBlob(
             (blob) => {
-              resolve(new File([blob], file.name, { type: file.type }));
+              resolve(new File([blob], file.name, { type: "image/jpeg" }));
             },
-            file.type,
+            "image/jpeg",
             0.75
-          ); // Adjust the compression quality (0.75 means 75% quality)
+          );
         };
       };
 
@@ -129,10 +130,10 @@ const Publish = (props) => {
   const finalSend = async (e) => {
     e.preventDefault();
 
-    if (selectedFiles.length < 3) {
-      alert("Veuillez sélectionner au moins 3 photos.");
-      return;
-    }
+    // if (selectedFiles.length < 3) {
+    //   alert("Veuillez sélectionner au moins 3 photos.");
+    //   return;
+    // }
 
     // Compress and resize each selected file
     const compressedFiles = await Promise.all(
