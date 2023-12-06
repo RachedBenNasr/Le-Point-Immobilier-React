@@ -32,17 +32,22 @@ const Publish = (props) => {
     header: "",
     body: "",
     id: "",
-    nbrimg: "",
+    photos: "",
   });
   //TODO fix data types (bools and strings)
 
   const saveData = (e) => {
-    const { id, value } = e.target;
+    const { id, value, type } = e.target;
+
+    // Convert boolean values for radio buttons
+    const inputValue = type === "radio" ? value === "true" : value;
+
     setFormData((prevData) => ({
       ...prevData,
-      [id]: value,
+      [id]: inputValue,
     }));
-    console.log("for " + id + " the value is now " + value);
+
+    console.log("for " + id + " the value is now " + inputValue);
   };
 
   const [propertyType, setPropertyType] = useState("0");
@@ -155,7 +160,7 @@ const Publish = (props) => {
 
       const newID = newListingKey.toString().split("/").pop();
       formData.id = newID;
-      formData.nbrimg = selectedFiles.length;
+      formData.photos = selectedFiles.length;
       set(newListingKey, formData);
 
       for (let i = 0; i < selectedFiles.length; i++) {
