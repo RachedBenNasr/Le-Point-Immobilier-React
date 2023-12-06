@@ -140,15 +140,9 @@ const Publish = (props) => {
     );
     setSelectedFiles(compressedFiles);
 
-    // if (
-    //   !/^[a-zA-Z]{3,}$/.test(formData.name) ||
-    //   !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
-    // ) {
-    //   alert("Veuillez entrer un nom valide et une adresse e-mail valide.");
-    //   return;
-    // }
-
     try {
+      setLoading(true);
+
       const db = getDatabase();
       const storage = getStorage();
 
@@ -171,14 +165,23 @@ const Publish = (props) => {
 
         const result = await uploadBytes(imageRef, selectedFiles[i]).then(
           () => {
-            console.log("success");
+            const newProgress = Math.round(
+              ((i + 1) / selectedFiles.length) * 100
+            );
+            setProgress(newProgress);
           }
         );
       }
+
+      setLoading(false);
     } catch (error) {
       console.log(error.message);
+      setLoading(false);
     }
   };
+
+  const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   return (
     <div className="publish-container">
@@ -609,6 +612,16 @@ const Publish = (props) => {
                 </span>
               </button>
             </form>
+          </div>
+          <div>
+            {loading && (
+              <div className="overlay">
+                <div className="loader-container">
+                  <p>Please wait for the upload to finish</p>
+                  <p>{`${progress}% completed`}</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <Footer rootClassName="footer-root-class-name2"></Footer>
