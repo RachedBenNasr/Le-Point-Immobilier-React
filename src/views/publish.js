@@ -118,7 +118,7 @@ const Publish = (props) => {
             },
             file.type,
             0.75
-          ); // Adjust the compression quality (0.75 means 75% quality)
+          ); // Adjust the compression quality (0.75 means 75% quality)d
         };
       };
 
