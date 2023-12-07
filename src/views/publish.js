@@ -31,6 +31,7 @@ const Publish = (props) => {
     body: "",
     id: "",
     photos: "",
+    state: "requested",
   });
 
   const saveData = (e) => {
@@ -631,8 +632,8 @@ const Publish = (props) => {
             {loading && (
               <div className="overlay">
                 <div className="loader-container">
-                  <p>Please wait for the upload to finish</p>
-                  <p>{`${progress}% completed`}</p>
+                  <p>Veuillez attendre la fin du téléchargement</p>
+                  <p>{`${progress}%`}</p>
                 </div>
               </div>
             )}
