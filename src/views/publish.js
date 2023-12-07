@@ -6,8 +6,6 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import "./publish.css";
 
-//TODO kadhe kadhe
-
 import { getDatabase, ref, set, push, update } from "firebase/database";
 import { getStorage, ref as sref, uploadBytes } from "firebase/storage";
 
@@ -34,7 +32,6 @@ const Publish = (props) => {
     id: "",
     photos: "",
   });
-  //TODO fix data types (bools and strings)
 
   const saveData = (e) => {
     const { id, value, type } = e.target;
@@ -95,9 +92,10 @@ const Publish = (props) => {
         img.src = event.target.result;
 
         img.onload = () => {
+          console.log("Original image size:", img.width, img.height);
+
           const canvas = document.createElement("canvas");
           const ctx = canvas.getContext("2d");
-
           const maxWidth = 800;
           const maxHeight = 800;
           let newWidth = img.width;
@@ -118,9 +116,15 @@ const Publish = (props) => {
 
           ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
+          console.log("Resized image size:", newWidth, newHeight);
+
           canvas.toBlob(
             (blob) => {
-              resolve(new File([blob], file.name, { type: "image/jpeg" }));
+              const resizedFile = new File([blob], file.name, {
+                type: "image/jpeg",
+              });
+              console.log("Resized file size:", resizedFile.size);
+              resolve(resizedFile);
             },
             "image/jpeg",
             0.75
@@ -133,7 +137,11 @@ const Publish = (props) => {
   };
 
   const finalSend = async (e) => {
+    setLoading(true);
+    setProgress(0);
     e.preventDefault();
+
+    console.log("selected files to start: ", selectedFiles);
 
     // if (selectedFiles.length < 3) {
     //   alert("Veuillez sélectionner au moins 3 photos.");
@@ -141,14 +149,20 @@ const Publish = (props) => {
     // }
 
     // Compress and resize each selected file
-    const compressedFiles = await Promise.all(
-      selectedFiles.map(resizeAndCompressImage)
-    );
-    setSelectedFiles(compressedFiles);
+    const tempHolder = [...selectedFiles]; // Create a shallow copy to avoid modifying the original array
+
+    for (let i = 0; i < tempHolder.length; i++) {
+      const resizedFile = await resizeAndCompressImage(tempHolder[i]);
+      tempHolder[i] = resizedFile;
+    }
+    console.log("Contents of temp holder: ", tempHolder);
+
+    // After all images are resized, set the selectedFiles
+    setSelectedFiles(tempHolder);
+
+    console.log("selected files to end: ", selectedFiles);
 
     try {
-      setLoading(true);
-
       const db = getDatabase();
       const storage = getStorage();
 
@@ -160,26 +174,20 @@ const Publish = (props) => {
 
       const newID = newListingKey.toString().split("/").pop();
       formData.id = newID;
-      formData.photos = selectedFiles.length;
+      formData.photos = tempHolder.length;
       set(newListingKey, formData);
 
-      for (let i = 0; i < selectedFiles.length; i++) {
-        const imageRef = sref(
-          storage,
-          `/sale/${newID}/${selectedFiles[i].name}`
-        );
+      for (let i = 0; i < tempHolder.length; i++) {
+        const imageRef = sref(storage, `/sale/${newID}/${tempHolder[i].name}`);
 
-        const result = await uploadBytes(imageRef, selectedFiles[i]).then(
-          () => {
-            const newProgress = Math.round(
-              ((i + 1) / selectedFiles.length) * 100
-            );
-            setProgress(newProgress);
-          }
-        );
+        const result = await uploadBytes(imageRef, tempHolder[i]).then(() => {
+          const newProgress = Math.round(((i + 1) / tempHolder.length) * 100);
+          setProgress(newProgress);
+        });
       }
 
       setLoading(false);
+      setProgress(0);
     } catch (error) {
       console.log(error.message);
       setLoading(false);

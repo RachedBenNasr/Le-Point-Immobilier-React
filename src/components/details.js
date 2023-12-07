@@ -100,7 +100,7 @@ const Details = (props) => {
                   >
                     <path d="M1170.286 877.714v73.143h-1170.286v-877.714h73.143v804.571h1097.143zM950.857 292.571l146.286 512h-950.857v-329.143l256-329.143 329.143 329.143z"></path>
                   </svg>
-                  <span className="details-text06">{props.area}</span>
+                  <span className="details-text06">{props.area} m²</span>
                 </div>
               </div>
               <div className="details-extras">
@@ -203,8 +203,6 @@ const Details = (props) => {
     </div>
   );
 };
-
-//TODO Implement missing data types
 
 Details.defaultProps = {
   id: "0",
