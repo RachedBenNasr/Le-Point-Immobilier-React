@@ -6,7 +6,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import "./publish.css";
 
-import { getDatabase, ref, set, push, update } from "firebase/database";
+import { getDatabase, ref, set, push } from "firebase/database";
 import { getStorage, ref as sref, uploadBytes } from "firebase/storage";
 
 const Publish = (props) => {
@@ -189,6 +189,7 @@ const Publish = (props) => {
 
       setLoading(false);
       setProgress(0);
+      window.location.href = "/thanking";
     } catch (error) {
       console.log(error.message);
       setLoading(false);

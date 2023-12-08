@@ -44,8 +44,10 @@ const Buying = (props) => {
       onValue(saleListingsRef, (snapshot) => {
         const data = snapshot.val();
         if (data) {
-          // Convert object to array and set state
-          const listingsArray = Object.values(data);
+          // Convert object to array, filter by state, and set state
+          const listingsArray = Object.values(data).filter(
+            (listing) => listing.state === "approved"
+          );
           setSaleListings(listingsArray);
         }
       });
