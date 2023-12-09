@@ -253,6 +253,7 @@ color: var(--dl-color-gray-white);
   }
   .buying-container5 {
     flex-direction: column;
+    align-items: center;
   }
   .buying-textinput {
     width: 100%;

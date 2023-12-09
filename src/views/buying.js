@@ -32,88 +32,90 @@ const Buying = (props) => {
     setSelectedListing(null);
   };
 
+  // State variables for filters
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(null);
+  const [nature, setNature] = useState("0");
+  const [city, setCity] = useState("0");
+  const [sort, setSort] = useState("0");
+
+  // Function to update filter states
+  const updateFilters = () => {
+    // Get filter values from inputs and update state variables
+    const newMinPrice = parseInt(
+      document.querySelector(".buying-textinput").value
+    );
+    const newMaxPrice = parseInt(
+      document.querySelector(".buying-textinput1").value
+    );
+    const newNature = document.querySelector(".buying-select").value;
+    const newcity = document.querySelector(".buying-select1").value;
+    const newSort = document.querySelector(".buying-select2").value;
+
+    if (newMinPrice > newMaxPrice || newMinPrice < 0 || newMaxPrice < 0) {
+      alert("Merci de verifier les valeurs de filtrage");
+      return;
+    }
+
+    setMinPrice(newMinPrice);
+    setMaxPrice(newMaxPrice);
+    setNature(newNature);
+    setCity(newcity);
+    setSort(newSort);
+  };
+
   // Effect to fetch sale listings from Firebase
   useEffect(() => {
     const fetchSaleListings = async () => {
-      // Assuming you have initialized Firebase elsewhere in your app
       const database = getDatabase();
-      // const saleListingsRef = database.ref("listings/sale");
       const saleListingsRef = ref(database, "listings/sale");
 
-      // Fetch data from Firebase
       onValue(saleListingsRef, (snapshot) => {
         const data = snapshot.val();
         if (data) {
-          // Convert object to array, filter by state, and set state
-          const listingsArray = Object.values(data).filter(
-            (listing) => listing.state === "approved"
-          );
+          const listingsArray = Object.values(data).filter((listing) => {
+            // Filter by state
+            if (listing.state !== "approved") {
+              return false;
+            }
+
+            // Filter by minPrice
+            if (minPrice > 0 && listing.price < minPrice) {
+              return false;
+            }
+
+            // Filter by maxPrice
+            if (maxPrice && listing.price > maxPrice) {
+              return false;
+            }
+
+            // Filter by nature
+            if (nature !== "0" && listing.nature !== nature) {
+              return false;
+            }
+
+            // Filter by city
+            if (city !== "0" && listing.city !== city) {
+              return false;
+            }
+
+            return true; // Include the listing if it passes all filters
+          });
+
+          // Sort the listings
+          if (sort === "sortByDate") {
+            listingsArray.sort((a, b) => b.timeDate - a.timeDate);
+          } else if (sort === "sortByPrice") {
+            listingsArray.sort((a, b) => a.price - b.price);
+          }
+
           setSaleListings(listingsArray);
         }
       });
     };
 
     fetchSaleListings();
-    
-  }, []);
-
-  //FILTERS
-
-  const filterListings = () => {
-    //get filter values
-
-    const minPrice = parseFloat(
-      document.querySelector(".buying-textinput").value
-    );
-    const maxPrice = parseFloat(
-      document.querySelector(".buying-textinput1").value
-    );
-
-    const nature = document.querySelector(".buying-select").value;
-    const location = document.querySelector(".buying-select1").value;
-    const sort = document.querySelector(".buying-select2").value;
-    // Create a copy of the original saleListings array
-    let filteredListings = [...saleListings];
-
-    console.log("filteredListings:", filteredListings);
-
-    // Filter by maxPrice
-    if (!isNaN(minPrice) && minPrice !== "") {
-      filteredListings = filteredListings.filter(
-        (listing) => listing.price >= minPrice
-      );
-    }
-
-    if (!isNaN(maxPrice) && maxPrice !== "") {
-      filteredListings = filteredListings.filter(
-        (listing) => listing.price <= maxPrice
-      );
-    }
-
-    // Filter by nature
-    if (nature !== "") {
-      filteredListings = filteredListings.filter(
-        (listing) => listing.nature === nature
-      );
-    }
-
-    // Filter by location
-    if (location !== "") {
-      filteredListings = filteredListings.filter(
-        (listing) => listing.location === location
-      );
-    }
-
-    // Sort the filteredListings array based on the selected sort option
-    if (sort === "prix") {
-      filteredListings.sort((a, b) => a.price - b.price);
-    } else if (sort === "date") {
-      filteredListings.sort((a, b) => a.dateTime - b.dateTime);
-    }
-
-    // Update state with the filtered and sorted array
-    setSaleListings(filteredListings);
-  };
+  }, [minPrice, maxPrice, nature, city, sort]);
 
   return (
     <div className="buying-container">
@@ -156,25 +158,33 @@ const Buying = (props) => {
                 type="text"
                 placeholder="MIN (TND)"
                 className="buying-textinput input"
+                onInput={(e) => {
+                  // Remove non-numeric characters
+                  e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                }}
               />
               <input
                 type="text"
                 placeholder="MAX (TND)"
                 className="buying-textinput1 input"
+                onInput={(e) => {
+                  // Remove non-numeric characters
+                  e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                }}
               />
             </div>
-            <select className="buying-select">
-              <option defaultValue={0}>Type</option>
+
+            <select className="buying-select" defaultValue={"0"}>
+              <option value="0">Type</option>
               <option value="appartment">Appartment</option>
               <option value="penthouse">Penthouse</option>
               <option value="villa">Villa</option>
               <option value="commercial">Commercial</option>
               <option value="terrain">Terrain</option>
             </select>
-            <select className="buying-select1">
-              <option value="0" defaultValue={0}>
-                Ville
-              </option>
+
+            <select className="buying-select1" defaultValue={"0"}>
+              <option value="0">Ville</option>
               <option value="Tunis">Tunis</option>
               <option value="Ariana">Ariana</option>
               <option value="Manouba">Manouba</option>
@@ -183,18 +193,18 @@ const Buying = (props) => {
               <option value="Sousse">Sousse</option>
               <option value="Autre">Autre</option>
             </select>
-            <select className="buying-select2">
-              <option value="0" defaultValue={0}>
-                Trier Par
-              </option>
+
+            <select className="buying-select2" defaultValue={"0"}>
+              <option value="0">Trier Par</option>
               <option value="prix">Prix</option>
               <option value="date">Date de publication</option>
             </select>
+
             <div className="buying-container6">
               <button
                 type="button"
                 className="buying-button "
-                onClick={filterListings}
+                onClick={updateFilters}
               >
                 <span>
                   <span className="buying-text4">Appliquer</span>
