@@ -54,7 +54,66 @@ const Buying = (props) => {
     };
 
     fetchSaleListings();
+    
   }, []);
+
+  //FILTERS
+
+  const filterListings = () => {
+    //get filter values
+
+    const minPrice = parseFloat(
+      document.querySelector(".buying-textinput").value
+    );
+    const maxPrice = parseFloat(
+      document.querySelector(".buying-textinput1").value
+    );
+
+    const nature = document.querySelector(".buying-select").value;
+    const location = document.querySelector(".buying-select1").value;
+    const sort = document.querySelector(".buying-select2").value;
+    // Create a copy of the original saleListings array
+    let filteredListings = [...saleListings];
+
+    console.log("filteredListings:", filteredListings);
+
+    // Filter by maxPrice
+    if (!isNaN(minPrice) && minPrice !== "") {
+      filteredListings = filteredListings.filter(
+        (listing) => listing.price >= minPrice
+      );
+    }
+
+    if (!isNaN(maxPrice) && maxPrice !== "") {
+      filteredListings = filteredListings.filter(
+        (listing) => listing.price <= maxPrice
+      );
+    }
+
+    // Filter by nature
+    if (nature !== "") {
+      filteredListings = filteredListings.filter(
+        (listing) => listing.nature === nature
+      );
+    }
+
+    // Filter by location
+    if (location !== "") {
+      filteredListings = filteredListings.filter(
+        (listing) => listing.location === location
+      );
+    }
+
+    // Sort the filteredListings array based on the selected sort option
+    if (sort === "prix") {
+      filteredListings.sort((a, b) => a.price - b.price);
+    } else if (sort === "date") {
+      filteredListings.sort((a, b) => a.dateTime - b.dateTime);
+    }
+
+    // Update state with the filtered and sorted array
+    setSaleListings(filteredListings);
+  };
 
   return (
     <div className="buying-container">
@@ -106,11 +165,11 @@ const Buying = (props) => {
             </div>
             <select className="buying-select">
               <option defaultValue={0}>Type</option>
-              <option value="Appartment">Appartment</option>
-              <option value="Penthouse">Penthouse</option>
-              <option value="Villa">Villa</option>
-              <option value="Commercial">Commercial</option>
-              <option value="Terrain">Terrain</option>
+              <option value="appartment">Appartment</option>
+              <option value="penthouse">Penthouse</option>
+              <option value="villa">Villa</option>
+              <option value="commercial">Commercial</option>
+              <option value="terrain">Terrain</option>
             </select>
             <select className="buying-select1">
               <option value="0" defaultValue={0}>
@@ -132,13 +191,23 @@ const Buying = (props) => {
               <option value="date">Date de publication</option>
             </select>
             <div className="buying-container6">
-              <button type="button" className="buying-button ">
+              <button
+                type="button"
+                className="buying-button "
+                onClick={filterListings}
+              >
                 <span>
                   <span className="buying-text4">Appliquer</span>
                   <br></br>
                 </span>
               </button>
-              <button type="reset" className="buying-button1 ">
+              <button
+                type="reset"
+                className="buying-button1 "
+                onClick={() => {
+                  window.location.reload();
+                }}
+              >
                 <span className="buying-text6">Réinitialiser</span>
                 <br></br>
               </button>
@@ -153,6 +222,7 @@ const Buying = (props) => {
                   price={listing.price}
                   baths={listing.baths}
                   header={listing.header}
+                  city={listing.city}
                   location={listing.location}
                   area={listing.area}
                   body={listing.body}

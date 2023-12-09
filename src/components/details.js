@@ -206,7 +206,6 @@ const Details = (props) => {
 
 Details.defaultProps = {
   id: "",
-
   area: "",
   baths: "",
   ownership: "Privé",
@@ -226,7 +225,6 @@ Details.defaultProps = {
 
 Details.propTypes = {
   id: PropTypes.string,
-
   area: PropTypes.string,
   baths: PropTypes.string,
   ownership: PropTypes.string,
@@ -235,6 +233,7 @@ Details.propTypes = {
   garage: PropTypes.bool,
   description: PropTypes.string,
   quote: PropTypes.string,
+  
   location: PropTypes.string,
   price: PropTypes.string,
   range: PropTypes.string,
