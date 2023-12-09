@@ -32,6 +32,7 @@ const Publish = (props) => {
     id: "",
     photos: "",
     state: "requested",
+    dateTime: "",
   });
 
   const saveData = (e) => {
@@ -166,20 +167,20 @@ const Publish = (props) => {
     try {
       const db = getDatabase();
       const storage = getStorage();
-
       const listingsRef = ref(db, "listings/" + category);
-
       const newListingKey = push(listingsRef);
 
-      set(newListingKey, formData);
-
-      const newID = newListingKey.toString().split("/").pop();
-      formData.id = newID;
+      formData.dateTime = Date.now();
+      formData.id = newListingKey.toString().split("/").pop();
       formData.photos = tempHolder.length;
+
       set(newListingKey, formData);
 
       for (let i = 0; i < tempHolder.length; i++) {
-        const imageRef = sref(storage, `/sale/${newID}/${tempHolder[i].name}`);
+        const imageRef = sref(
+          storage,
+          `/sale/${formData.id}/${tempHolder[i].name}`
+        );
 
         const result = await uploadBytes(imageRef, tempHolder[i]).then(() => {
           const newProgress = Math.round(((i + 1) / tempHolder.length) * 100);

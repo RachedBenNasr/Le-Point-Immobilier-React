@@ -128,7 +128,7 @@ const Buying = (props) => {
               <option value="0" defaultValue={0}>
                 Trier Par
               </option>
-              <option value="Prix">prix</option>
+              <option value="prix">Prix</option>
               <option value="date">Date de publication</option>
             </select>
             <div className="buying-container6">

@@ -205,23 +205,21 @@ const Details = (props) => {
 };
 
 Details.defaultProps = {
-  id: "0",
+  id: "",
 
-  area: "DEFAULT",
-  baths: "DEFAULT",
-  ownership: "DEFAULT",
-  title: "DEFAULT",
-  beds: "DEFAULT",
+  area: "",
+  baths: "",
+  ownership: "Privé",
+  title: "",
+  beds: "",
   garage: "",
-  description: "DEFAULT:",
-  quote: "DEFAULT",
-  location: "DEFAULT",
-  price: "DEFAULT",
-  range: "DEFAULT",
-  body: "DEFAULT",
-
-  closeDetails: "DEFAULT",
-
+  description: ":",
+  quote: "",
+  location: "",
+  price: "",
+  range: "",
+  body: "",
+  closeDetails: "",
   pool: "",
   garden: "",
 };
@@ -241,9 +239,7 @@ Details.propTypes = {
   price: PropTypes.string,
   range: PropTypes.string,
   body: PropTypes.string,
-
   closeDetails: PropTypes.func,
-
   pool: PropTypes.bool,
   garden: PropTypes.bool,
 };

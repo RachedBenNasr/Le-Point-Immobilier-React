@@ -33,6 +33,9 @@ const ByuingListing = (props) => {
     fetchThumbnail();
   }, [props.id]);
 
+  const newBody =
+    props.body.length > 250 ? `${props.body.substring(0, 250)}...` : props.body;
+
   return (
     <div className={`byuing-listing-blog-post-card ${props.rootClassName} `}>
       <div
@@ -73,7 +76,7 @@ const ByuingListing = (props) => {
       <div className="byuing-listing-container">
         <span className="byuing-listing-text3">{props.header}</span>
         <span className="byuing-listing-text4">{props.price} TND</span>
-        <span className="byuing-listing-text5">{props.body}</span>
+        <span className="byuing-listing-text5">{newBody}</span>
         <div className="byuing-listing-container1">
           <svg
             viewBox="0 0 1170.2857142857142 1024"
