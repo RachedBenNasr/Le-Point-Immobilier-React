@@ -129,6 +129,7 @@ ByuingListing.defaultProps = {
   cars: "",
   pool: "",
   garden: "",
+  nature: "",
 };
 
 ByuingListing.propTypes = {
@@ -146,6 +147,7 @@ ByuingListing.propTypes = {
   cars: PropTypes.string,
   pool: PropTypes.bool,
   garden: PropTypes.bool,
+  nature: PropTypes.string,
 };
 
 export default ByuingListing;

@@ -17,8 +17,6 @@ const Buying = (props) => {
 
   const [saleListings, setSaleListings] = useState([]);
 
-  //Detail.js code
-
   const [detailsVisible, setDetailsVisible] = useState(false);
   const [selectedListing, setSelectedListing] = useState(null);
 
@@ -37,7 +35,6 @@ const Buying = (props) => {
   const [maxPrice, setMaxPrice] = useState(null);
   const [nature, setNature] = useState("0");
   const [city, setCity] = useState("0");
-  const [sort, setSort] = useState("0");
 
   // Function to update filter states
   const updateFilters = () => {
@@ -50,7 +47,6 @@ const Buying = (props) => {
     );
     const newNature = document.querySelector(".buying-select").value;
     const newcity = document.querySelector(".buying-select1").value;
-    const newSort = document.querySelector(".buying-select2").value;
 
     if (newMinPrice > newMaxPrice || newMinPrice < 0 || newMaxPrice < 0) {
       alert("Merci de verifier les valeurs de filtrage");
@@ -61,7 +57,6 @@ const Buying = (props) => {
     setMaxPrice(newMaxPrice);
     setNature(newNature);
     setCity(newcity);
-    setSort(newSort);
   };
 
   // Effect to fetch sale listings from Firebase
@@ -74,6 +69,9 @@ const Buying = (props) => {
         const data = snapshot.val();
         if (data) {
           const listingsArray = Object.values(data).filter((listing) => {
+            if (listing.nature == "commercial") {
+              return false;
+            }
             // Filter by state
             if (listing.state !== "approved") {
               return false;
@@ -102,20 +100,13 @@ const Buying = (props) => {
             return true; // Include the listing if it passes all filters
           });
 
-          // Sort the listings
-          if (sort === "sortByDate") {
-            listingsArray.sort((a, b) => b.timeDate - a.timeDate);
-          } else if (sort === "sortByPrice") {
-            listingsArray.sort((a, b) => a.price - b.price);
-          }
-
           setSaleListings(listingsArray);
         }
       });
     };
 
     fetchSaleListings();
-  }, [minPrice, maxPrice, nature, city, sort]);
+  }, [minPrice, maxPrice, nature, city]);
 
   return (
     <div className="buying-container">
@@ -194,12 +185,6 @@ const Buying = (props) => {
               <option value="Autre">Autre</option>
             </select>
 
-            <select className="buying-select2" defaultValue={"0"}>
-              <option value="0">Trier Par</option>
-              <option value="prix">Prix</option>
-              <option value="date">Date de publication</option>
-            </select>
-
             <div className="buying-container6">
               <button
                 type="button"
@@ -240,6 +225,7 @@ const Buying = (props) => {
                   cars={listing.cars}
                   pool={listing.pool}
                   garden={listing.garden}
+                  nature={listing.nature}
                 />
               </div>
             ))}
@@ -265,6 +251,7 @@ const Buying = (props) => {
                 garage={selectedListing.garage}
                 pool={selectedListing.pool}
                 garden={selectedListing.garden}
+                nature={selectedListing.nature}
                 closeDetails={handleCloseDetails}
               />
             </>

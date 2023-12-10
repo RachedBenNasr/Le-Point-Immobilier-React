@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
 
-import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+import { getDatabase, ref, set, push } from "firebase/database";
+
+import {
+  getStorage,
+  ref as Sref,
+  listAll,
+  getDownloadURL,
+} from "firebase/storage";
 
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -10,6 +17,14 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "./details.css";
 
 const Details = (props) => {
+  const [quote, setQuote] = useState({
+    requestid: "",
+    email: "",
+    listingID: "",
+    state: "requested",
+    dateTime: "",
+  });
+
   const [imageList, setImageList] = useState([]);
 
   useEffect(() => {
@@ -17,7 +32,7 @@ const Details = (props) => {
     const fetchImages = async () => {
       try {
         const storage = getStorage();
-        const listingRef = ref(storage, `sale/${props.id}`);
+        const listingRef = Sref(storage, `sale/${props.id}`);
 
         // List all items in the folder
         const listingImages = await listAll(listingRef);
@@ -40,10 +55,31 @@ const Details = (props) => {
     fetchImages();
   }, [props.id]);
 
-  // Use another useEffect to observe changes in imageList
-  useEffect(() => {
-    console.log(imageList);
-  }, [imageList]);
+  const requestQuote = () => {
+    const db = getDatabase();
+    const requestRef = ref(db, "requests/quoteRequests");
+    const newRequestKey = push(requestRef);
+    quote.requestid = newRequestKey.toString().split("/").pop();
+
+    quote.dateTime = Date.now();
+    quote.email = document.querySelector(".details-textinput").value;
+    quote.listingID = props.id;
+
+    if (
+      quote.email == "" ||
+      !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(quote.email)
+    ) {
+      alert("Veuillez saisir une adresse e-mail valide.");
+      return;
+    }
+
+    set(newRequestKey, quote);
+
+    alert(
+      "Merci pour votre intérêt, Votre demande est en cours de traitement."
+    );
+    props.closeDetails();
+  };
 
   return (
     <div className={`details-blog-post-card`}>
@@ -174,8 +210,8 @@ const Details = (props) => {
             </div>
             <div className="details-separator"></div>
             <div className="details-ownership">
-              <span className="details-text08">Propriétaire</span>
-              <span className="details-text09">{props.ownership}</span>
+              <span className="details-text08">Type</span>
+              <span className="details-text09">{props.nature}</span>
             </div>
             <div className="details-separator1"></div>
             <div className="details-price">
@@ -190,7 +226,7 @@ const Details = (props) => {
                 placeholder="Email ici"
                 className="details-textinput input"
               />
-              <button className="details-button button">
+              <button className="details-button button" onClick={requestQuote}>
                 <span className="details-text13">
                   <span>Demander</span>
                   <br></br>
@@ -221,6 +257,7 @@ Details.defaultProps = {
   closeDetails: "",
   pool: "",
   garden: "",
+  nature: "",
 };
 
 Details.propTypes = {
@@ -233,7 +270,7 @@ Details.propTypes = {
   garage: PropTypes.bool,
   description: PropTypes.string,
   quote: PropTypes.string,
-  
+
   location: PropTypes.string,
   price: PropTypes.string,
   range: PropTypes.string,
@@ -241,6 +278,7 @@ Details.propTypes = {
   closeDetails: PropTypes.func,
   pool: PropTypes.bool,
   garden: PropTypes.bool,
+  nature: PropTypes.string,
 };
 
 export default Details;

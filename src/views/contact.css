@@ -232,7 +232,7 @@
 }
 .contact-button {
   color: var(--dl-color-gray-white);
-  width: 15%;
+  width: auto;
   cursor: pointer;
   margin: var(--dl-space-space-unit);
   font-size: 0.75rem;
@@ -288,9 +288,7 @@
   .contact-form {
     width: 100%;
   }
-  .contact-button {
-    width: auto;
-  }
+  
 }
 @media(max-width: 479px) {
   .contact-banner {

@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Helmet } from "react-helmet";
+
+import { getDatabase, ref, set, push } from "firebase/database";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
 import "./contact.css";
 
 const Contact = (props) => {
+  const [request, setRequest] = useState({
+    requestid: "",
+    name: "",
+    email: "",
+    phone: "",
+    state: "unread",
+    dateTime: "",
+    body: "",
+  });
+
+  const contactRequest = (e) => {
+    e.preventDefault();
+    request.name = document.querySelector(".contact-name").value;
+    request.email = document.querySelector(".contact-name1").value;
+    request.phone = document.querySelector(".contact-name2").value;
+    request.body = document.querySelector(".contact-textarea").value;
+    request.dateTime = Date.now();
+
+    if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(request.email)) {
+      alert("Veuillez saisir une adresse e-mail valide.");
+      return;
+    }
+
+    const db = getDatabase();
+    const requestRef = ref(db, "requests/contactRequests");
+    const newRequestKey = push(requestRef);
+    request.requestid = newRequestKey.toString().split("/").pop();
+
+    set(newRequestKey, request);
+  };
+
   return (
     <div className="contact-container">
       <Helmet>
@@ -83,7 +116,10 @@ const Contact = (props) => {
                 </a>
               </div>
             </div>
-            <form className="contact-form">
+            <form
+              className="contact-form"
+              onSubmit={(event) => contactRequest(event)}
+            >
               <input
                 type="text"
                 id="name"

@@ -145,10 +145,10 @@ const Publish = (props) => {
 
     console.log("selected files to start: ", selectedFiles);
 
-    // if (selectedFiles.length < 3) {
-    //   alert("Veuillez sélectionner au moins 3 photos.");
-    //   return;
-    // }
+    if (selectedFiles.length < 3) {
+      alert("Veuillez sélectionner au moins 3 photos.");
+      return;
+    }
 
     // Compress and resize each selected file
     const tempHolder = [...selectedFiles]; // Create a shallow copy to avoid modifying the original array
