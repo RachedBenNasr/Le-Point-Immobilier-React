@@ -130,6 +130,7 @@ ByuingListing.defaultProps = {
   pool: "",
   garden: "",
   nature: "",
+  interval: "",
 };
 
 ByuingListing.propTypes = {
@@ -148,6 +149,7 @@ ByuingListing.propTypes = {
   pool: PropTypes.bool,
   garden: PropTypes.bool,
   nature: PropTypes.string,
+  interval: PropTypes.string,
 };
 
 export default ByuingListing;

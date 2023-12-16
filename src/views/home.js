@@ -50,7 +50,7 @@ const Home = (props) => {
         <div className="home-separator"></div>
         <div className="home-gallery">
           <h1 className="home-text07">
-            <span>Annonces à la une</span>
+            <span>À la une</span>
             <br></br>
           </h1>
           <span className="home-text10">

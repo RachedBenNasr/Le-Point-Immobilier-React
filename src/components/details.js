@@ -21,7 +21,7 @@ const Details = (props) => {
     requestid: "",
     email: "",
     listingID: "",
-    state: "requested",
+    state: "unseen",
     dateTime: "",
   });
 
@@ -258,6 +258,7 @@ Details.defaultProps = {
   pool: "",
   garden: "",
   nature: "",
+  interval: "",
 };
 
 Details.propTypes = {
@@ -279,6 +280,7 @@ Details.propTypes = {
   pool: PropTypes.bool,
   garden: PropTypes.bool,
   nature: PropTypes.string,
+  interval: PropTypes.string,
 };
 
 export default Details;

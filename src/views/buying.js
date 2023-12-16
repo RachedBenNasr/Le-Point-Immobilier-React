@@ -226,6 +226,7 @@ const Buying = (props) => {
                   pool={listing.pool}
                   garden={listing.garden}
                   nature={listing.nature}
+                  interval={listing.interval}
                 />
               </div>
             ))}
@@ -252,6 +253,7 @@ const Buying = (props) => {
                 pool={selectedListing.pool}
                 garden={selectedListing.garden}
                 nature={selectedListing.nature}
+                interval={selectedListing.interval}
                 closeDetails={handleCloseDetails}
               />
             </>

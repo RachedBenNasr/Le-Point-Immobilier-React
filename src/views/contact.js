@@ -14,7 +14,7 @@ const Contact = (props) => {
     name: "",
     email: "",
     phone: "",
-    state: "unread",
+    state: "unseen",
     dateTime: "",
     body: "",
   });

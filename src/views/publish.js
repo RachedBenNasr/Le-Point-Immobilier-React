@@ -33,6 +33,7 @@ const Publish = (props) => {
     photos: "",
     state: "requested",
     dateTime: "",
+    interval: "",
   });
 
   const saveData = (e) => {
