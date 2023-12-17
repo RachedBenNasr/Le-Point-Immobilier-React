@@ -77,7 +77,7 @@ const RentingListing = (props) => {
       </div>
       <div className="renting-listing-container">
         <span className="renting-listing-text3">{props.header}</span>
-        <span className="renting-listing-text4">{props.price} TND</span>
+        <span className="renting-listing-text4">{props.interval}</span>
         <span className="renting-listing-text5">{newBody}</span>
         <div className="renting-listing-container1">
           <svg

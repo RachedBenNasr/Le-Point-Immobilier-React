@@ -77,7 +77,7 @@ const ByuingListing = (props) => {
       </div>
       <div className="byuing-listing-container">
         <span className="byuing-listing-text3">{props.header}</span>
-        <span className="byuing-listing-text4">{props.price} TND</span>
+        <span className="byuing-listing-text4">{props.interval}</span>
         <span className="byuing-listing-text5">{newBody}</span>
         <div className="byuing-listing-container1">
           <svg

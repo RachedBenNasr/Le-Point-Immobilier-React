@@ -32,10 +32,16 @@ const Details = (props) => {
     const fetchImages = async () => {
       try {
         const storage = getStorage();
-        const listingRef = Sref(storage, `sale/${props.id}`);
+        let listingRef = Sref(storage, `sale/${props.id}`);
 
         // List all items in the folder
-        const listingImages = await listAll(listingRef);
+        let listingImages = await listAll(listingRef);
+
+        if (listingImages.items.length == 0) {
+          listingRef = Sref(storage, `rent/${props.id}`);
+
+          listingImages = await listAll(listingRef);
+        }
 
         // Create an array of objects with the required format
         const imagesArray = await Promise.all(

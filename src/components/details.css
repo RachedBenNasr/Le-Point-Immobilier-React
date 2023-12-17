@@ -103,6 +103,7 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
+  
 }
 .details-text02 {
   color: var(--dl-color-gray-500);
@@ -190,6 +191,7 @@
   font-size: 12px;
   text-align: left;
   font-weight: 300;
+  
 }
 .details-container4 {
   display: flex;
@@ -412,6 +414,7 @@
   }
   .details-text03 {
     text-align: center;
+    
   }
   .details-right {
     width: 100%;

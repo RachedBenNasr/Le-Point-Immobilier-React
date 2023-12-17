@@ -171,6 +171,22 @@ const Publish = (props) => {
       const listingsRef = ref(db, "listings/" + category);
       const newListingKey = push(listingsRef);
 
+      formData.price = parseInt(formData.price.replace(/[^0-9.]/g, ""));
+
+      if (formData.price < 100000) {
+        formData.interval = "[-100,000 TND]";
+      } else if (formData.price >= 100000 && formData.price < 200000) {
+        formData.interval = "[100,000 - 200,000 TND]";
+      } else if (formData.price >= 200000 && formData.price < 500000) {
+        formData.interval = "[200,000 - 500,000 TND]";
+      } else if (formData.price >= 500000 && formData.price < 1000000) {
+        formData.interval = "[500,000 - 1,000,000 TND]";
+      } else if (formData.price >= 1000000 && formData.price < 2000000) {
+        formData.interval = "[1,000,000 - 2,000,000 TND]";
+      } else {
+        formData.interval = "[2,000,000+]";
+      }
+
       formData.dateTime = Date.now();
       formData.id = newListingKey.toString().split("/").pop();
       formData.photos = tempHolder.length;
