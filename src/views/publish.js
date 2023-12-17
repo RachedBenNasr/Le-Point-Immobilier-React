@@ -180,7 +180,7 @@ const Publish = (props) => {
       for (let i = 0; i < tempHolder.length; i++) {
         const imageRef = sref(
           storage,
-          `/sale/${formData.id}/${tempHolder[i].name}`
+          `/${category}/${formData.id}/${tempHolder[i].name}`
         );
 
         const result = await uploadBytes(imageRef, tempHolder[i]).then(() => {

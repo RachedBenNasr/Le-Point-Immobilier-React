@@ -111,7 +111,7 @@ const Buying = (props) => {
   return (
     <div className="buying-container">
       <Helmet>
-        <title>Buying</title>
+        <title>Services - Vente</title>
         <meta
           name="description"
           content="Trouvez votre bien parmi nos annonces immobilières en Tunisie : choisissez directement vente maison"
