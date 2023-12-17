@@ -597,7 +597,7 @@ const Publish = (props) => {
                   id="price"
                   rows="Prix"
                   required
-                  placeholder="Price"
+                  placeholder="Prix"
                   className="publish-type3 input"
                   onBlur={saveData}
                 />
