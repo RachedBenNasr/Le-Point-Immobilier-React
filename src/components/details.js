@@ -222,7 +222,7 @@ const Details = (props) => {
             <div className="details-separator1"></div>
             <div className="details-price">
               <span className="details-text10">Fourchette</span>
-              <span className="details-text11">{props.price}</span>
+              <span className="details-text11">{props.interval}</span>
             </div>
             <div className="details-separator2"></div>
             <span className="details-text12">Demandez un devis précis</span>

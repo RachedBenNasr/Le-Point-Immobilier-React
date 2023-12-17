@@ -269,6 +269,10 @@ const Publish = (props) => {
                   placeholder="Numéro"
                   className="publish-number input"
                   onBlur={saveData}
+                  onInput={(e) => {
+                    // Remove non-numeric characters
+                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                  }}
                 />
                 <input
                   type="text"
@@ -346,6 +350,13 @@ const Publish = (props) => {
                           className="publish-textinput input"
                           id="beds"
                           onBlur={saveData}
+                          onInput={(e) => {
+                            // Remove non-numeric characters
+                            e.target.value = e.target.value.replace(
+                              /[^0-9]/g,
+                              ""
+                            );
+                          }}
                         />
                       </div>
                       <div className="publish-container05">
@@ -356,6 +367,13 @@ const Publish = (props) => {
                           className="publish-textinput1 input"
                           id="baths"
                           onBlur={saveData}
+                          onInput={(e) => {
+                            // Remove non-numeric characters
+                            e.target.value = e.target.value.replace(
+                              /[^0-9]/g,
+                              ""
+                            );
+                          }}
                         />
                       </div>
                       <div className="publish-container06">
@@ -508,6 +526,10 @@ const Publish = (props) => {
                   placeholder="Superficie"
                   className="publish-type2 input"
                   onBlur={saveData}
+                  onInput={(e) => {
+                    // Remove non-numeric characters
+                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                  }}
                 />
               </div>
               <div className="publish-services">
@@ -616,6 +638,10 @@ const Publish = (props) => {
                   placeholder="Prix"
                   className="publish-type3 input"
                   onBlur={saveData}
+                  onInput={(e) => {
+                    // Remove non-numeric characters
+                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                  }}
                 />
               </div>
               <div className="publish-price">
@@ -628,6 +654,10 @@ const Publish = (props) => {
                   placeholder="Titre"
                   className="publish-type3 input"
                   onBlur={saveData}
+                  onInput={(e) => {
+                    // Remove non-numeric characters
+                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                  }}
                 />
               </div>
               <div className="publish-additional">
