@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Helmet } from "react-helmet";
@@ -9,7 +9,47 @@ import TestimonialCard from "../components/testimonial-card";
 import Footer from "../components/footer";
 import "./home.css";
 
+import { getDatabase, ref, get } from "firebase/database";
+
 const Home = (props) => {
+  const [totalListings, setTotalListings] = useState(0);
+
+  useEffect(() => {
+    const fetchTotalListings = async () => {
+      const database = getDatabase();
+      const saleListingsRef = ref(database, "listings/sale");
+      const rentListingsRef = ref(database, "listings/rent");
+
+      try {
+        const [saleSnapshot, rentSnapshot] = await Promise.all([
+          get(saleListingsRef),
+          get(rentListingsRef),
+        ]);
+
+        const saleData = saleSnapshot.val();
+        const rentData = rentSnapshot.val();
+
+        let tempTotal = 0;
+
+        if (saleData) {
+          const saleListingsArray = Object.values(saleData);
+          tempTotal += saleListingsArray.length;
+        }
+
+        if (rentData) {
+          const rentListingsArray = Object.values(rentData);
+          tempTotal += rentListingsArray.length;
+        }
+
+        setTotalListings(tempTotal);
+      } catch (error) {
+        console.error("Error fetching listings:", error);
+      }
+    };
+
+    fetchTotalListings();
+  }, []);
+
   return (
     <div className="home-container">
       <Helmet>
@@ -133,7 +173,7 @@ const Home = (props) => {
             </div>
             <div className="home-stat2">
               <h1 className="home-text27">
-                <span className="home-text28">0</span>
+                <span className="home-text28">{totalListings}+</span>
                 <br></br>
               </h1>
               <span className="home-text30">Annonces</span>

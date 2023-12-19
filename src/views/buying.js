@@ -10,7 +10,6 @@ import Details from "../components/details";
 import "./buying.css";
 
 import { getDatabase, ref, onValue } from "firebase/database";
-import { getStorage } from "firebase/storage";
 
 const Buying = (props) => {
   // State to hold sale listings
@@ -31,32 +30,38 @@ const Buying = (props) => {
   };
 
   // State variables for filters
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(null);
+  // const [minPrice, setMinPrice] = useState(0);
+  // const [maxPrice, setMaxPrice] = useState(null);
   const [nature, setNature] = useState("0");
   const [city, setCity] = useState("0");
+  const [range, setRange] = useState("0");
 
   // Function to update filter states
   const updateFilters = () => {
     // Get filter values from inputs and update state variables
-    const newMinPrice = parseInt(
-      document.querySelector(".buying-textinput").value
-    );
-    const newMaxPrice = parseInt(
-      document.querySelector(".buying-textinput1").value
-    );
-    const newNature = document.querySelector(".buying-select").value;
-    const newcity = document.querySelector(".buying-select1").value;
+    // const newMinPrice = parseInt(
+    //   document.querySelector(".buying-textinput").value
+    // );
+    // const newMaxPrice = parseInt(
+    //   document.querySelector(".buying-textinput1").value
+    // );
+    const newNature = document.getElementById("nature").value;
+    const newcity = document.getElementById("city").value;
+    const newRange = document.getElementById("intervalSelect").value;
 
-    if (newMinPrice > newMaxPrice || newMinPrice < 0 || newMaxPrice < 0) {
-      alert("Merci de verifier les valeurs de filtrage");
-      return;
-    }
-
-    setMinPrice(newMinPrice);
-    setMaxPrice(newMaxPrice);
     setNature(newNature);
     setCity(newcity);
+    setRange(newRange);
+
+    //TODO update IDs
+
+    // if (newMinPrice > newMaxPrice || newMinPrice < 0 || newMaxPrice < 0) {
+    //   alert("Merci de verifier les valeurs de filtrage");
+    //   return;
+    // }
+
+    // setMinPrice(newMinPrice);
+    // setMaxPrice(newMaxPrice);
   };
 
   // Effect to fetch sale listings from Firebase
@@ -77,15 +82,19 @@ const Buying = (props) => {
               return false;
             }
 
-            // Filter by minPrice
-            if (minPrice > 0 && listing.price < minPrice) {
-              return false;
-            }
+            // PRICE FILTERING DISABLED
 
-            // Filter by maxPrice
-            if (maxPrice && listing.price > maxPrice) {
-              return false;
-            }
+            // // Filter by minPrice
+            // if (minPrice > 0 && listing.price < minPrice) {
+            //   return false;
+            // }
+
+            // // Filter by maxPrice
+            // if (maxPrice && listing.price > maxPrice) {
+            //   return false;
+            // }
+
+            // Filter by nature
 
             // Filter by nature
             if (nature !== "0" && listing.nature !== nature) {
@@ -94,6 +103,10 @@ const Buying = (props) => {
 
             // Filter by city
             if (city !== "0" && listing.city !== city) {
+              return false;
+            }
+
+            if (range !== "0" && listing.interval !== range) {
               return false;
             }
 
@@ -106,7 +119,7 @@ const Buying = (props) => {
     };
 
     fetchSaleListings();
-  }, [minPrice, maxPrice, nature, city]);
+  }, [range, nature, city]);
 
   return (
     <div className="buying-container">
@@ -144,7 +157,7 @@ const Buying = (props) => {
         <div className="buying-container3">
           <div className="buying-container4">
             <h1 className="buying-text2">Recherche avancée</h1>
-            <div className="buying-container5">
+            {/* <div className="buying-container5">
               <input
                 type="text"
                 placeholder="MIN (TND)"
@@ -163,9 +176,31 @@ const Buying = (props) => {
                   e.target.value = e.target.value.replace(/[^0-9]/g, "");
                 }}
               />
-            </div>
+            </div> */}
 
-            <select className="buying-select" defaultValue={"0"}>
+            <select
+              id="intervalSelect"
+              name="interval"
+              className="buying-select"
+            >
+              <option value="0">Fourchette</option>
+              <option value="[-100,000 TND]">[-100,000 TND]</option>
+              <option value="[100,000 - 200,000 TND]">
+                [100,000 - 200,000 TND]
+              </option>
+              <option value="[200,000 - 500,000 TND]">
+                [200,000 - 500,000 TND]
+              </option>
+              <option value="[500,000 - 1,000,000 TND]">
+                [500,000 - 1,000,000 TND]
+              </option>
+              <option value="[1,000,000 - 2,000,000 TND]">
+                [1,000,000 - 2,000,000 TND]
+              </option>
+              <option value="[2,000,000+]">[2,000,000+]</option>
+            </select>
+
+            <select className="buying-select" defaultValue={"0"} id="nature">
               <option value="0">Type</option>
               <option value="appartment">Appartment</option>
               <option value="penthouse">Penthouse</option>
@@ -174,7 +209,7 @@ const Buying = (props) => {
               <option value="terrain">Terrain</option>
             </select>
 
-            <select className="buying-select1" defaultValue={"0"}>
+            <select className="buying-select1" defaultValue={"0"} id="city">
               <option value="0">Ville</option>
               <option value="Tunis">Tunis</option>
               <option value="Ariana">Ariana</option>
