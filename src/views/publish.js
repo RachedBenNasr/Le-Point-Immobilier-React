@@ -654,10 +654,6 @@ const Publish = (props) => {
                   placeholder="Titre"
                   className="publish-type3 input"
                   onBlur={saveData}
-                  onInput={(e) => {
-                    // Remove non-numeric characters
-                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
-                  }}
                 />
               </div>
               <div className="publish-additional">

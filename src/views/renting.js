@@ -13,9 +13,9 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { getStorage } from "firebase/storage";
 
 const Renting = (props) => {
-  // State to hold sale listings
+  // State to hold rent listings
 
-  const [saleListings, setSaleListings] = useState([]);
+  const [rentListings, setRentListings] = useState([]);
 
   const [detailsVisible, setDetailsVisible] = useState(false);
   const [selectedListing, setSelectedListing] = useState(null);
@@ -63,13 +63,13 @@ const Renting = (props) => {
     // setMaxPrice(newMaxPrice);
   };
 
-  // Effect to fetch sale listings from Firebase
+  // Effect to fetch rent listings from Firebase
   useEffect(() => {
-    const fetchSaleListings = async () => {
+    const fetchRentListings = async () => {
       const database = getDatabase();
-      const saleListingsRef = ref(database, "listings/rent");
+      const rentListingsRef = ref(database, "listings/rent");
 
-      onValue(saleListingsRef, (snapshot) => {
+      onValue(rentListingsRef, (snapshot) => {
         const data = snapshot.val();
         if (data) {
           const listingsArray = Object.values(data).filter((listing) => {
@@ -109,12 +109,12 @@ const Renting = (props) => {
             return true; // Include the listing if it passes all filters
           });
 
-          setSaleListings(listingsArray);
+          setRentListings(listingsArray);
         }
       });
     };
 
-    fetchSaleListings();
+    fetchRentListings();
   }, [range, nature, city]);
 
   return (
@@ -240,7 +240,7 @@ const Renting = (props) => {
             </div>
           </div>
           <div className="buying-container7">
-            {saleListings.map((listing) => (
+            {rentListings.map((listing) => (
               <div key={listing.id} onClick={() => handleListingClick(listing)}>
                 <RentingListing
                   id={listing.id}
