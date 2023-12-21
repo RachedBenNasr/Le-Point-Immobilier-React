@@ -1,14 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { Helmet } from 'react-helmet'
+import { Helmet } from "react-helmet";
 
-import Header from '../components/header'
-import ServiceCards from '../components/service-cards'
-import Footer from '../components/footer'
-import './services.css'
+import Header from "../components/header";
+import ServiceCards from "../components/service-cards";
+import Footer from "../components/footer";
+import "./services.css";
 
 const Services = (props) => {
+  const alertFire = () => {
+    alert("Service bientôt disponible.");
+  };
+
   return (
     <div className="services-container">
       <Helmet>
@@ -39,22 +43,26 @@ const Services = (props) => {
         </div>
         <div id="CARDS" className="services-blog">
           <div className="services-container2">
-            <ServiceCards
-              date="Location"
-              label="Browse→"
-              imageSrc="https://images.unsplash.com/flagged/photo-1564767609424-270b9df918e1?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fGhvdXNlJTIwa2V5fGVufDB8fHx8MTY5MjU1Njk0NXww&amp;ixlib=rb-4.0.3&amp;w=1500"
-              description="Trouvez votre location idéale"
-              rootClassName="rootClassName2"
-              className="services-component1"
-            ></ServiceCards>
-            <ServiceCards
-              date="Opportunités"
-              label="Browse→"
-              imageSrc="https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEwfHxzdG9ja3N8ZW58MHx8fHwxNjkyNTU5Mzk0fDA&amp;ixlib=rb-4.0.3&amp;w=1500"
-              description="Des investissements adaptées à votre budget, riches en valeur."
-              rootClassName="rootClassName3"
-              className="services-component2"
-            ></ServiceCards>
+            <Link to="/renting" className="services-navlink">
+              <ServiceCards
+                date="Location"
+                label="Browse→"
+                imageSrc="https://images.unsplash.com/flagged/photo-1564767609424-270b9df918e1?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDN8fGhvdXNlJTIwa2V5fGVufDB8fHx8MTY5MjU1Njk0NXww&amp;ixlib=rb-4.0.3&amp;w=1500"
+                description="Trouvez votre location idéale"
+                rootClassName="rootClassName2"
+                className="services-component1"
+              ></ServiceCards>
+            </Link>
+            <div onClick={alertFire}>
+              <ServiceCards
+                date="Opportunités"
+                label="Browse→"
+                imageSrc="https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEwfHxzdG9ja3N8ZW58MHx8fHwxNjkyNTU5Mzk0fDA&amp;ixlib=rb-4.0.3&amp;w=1500"
+                description="Des investissements adaptées à votre budget, riches en valeur."
+                rootClassName="rootClassName3"
+                className="services-component2"
+              ></ServiceCards>
+            </div>
           </div>
           <div className="services-container3">
             <Link to="/buying" className="services-navlink">
@@ -79,14 +87,16 @@ const Services = (props) => {
             </Link>
           </div>
           <div className="services-container4">
-            <ServiceCards
-              date="Commercial"
-              label="Browse→"
-              imageSrc="https://images.unsplash.com/photo-1570838562484-e873ff08d81f?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEzfHxnYXMlMjBzdGF0aW9ufGVufDB8fHx8MTY5MjU1Njk4N3ww&amp;ixlib=rb-4.0.3&amp;w=1500"
-              description="Découvrez des opportunités commerciales lucratives"
-              rootClassName="rootClassName1"
-              className="services-component5"
-            ></ServiceCards>
+            <Link to="/commercial" className="services-navlink">
+              <ServiceCards
+                date="Commercial"
+                label="Browse→"
+                imageSrc="https://images.unsplash.com/photo-1570838562484-e873ff08d81f?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEzfHxnYXMlMjBzdGF0aW9ufGVufDB8fHx8MTY5MjU1Njk4N3ww&amp;ixlib=rb-4.0.3&amp;w=1500"
+                description="Découvrez des opportunités commerciales lucratives"
+                rootClassName="rootClassName1"
+                className="services-component5"
+              ></ServiceCards>
+            </Link>
             <Link to="/promote" className="services-navlink2">
               <ServiceCards
                 date="Promotion"
@@ -102,7 +112,7 @@ const Services = (props) => {
         <Footer rootClassName="footer-root-class-name"></Footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;

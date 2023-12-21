@@ -23,6 +23,7 @@ import Services from "./views/services";
 import Renting from "./views/renting";
 import opportunities from "./views/opportunities";
 import Thanking from "./views/thanking";
+import Commercial from "./views/commercial";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDM-Zt-YIpUKD7CaSaVFHiJdY7HnD-A8p0",
@@ -54,6 +55,7 @@ const App = () => {
         <Route component={Renting} exact path="/renting" />
         <Route component={opportunities} exact path="/opportunities" />
         <Route component={Thanking} exact path="/thanking" />
+        <Route component={Commercial} exact path="/commercial" />
         <Route component={NotFound} path="**" />
       </Switch>
     </Router>

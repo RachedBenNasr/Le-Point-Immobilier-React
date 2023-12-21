@@ -53,8 +53,6 @@ const Buying = (props) => {
     setCity(newcity);
     setRange(newRange);
 
-    //TODO update IDs
-
     // if (newMinPrice > newMaxPrice || newMinPrice < 0 || newMaxPrice < 0) {
     //   alert("Merci de verifier les valeurs de filtrage");
     //   return;
