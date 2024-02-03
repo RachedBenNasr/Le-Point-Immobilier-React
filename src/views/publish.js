@@ -12,7 +12,8 @@ import { getStorage, ref as sref, uploadBytes } from "firebase/storage";
 const Publish = (props) => {
   const [formData, setFormData] = useState({
     name: "",
-    phoneNumber: "",
+    phoneNumber1: "",
+    phoneNumber2: "",
     email: "",
     nature: "",
     beds: "",
@@ -23,7 +24,8 @@ const Publish = (props) => {
     commercialType: "",
     city: "",
     location: "",
-    area: "",
+    areaC: "",
+    areaNC: "",
     viabilise: "",
     propertyTitle: "",
     price: "",
@@ -34,6 +36,7 @@ const Publish = (props) => {
     state: "requested",
     dateTime: "",
     interval: "",
+    publishDate: new Date().toISOString(),
   });
 
   const saveData = (e) => {
@@ -261,12 +264,28 @@ const Publish = (props) => {
                   placeholder="Nom et Prenom"
                   className="publish-name input"
                   onBlur={saveData}
+                  onInput={(e) => {
+                    // Allow only uppercase and lowercase letters and spaces
+                    e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, "");
+                  }}
                 />
                 <input
                   type="text"
-                  id="phoneNumber"
+                  id="phoneNumber1"
                   required
-                  placeholder="Numéro"
+                  placeholder="Numéro 1"
+                  className="publish-number input"
+                  onBlur={saveData}
+                  onInput={(e) => {
+                    // Remove non-numeric characters
+                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                  }}
+                />
+                <input
+                  type="text"
+                  id="phoneNumber2"
+                  required
+                  placeholder="Numéro 2"
                   className="publish-number input"
                   onBlur={saveData}
                   onInput={(e) => {
@@ -516,14 +535,26 @@ const Publish = (props) => {
               </div>
               <div className="publish-area1">
                 <span className="publish-text38">
-                  Quelle est la superficie totale de votre propriété en mètres
-                  carrés
+                  veuillez indiquer les superficies de votre propriété en metre
+                  carré :
                 </span>
                 <input
                   type="text"
-                  id="area"
+                  id="areaC"
                   required
-                  placeholder="Superficie"
+                  placeholder="Superficie couverte"
+                  className="publish-type2 input"
+                  onBlur={saveData}
+                  onInput={(e) => {
+                    // Remove non-numeric characters
+                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                  }}
+                />
+                <input
+                  type="text"
+                  id="areaNC"
+                  required
+                  placeholder="Superficie non couverte"
                   className="publish-type2 input"
                   onBlur={saveData}
                   onInput={(e) => {
@@ -563,7 +594,7 @@ const Publish = (props) => {
               </div>
               <div className="publish-legal">
                 <span className="publish-text42">
-                  Quel type de titre détient votre propriété
+                  votre propriété a-t-elle un titre bleu?
                 </span>
                 <div className="publish-container20">
                   <input
@@ -572,10 +603,10 @@ const Publish = (props) => {
                     required
                     className="publish-radiobutton12"
                     id="propertyTitle"
-                    value="bleu"
+                    value="Oui"
                     onBlur={saveData}
                   />
-                  <span>Titre Bleu / Titre Individuel</span>
+                  <span>oui</span>
                 </div>
                 <div className="publish-container21">
                   <input
@@ -584,10 +615,10 @@ const Publish = (props) => {
                     required
                     className="publish-radiobutton13"
                     id="propertyTitle"
-                    value="jumelé"
+                    value="Non"
                     onBlur={saveData}
                   />
-                  <span>Titre Jumelé</span>
+                  <span>Non</span>
                 </div>
               </div>
               <div className="publish-uploads">
@@ -662,7 +693,22 @@ const Publish = (props) => {
                   placeholder="Details"
                   className="publish-textarea textarea"
                   id="body"
-                  onBlur={saveData}
+                  onBlur={(e) => {
+                    saveData(e); // Call the saveData function
+
+                    // Check for the presence of a phone number (8 consecutive digits)
+                    const phoneNumberRegex = /\b\d{8}\b/;
+                    const hasPhoneNumber = phoneNumberRegex.test(
+                      e.target.value
+                    );
+
+                    if (hasPhoneNumber) {
+                      alert(
+                        "Veuillez supprimer le numéro de téléphone de la description."
+                      );
+                    }
+                  }}
+                  maxlength="2000"
                 ></textarea>
               </div>
               <button type="submit" className="publish-button button">

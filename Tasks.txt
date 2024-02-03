@@ -1,9 +1,9 @@
 ✓
 
 //TODO: twinning of ads
-//TODO: logos at the bottom
-//TODO: bigger font
-//TODO: double number
+//DONE: logos at the bottom
+//DONE: bigger font
+//DONE: double number
 local commerciale
 //TODO: +bureaux
 
@@ -21,21 +21,21 @@ local commerciale
 
 //TODO: adresse + num + region
 
-//TODO: superficie /2
+//DONE: superficie /2
 
 //TODO: viablisiation to be deleted
 
 //TODO: + year of construction
 
-//TODO: title : blue : yes /  no
+//DONE: title : blue : yes /  no
 
-//TODO: details limited to 2000
+//DONE: details limited to 2000
 
-//TODO: +date de depot
+//DONE: +date de depot
 
 //TODO: + promoters get a case in the form (the promote page is just informative) 2 types of plans.
 
-//TODO: + number detection in the description
+//DONE: + number detection in the description
 
 //TODO: + add to the filters (S+ Baths etc)
 
