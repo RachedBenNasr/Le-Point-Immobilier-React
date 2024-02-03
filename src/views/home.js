@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import Header from "../components/header";
 import GalleryCard3 from "../components/gallery-card3";
 import TestimonialCard from "../components/testimonial-card";
+
 import Footer from "../components/footer";
 import "./home.css";
 
@@ -316,6 +317,8 @@ const Home = (props) => {
           </div>
         </div>
         <div className="home-separator4"></div>
+        
+
         <Footer></Footer>
       </div>
     </div>

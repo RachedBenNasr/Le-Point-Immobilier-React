@@ -23,6 +23,14 @@ const RentingListing = (props) => {
           const firstImageRef = listingImages.items[0];
           const thumbnailURL = await getDownloadURL(firstImageRef);
           setThumbnailURL(thumbnailURL);
+        } else {
+          const storage = getStorage();
+          const listingRef = ref(storage, `sale/${props.id}`);
+          // List all items in the folder
+          const listingImages = await listAll(listingRef);
+          const firstImageRef = listingImages.items[0];
+          const thumbnailURL = await getDownloadURL(firstImageRef);
+          setThumbnailURL(thumbnailURL);
         }
       } catch (error) {
         console.error("Error fetching thumbnail:", error);

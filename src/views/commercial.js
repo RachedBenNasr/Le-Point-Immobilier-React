@@ -9,8 +9,7 @@ import Footer from "../components/footer";
 import Details from "../components/details";
 import "./buying.css";
 
-import { getDatabase, ref, onValue, get } from "firebase/database";
-import { getStorage } from "firebase/storage";
+import { getDatabase, ref, get } from "firebase/database";
 
 const Commercial = (props) => {
   // State to hold rent listings

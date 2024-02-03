@@ -1,7 +1,15 @@
+.all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+      
+}
+
 .footer-footer {
   width: 100%;
   display: flex;
-  position: relative;
+  align-self: center;
   max-width: var(--dl-size-size-maxwidth);
   align-items: center;
   padding-top: var(--dl-space-space-twounits);
@@ -26,10 +34,10 @@
   justify-content: center;
 }
 .footer-text {
-  margin-right: var(--dl-space-space-halfunit);
+  margin-right: 5px;
 }
 .footer-date-time {
-  margin-right: var(--dl-space-space-halfunit);
+  margin-right: 5px;
 }
 .footer-icon-group {
   display: flex;
