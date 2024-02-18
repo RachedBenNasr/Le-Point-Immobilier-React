@@ -1,31 +1,27 @@
-✓
-
 //TODO: twinning of ads
 //DONE: logos at the bottom
 //DONE: bigger font
 //DONE: double number
 local commerciale
-//TODO: +bureaux
+//DONE: +bureaux
 
-//TODO: plots:
-//TODO: for villa
-//TODO: indus
-//TODO: agricolture
-//TODO: for promotion 	
+//DONE: plots:
+ for villa
+ indus
+ agricolture
+ for promotion 	
 
-//TODO: radios to boxes
-//TODO: details to add (look at reference) +++ cuisine equipé
+//DONE: radios to boxes
+//DONE: details to add (look at reference) +++ cuisine equipé
 
-//TODO: add duplex to nature
+//DONE: add duplex to nature
 //TODO: advertising column to the right
-
-//TODO: adresse + num + region
 
 //DONE: superficie /2
 
-//TODO: viablisiation to be deleted
+//DONE: viablisiation to be deleted
 
-//TODO: + year of construction
+//DONE: + year of construction
 
 //DONE: title : blue : yes /  no
 
@@ -33,9 +29,8 @@ local commerciale
 
 //DONE: +date de depot
 
-//TODO: + promoters get a case in the form (the promote page is just informative) 2 types of plans.
+//DONE: + promoters get a case in the form (the promote page is just informative) 2 types of plans.
 
 //DONE: + number detection in the description
 
 //TODO: + add to the filters (S+ Baths etc)
-

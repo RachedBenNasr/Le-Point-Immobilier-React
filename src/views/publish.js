@@ -15,18 +15,20 @@ const Publish = (props) => {
     phoneNumber1: "",
     phoneNumber2: "",
     email: "",
+    role: "",
     nature: "",
     beds: "",
     baths: "",
     garden: false,
     pool: false,
     garage: false,
+    cuisine: false,
     commercialType: "",
     city: "",
     location: "",
     areaC: "",
     areaNC: "",
-    viabilise: "",
+    yearBuilt: "",
     propertyTitle: "",
     price: "",
     header: "",
@@ -36,14 +38,18 @@ const Publish = (props) => {
     state: "requested",
     dateTime: "",
     interval: "",
+    terrainType: "",
     publishDate: new Date().toISOString(),
   });
 
   const saveData = (e) => {
     const { id, value, type } = e.target;
-
-    // Convert boolean values for radio buttons
-    const inputValue = type === "radio" ? value === "true" : value;
+    var inputValue = "";
+    if (id != "role" && id != "propertyTitle") {
+      inputValue = type === "radio" ? value === "true" : value;
+    } else {
+      inputValue = value;
+    }
 
     setFormData((prevData) => ({
       ...prevData,
@@ -86,6 +92,13 @@ const Publish = (props) => {
     console.log("this property is for " + e.target.value);
     setCategory(e.target.value);
   };
+
+  const currentYear = new Date().getFullYear();
+  const startYear = 1900;
+  const years = Array.from(
+    { length: currentYear - startYear + 1 },
+    (_, index) => startYear + index
+  ).reverse();
 
   // Function to resize and compress an image
   const resizeAndCompressImage = async (file) => {
@@ -303,7 +316,34 @@ const Publish = (props) => {
                 />
               </div>
               <div className="publish-purpose">
-                <span className="publish-text12">Type d&apos;annonce</span>
+                <span className="publish-text12">Vous êtes:</span>
+                <div className="publish-container02">
+                  <input
+                    type="radio"
+                    name="role"
+                    required
+                    className="publish-radiobutton"
+                    value="promoter"
+                    id="role"
+                    onBlur={saveData}
+                  />
+                  <span>Promoteur immobilier</span>
+                </div>
+                <div className="publish-container03">
+                  <input
+                    type="radio"
+                    name="role"
+                    required
+                    className="publish-radiobutton01"
+                    value="person"
+                    id="role"
+                    onBlur={saveData}
+                  />
+                  <span>Particulier</span>
+                </div>
+              </div>
+              <div className="publish-purpose">
+                <span className="publish-text12">Type d'annonce</span>
                 <div className="publish-container02">
                   <input
                     type="radio"
@@ -342,10 +382,9 @@ const Publish = (props) => {
                   id="nature"
                   defaultValue="0"
                 >
-                  <option value="0">
-                    Veuillez sélectionner la nature de votre annonce
-                  </option>
+                  <option value="0">La nature de votre annonce</option>
                   <option value="appartement">Appartement</option>
+                  <option value="duplex">Duplex</option>
                   <option value="penthouse">Penthouse</option>
                   <option value="villa">Villa</option>
                   <option value="commercial">Commercial</option>
@@ -479,6 +518,33 @@ const Publish = (props) => {
                           <span>Non</span>
                         </div>
                       </div>
+                      <div className="publish-container15">
+                        <span>la cuisine est-elle équipée</span>
+                        <div className="publish-container16">
+                          <input
+                            type="radio"
+                            name="cuisine"
+                            required
+                            className="publish-radiobutton08"
+                            id="cuisine"
+                            value={true}
+                            onBlur={saveData}
+                          />
+                          <span>Oui</span>
+                        </div>
+                        <div className="publish-container17">
+                          <input
+                            type="radio"
+                            name="cuisine"
+                            required
+                            className="publish-radiobutton09"
+                            id="cuisine"
+                            value={false}
+                            onBlur={saveData}
+                          />
+                          <span>Non</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -495,6 +561,23 @@ const Publish = (props) => {
                     className="publish-type input"
                     onBlur={saveData}
                   />
+                </div>
+              )}
+              {propertyType === "terrain" && (
+                <div className="publish-area1">
+                  <span className="publish-text33">Zonage du terrain</span>
+                  <select
+                    required
+                    className="publish-select1"
+                    id="terrainType"
+                    onBlur={saveData}
+                  >
+                    <option defaultValue={0}>Terrain pour...</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Industrie">Industrie</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Promotion">Promotion</option>
+                  </select>
                 </div>
               )}
               <div className="publish-location">
@@ -563,7 +646,20 @@ const Publish = (props) => {
                   }}
                 />
               </div>
-              <div className="publish-services">
+              <span className="publish-text42">Année de construction</span>
+              <select
+                required
+                id="yearBuilt"
+                name="yearBuilt"
+                className="publish-select1"
+                onChange={saveData}
+              >
+                <option defaultValue={0}>Choisir ...</option>
+                {years.map((year) => (
+                  <option value={year}>{year}</option>
+                ))}
+              </select>
+              {/* <div className="publish-services">
                 <span className="publish-text39">
                   Votre propriété est-elle viabilisé (eau, électricité, gaz)
                 </span>
@@ -591,7 +687,7 @@ const Publish = (props) => {
                   />
                   <span>Non</span>
                 </div>
-              </div>
+              </div> */}
               <div className="publish-legal">
                 <span className="publish-text42">
                   votre propriété a-t-elle un titre bleu?
@@ -603,10 +699,10 @@ const Publish = (props) => {
                     required
                     className="publish-radiobutton12"
                     id="propertyTitle"
-                    value="Oui"
+                    value="oui"
                     onBlur={saveData}
                   />
-                  <span>oui</span>
+                  <span>Oui</span>
                 </div>
                 <div className="publish-container21">
                   <input
@@ -615,7 +711,7 @@ const Publish = (props) => {
                     required
                     className="publish-radiobutton13"
                     id="propertyTitle"
-                    value="Non"
+                    value="non"
                     onBlur={saveData}
                   />
                   <span>Non</span>
@@ -708,7 +804,7 @@ const Publish = (props) => {
                       );
                     }
                   }}
-                  maxlength="2000"
+                  maxLength="2000"
                 ></textarea>
               </div>
               <button type="submit" className="publish-button button">
