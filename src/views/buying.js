@@ -32,35 +32,11 @@ const Buying = (props) => {
   // State variables for filters
   // const [minPrice, setMinPrice] = useState(0);
   // const [maxPrice, setMaxPrice] = useState(null);
+  const [Fbaths, setBaths] = useState("0");
+  const [Fbeds, setBeds] = useState("0");
   const [nature, setNature] = useState("0");
   const [city, setCity] = useState("0");
   const [range, setRange] = useState("0");
-
-  // Function to update filter states
-  const updateFilters = () => {
-    // Get filter values from inputs and update state variables
-    // const newMinPrice = parseInt(
-    //   document.querySelector(".buying-textinput").value
-    // );
-    // const newMaxPrice = parseInt(
-    //   document.querySelector(".buying-textinput1").value
-    // );
-    const newNature = document.getElementById("nature").value;
-    const newcity = document.getElementById("city").value;
-    const newRange = document.getElementById("intervalSelect").value;
-
-    setNature(newNature);
-    setCity(newcity);
-    setRange(newRange);
-
-    // if (newMinPrice > newMaxPrice || newMinPrice < 0 || newMaxPrice < 0) {
-    //   alert("Merci de verifier les valeurs de filtrage");
-    //   return;
-    // }
-
-    // setMinPrice(newMinPrice);
-    // setMaxPrice(newMaxPrice);
-  };
 
   // Effect to fetch sale listings from Firebase
   useEffect(() => {
@@ -107,6 +83,19 @@ const Buying = (props) => {
             if (range !== "0" && listing.interval !== range) {
               return false;
             }
+            if (Fbeds !== "0" && listing.beds !== Fbeds) {
+              return false;
+            }
+            if (Fbaths !== "0" && listing.baths !== Fbaths) {
+              return false;
+            }
+
+            console.log(
+              "local beds are " + Fbeds + " remote beds are " + listing.beds
+            );
+            console.log(
+              "local baths are " + Fbaths + " remote beds are " + listing.baths
+            );
 
             return true; // Include the listing if it passes all filters
           });
@@ -117,7 +106,35 @@ const Buying = (props) => {
     };
 
     fetchSaleListings();
-  }, [range, nature, city]);
+  }, [range, nature, city, Fbeds, Fbaths]);
+
+  const updateFilters = () => {
+    // Get filter values from inputs and update state variables
+    // const newMinPrice = parseInt(
+    //   document.querySelector(".buying-textinput").value
+    // );
+    // const newMaxPrice = parseInt(
+    //   document.querySelector(".buying-textinput1").value
+    // );
+    const newNature = document.getElementById("nature").value;
+    const newcity = document.getElementById("city").value;
+    const newRange = document.getElementById("intervalSelect").value;
+    const newBaths = document.getElementById("baths").value;
+    const newBeds = document.getElementById("beds").value;
+
+    setNature(newNature);
+    setCity(newcity);
+    setRange(newRange);
+    setBaths(newBaths);
+    setBeds(newBeds);
+    // if (newMinPrice > newMaxPrice || newMinPrice < 0 || newMaxPrice < 0) {
+    //   alert("Merci de verifier les valeurs de filtrage");
+    //   return;
+    // }
+
+    // setMinPrice(newMinPrice);
+    // setMaxPrice(newMaxPrice);
+  };
 
   return (
     <div className="buying-container">
@@ -155,26 +172,34 @@ const Buying = (props) => {
         <div className="buying-container3">
           <div className="buying-container4">
             <h1 className="buying-text2">Recherche avancée</h1>
-            {/* <div className="buying-container5">
-              <input
-                type="text"
-                placeholder="MIN (TND)"
-                className="buying-textinput input"
-                onInput={(e) => {
-                  // Remove non-numeric characters
-                  e.target.value = e.target.value.replace(/[^0-9]/g, "");
-                }}
-              />
-              <input
-                type="text"
-                placeholder="MAX (TND)"
-                className="buying-textinput1 input"
-                onInput={(e) => {
-                  // Remove non-numeric characters
-                  e.target.value = e.target.value.replace(/[^0-9]/g, "");
-                }}
-              />
-            </div> */}
+            <div className="buying-container5">
+              <select id="baths" type="text" className="buying-select">
+                <option value="0">S+...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <select id="beds" type="select" className="buying-select">
+                <option value="0">Salles de bain</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
 
             <select
               id="intervalSelect"
