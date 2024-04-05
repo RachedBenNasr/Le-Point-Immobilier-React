@@ -94,7 +94,7 @@ const Buying = (props) => {
               "local beds are " + Fbeds + " remote beds are " + listing.beds
             );
             console.log(
-              "local baths are " + Fbaths + " remote beds are " + listing.baths
+              "local baths are " + Fbaths + " remote baths are " + listing.baths
             );
 
             return true; // Include the listing if it passes all filters
@@ -116,7 +116,7 @@ const Buying = (props) => {
     // const newMaxPrice = parseInt(
     //   document.querySelector(".buying-textinput1").value
     // );
-    const newNature = document.getElementById("nature").value;
+    const newNature = document.getElementById("nature").value;    
     const newcity = document.getElementById("city").value;
     const newRange = document.getElementById("intervalSelect").value;
     const newBaths = document.getElementById("baths").value;
