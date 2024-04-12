@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./redirection.css";
 
-const Redirection = (props) => {
+const Redirection = () => {
   return (
     <div className="redirection-hero">
       <h1 className="redirection-text">Merci de nous faire confiance.</h1>

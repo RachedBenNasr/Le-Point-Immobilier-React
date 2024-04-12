@@ -1,4 +1,4 @@
-//TODO: twinning of ads
+
 //DONE: logos at the bottom
 //DONE: bigger font
 //DONE: double number
@@ -15,7 +15,7 @@ local commerciale
 //DONE: details to add (look at reference) +++ cuisine equipé
 
 //DONE: add duplex to nature
-//TODO: advertising column to the right
+
 
 //DONE: superficie /2
 

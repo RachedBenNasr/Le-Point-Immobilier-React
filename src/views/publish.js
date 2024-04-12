@@ -223,7 +223,11 @@ const Publish = (props) => {
 
       setLoading(false);
       setProgress(0);
-      window.location.href = "/thanking";
+      if (formData.role == "person") {
+        window.location.href = "/thanking";
+      } else {
+        window.location.href = "/thanking";
+      }
     } catch (error) {
       console.log(error.message);
       setLoading(false);
