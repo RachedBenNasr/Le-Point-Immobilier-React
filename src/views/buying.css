@@ -112,10 +112,11 @@
   text-align: center;
 }
 .buying-container5 {
-  flex: 0 0 auto;
+  
   width: 100%;
   height: auto;
   display: flex;
+  flex-direction: column;
   padding: var(--dl-space-space-halfunit);
   align-items: flex-start;
 }
@@ -134,8 +135,8 @@
   background-color: rgba(217, 217, 217, 0.28);
 }
 .buying-select {
-  width: 90%;
-  margin: var(--dl-space-space-unit);
+  width: 100%;
+  margin-bottom: 10px;
   padding: var(--dl-space-space-halfunit);
   border-color: #000000;
   border-width: 1px;
@@ -144,7 +145,7 @@
 }
 .buying-select1 {
   width: 90%;
-  margin: var(--dl-space-space-unit);
+  margin-bottom: 10px;
   padding: var(--dl-space-space-halfunit);
   border-color: #000000;
   border-width: 1px;

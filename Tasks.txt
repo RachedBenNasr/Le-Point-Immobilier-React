@@ -33,4 +33,4 @@ local commerciale
 
 //DONE: + number detection in the description
 
-//TODO: + add to the filters (S+ Baths etc)
+//DONE: + add to the filters (S+ Baths etc)
