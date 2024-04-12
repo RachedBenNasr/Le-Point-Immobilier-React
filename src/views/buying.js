@@ -94,7 +94,7 @@ const Buying = (props) => {
             return true;
           });
 
-          setSaleListings(listingsArray); // Apply filtered listings
+          setSaleListings(listingsArray);
         }
       });
     };

@@ -28,41 +28,34 @@ const Commercial = (props) => {
     setDetailsVisible(false);
     setSelectedListing(null);
   };
-
-  // State variables for filters
-  // const [minPrice, setMinPrice] = useState(0);
-  // const [maxPrice, setMaxPrice] = useState(null);
-  const [nature, setNature] = useState("0");
-  const [city, setCity] = useState("0");
-  const [range, setRange] = useState("0");
-
-  // Function to update filter states
-  const updateFilters = () => {
-    // Get filter values from inputs and update state variables
-    // const newMinPrice = parseInt(
-    //   document.querySelector(".buying-textinput").value
-    // );
-    // const newMaxPrice = parseInt(
-    //   document.querySelector(".buying-textinput1").value
-    // );
-    const newNature = document.getElementById("nature").value;
-    const newcity = document.getElementById("city").value;
-    const newRange = document.getElementById("intervalSelect").value;
-
-    setNature(newNature);
-    setCity(newcity);
-    setRange(newRange);
-
-    // if (newMinPrice > newMaxPrice || newMinPrice < 0 || newMaxPrice < 0) {
-    //   alert("Merci de verifier les valeurs de filtrage");
-    //   return;
-    // }
-
-    // setMinPrice(newMinPrice);
-    // setMaxPrice(newMaxPrice);
+  const initialFilters = {
+    baths: "",
+    beds: "",
+    interval: "",
+    nature: "",
+    city: "",
   };
 
-  // Effect to fetch rent listings from Firebase
+  const [filters, setFilters] = useState(initialFilters);
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [id]: value,
+    }));
+  };
+
+  const updateFilters = () => {
+    console.log("Selected Filters:", filters);
+    // Here you can perform further actions like filtering data or making API calls
+  };
+
+  const resetFilters = () => {
+    setFilters(initialFilters);
+  };
+
+  // Effect to fetch commercial  listings from Firebase
   useEffect(() => {
     const fetchRentListings = async () => {
       const database = getDatabase();
@@ -97,23 +90,31 @@ const Commercial = (props) => {
         return false;
       }
 
-      if (nature !== "0" && listing.nature !== nature) {
+      if (filters.city && listing.city !== filters.city) {
+        console.log("city failed");
         return false;
       }
-
-      if (city !== "0" && listing.city !== city) {
+      if (filters.nature && listing.nature !== filters.nature) {
+        console.log("nature failed");
         return false;
       }
-
-      if (range !== "0" && listing.interval !== range) {
+      if (filters.range && listing.interval !== filters.range) {
+        console.log("range failed");
         return false;
       }
-
+      if (filters.beds && listing.beds !== filters.beds) {
+        console.log("beds failed");
+        return false;
+      }
+      if (filters.baths && listing.baths !== filters.baths) {
+        console.log("baths failed");
+        return false;
+      }
       return true;
     };
 
     fetchRentListings();
-  }, [range, nature, city]);
+  }, [filters]);
 
   return (
     <div className="buying-container">
@@ -151,31 +152,40 @@ const Commercial = (props) => {
         <div className="buying-container3">
           <div className="buying-container4">
             <h1 className="buying-text2">Recherche avancée</h1>
-            {/* <div className="buying-container5">
+            <div className="buying-container5">
               <input
+                id="baths"
                 type="text"
-                placeholder="MIN (TND)"
-                className="buying-textinput input"
+                className="buying-select"
+                placeholder="Salles de bain"
                 onInput={(e) => {
                   // Remove non-numeric characters
                   e.target.value = e.target.value.replace(/[^0-9]/g, "");
                 }}
-              />
+                value={filters.baths}
+                onChange={handleInputChange}
+              ></input>
+
               <input
-                type="text"
-                placeholder="MAX (TND)"
-                className="buying-textinput1 input"
+                placeholder="S+1"
+                id="beds"
+                type="select"
+                className="buying-select"
                 onInput={(e) => {
                   // Remove non-numeric characters
                   e.target.value = e.target.value.replace(/[^0-9]/g, "");
                 }}
-              />
-            </div> */}
+                value={filters.beds}
+                onChange={handleInputChange}
+              ></input>
+            </div>
 
             <select
-              id="intervalSelect"
+              id="interval"
               name="interval"
               className="buying-select"
+              value={filters.interval}
+              onChange={handleInputChange}
             >
               <option value="0">Fourchette</option>
               <option value="[-100,000 TND]">[-100,000 TND]</option>
@@ -194,7 +204,12 @@ const Commercial = (props) => {
               <option value="[2,000,000+]">[2,000,000+]</option>
             </select>
 
-            <select className="buying-select" defaultValue={"0"} id="nature">
+            <select
+              className="buying-select"
+              id="nature"
+              value={filters.nature}
+              onChange={handleInputChange}
+            >
               <option value="0">Type</option>
               <option value="appartment">Appartment</option>
               <option value="penthouse">Penthouse</option>
@@ -203,7 +218,12 @@ const Commercial = (props) => {
               <option value="terrain">Terrain</option>
             </select>
 
-            <select className="buying-select1" defaultValue={"0"} id="city">
+            <select
+              className="buying-select1"
+              id="city"
+              value={filters.city}
+              onChange={handleInputChange}
+            >
               <option value="0">Ville</option>
               <option value="Tunis">Tunis</option>
               <option value="Ariana">Ariana</option>
@@ -228,9 +248,7 @@ const Commercial = (props) => {
               <button
                 type="reset"
                 className="buying-button1 "
-                onClick={() => {
-                  window.location.reload();
-                }}
+                onClick={resetFilters}
               >
                 <span className="buying-text6">Réinitialiser</span>
                 <br></br>
