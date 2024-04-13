@@ -38,6 +38,10 @@ const Contact = (props) => {
     request.requestid = newRequestKey.toString().split("/").pop();
 
     set(newRequestKey, request);
+    alert(
+      "merci de nous avoir contacté, nous reviendrons vers vous prochainement."
+    );
+    window.location.href = "/";
   };
 
   return (

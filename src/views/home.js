@@ -317,7 +317,6 @@ const Home = (props) => {
           </div>
         </div>
         <div className="home-separator4"></div>
-        
 
         <Footer></Footer>
       </div>
