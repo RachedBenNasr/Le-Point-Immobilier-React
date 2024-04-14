@@ -57,7 +57,7 @@ const Publish = (props) => {
       [id]: inputValue,
     }));
 
-    console.log("for " + id + " the value is now " + inputValue);
+    console.log("for " + id + " the value is NOW " + inputValue);
   };
 
   const [propertyType, setPropertyType] = useState("0");
