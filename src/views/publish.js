@@ -40,6 +40,7 @@ const Publish = (props) => {
     interval: "",
     terrainType: "",
     publishDate: new Date().toISOString(),
+    type: "",
   });
 
   const saveData = (e) => {
@@ -186,6 +187,7 @@ const Publish = (props) => {
       const storage = getStorage();
       const listingsRef = ref(db, "listings/" + category);
       const newListingKey = push(listingsRef);
+      formData.type = category;
 
       formData.price = parseInt(formData.price.replace(/[^0-9.]/g, ""));
 
