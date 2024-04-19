@@ -58,6 +58,7 @@ const Buying = (props) => {
   // Effect to fetch sale listings from Firebase
   useEffect(() => {
     const fetchSaleListings = async () => {
+      console.log("LATEST");
       const database = getDatabase();
       const saleListingsRef = ref(database, "listings/sale");
 
