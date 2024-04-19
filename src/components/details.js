@@ -23,6 +23,7 @@ const Details = (props) => {
     listingID: "",
     state: "unseen",
     dateTime: "",
+    type: "",
   });
 
   const [imageList, setImageList] = useState([]);
@@ -70,6 +71,7 @@ const Details = (props) => {
     quote.dateTime = Date.now();
     quote.email = document.querySelector(".details-textinput").value;
     quote.listingID = props.id;
+    quote.type = props.type;
 
     if (
       quote.email == "" ||
@@ -265,6 +267,7 @@ Details.defaultProps = {
   garden: "",
   nature: "",
   interval: "",
+  type: "",
 };
 
 Details.propTypes = {
@@ -287,6 +290,7 @@ Details.propTypes = {
   garden: PropTypes.bool,
   nature: PropTypes.string,
   interval: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default Details;

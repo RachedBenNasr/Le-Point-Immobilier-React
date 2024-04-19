@@ -288,6 +288,7 @@ const Buying = (props) => {
                 nature={selectedListing.nature}
                 interval={selectedListing.interval}
                 closeDetails={handleCloseDetails}
+                type={selectedListing.type}
               />
             </>
           )}
