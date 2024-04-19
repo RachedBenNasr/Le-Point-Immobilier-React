@@ -24,6 +24,7 @@ const Details = (props) => {
     state: "unseen",
     dateTime: "",
     type: "",
+    header: props.title,
   });
 
   const [imageList, setImageList] = useState([]);
