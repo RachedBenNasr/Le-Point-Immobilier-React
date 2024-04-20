@@ -119,6 +119,50 @@ const Details = (props) => {
               <span className="details-text02">Description:</span>
               <span className="details-text03">{props.body}</span>
             </div>
+            <div className="details-table-container">
+              <table className="details-table">
+                <thead>
+                  <tr>
+                    <th>Attribut</th>
+                    <th>Valeur</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Zone Construite</td>
+                    <td>{props.areaC}</td>
+                  </tr>
+                  <tr>
+                    <td>Zone Non Construite</td>
+                    <td>{props.areaNC}</td>
+                  </tr>
+                  <tr>
+                    <td>Ville</td>
+                    <td>{props.city}</td>
+                  </tr>
+                  {props.commercialType && (
+                    <tr>
+                      <td>Type Commercial</td>
+                      <td>{props.commercialType}</td>
+                    </tr>
+                  )}
+
+                  <tr>
+                    <td>Titre de Propriété</td>
+                    <td>{props.propertyTitle ? "Oui" : "Non"}</td>
+                  </tr>
+
+                  <tr>
+                    <td>Viabilisé</td>
+                    <td>{props.viabilise ? "Oui" : "Non"}</td>
+                  </tr>
+                  <tr>
+                    <td>Année de construction</td>
+                    <td>{props.yearBuilt}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <div className="details-right">
             <div className="details-info">
@@ -145,7 +189,9 @@ const Details = (props) => {
                   >
                     <path d="M1170.286 877.714v73.143h-1170.286v-877.714h73.143v804.571h1097.143zM950.857 292.571l146.286 512h-950.857v-329.143l256-329.143 329.143 329.143z"></path>
                   </svg>
-                  <span className="details-text06">{props.area} m²</span>
+                  <span className="details-text06">
+                    {Number(props.areaC) + Number(props.areaNC)} m²
+                  </span>
                 </div>
               </div>
               <div className="details-extras">
@@ -247,51 +293,6 @@ const Details = (props) => {
       </div>
     </div>
   );
-};
-
-Details.defaultProps = {
-  id: "",
-  area: "",
-  baths: "",
-  ownership: "Privé",
-  title: "",
-  beds: "",
-  garage: "",
-  description: ":",
-  quote: "",
-  location: "",
-  price: "",
-  range: "",
-  body: "",
-  closeDetails: "",
-  pool: "",
-  garden: "",
-  nature: "",
-  interval: "",
-  type: "",
-};
-
-Details.propTypes = {
-  id: PropTypes.string,
-  area: PropTypes.string,
-  baths: PropTypes.string,
-  ownership: PropTypes.string,
-  title: PropTypes.string,
-  beds: PropTypes.string,
-  garage: PropTypes.bool,
-  description: PropTypes.string,
-  quote: PropTypes.string,
-
-  location: PropTypes.string,
-  price: PropTypes.string,
-  range: PropTypes.string,
-  body: PropTypes.string,
-  closeDetails: PropTypes.func,
-  pool: PropTypes.bool,
-  garden: PropTypes.bool,
-  nature: PropTypes.string,
-  interval: PropTypes.string,
-  type: PropTypes.string,
 };
 
 export default Details;

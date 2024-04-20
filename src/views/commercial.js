@@ -266,7 +266,7 @@ const Commercial = (props) => {
                   header={listing.header}
                   city={listing.city}
                   location={listing.location}
-                  area={listing.area}
+                  area={listing.areaC}
                   body={listing.body}
                   beds={listing.beds}
                   cars={listing.cars}
@@ -293,7 +293,8 @@ const Commercial = (props) => {
                 baths={selectedListing.baths}
                 header={selectedListing.header}
                 location={selectedListing.location}
-                area={selectedListing.area}
+                areaC={selectedListing.areaC}
+                areaNC={selectedListing.areaNC}
                 body={selectedListing.body}
                 beds={selectedListing.beds}
                 garage={selectedListing.garage}
@@ -303,6 +304,8 @@ const Commercial = (props) => {
                 interval={selectedListing.interval}
                 closeDetails={handleCloseDetails}
                 type={selectedListing.type}
+                yearBuilt={selectedListing.yearBuilt}
+                city={selectedListing.city}
               />
             </>
           )}

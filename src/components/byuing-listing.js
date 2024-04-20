@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import PropTypes from "prop-types";
-
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
 import "./byuing-listing.css";
@@ -77,7 +75,7 @@ const ByuingListing = (props) => {
       </div>
       <div className="byuing-listing-container">
         <span className="byuing-listing-text3">{props.header}</span>
-        <span className="byuing-listing-text4">{props.price} TND</span>
+        <span className="byuing-listing-text4">{props.interval} TND</span>
         <span className="byuing-listing-text5">{newBody}</span>
         <div className="byuing-listing-container1">
           <svg
@@ -107,49 +105,13 @@ const ByuingListing = (props) => {
               className=""
             ></path>
           </svg>
-          <span className="byuing-listing-text8">{props.area} m²</span>
+          <span className="byuing-listing-text8">
+            {Number(props.areaC) + Number(props.areaNC)} m²
+          </span>
         </div>
       </div>
     </div>
   );
-};
-
-ByuingListing.defaultProps = {
-  id: "0",
-  photos: "",
-  price: "",
-  baths: "",
-  header: "",
-  city: "",
-  location: "",
-  area: "",
-  body: "",
-  rootClassName: "",
-  beds: "",
-  cars: "",
-  pool: "",
-  garden: "",
-  nature: "",
-  interval: "",
-};
-
-ByuingListing.propTypes = {
-  id: PropTypes.string,
-  photos: PropTypes.number,
-  price: PropTypes.string,
-  baths: PropTypes.string,
-  header: PropTypes.string,
-  city: PropTypes.string,
-  location: PropTypes.string,
-  area: PropTypes.string,
-  body: PropTypes.string,
-  rootClassName: PropTypes.string,
-  beds: PropTypes.string,
-  cars: PropTypes.string,
-  pool: PropTypes.bool,
-  garden: PropTypes.bool,
-  nature: PropTypes.string,
-  interval: PropTypes.string,
 };
 
 export default ByuingListing;

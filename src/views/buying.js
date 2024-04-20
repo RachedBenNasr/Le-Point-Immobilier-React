@@ -253,7 +253,8 @@ const Buying = (props) => {
                   header={listing.header}
                   city={listing.city}
                   location={listing.location}
-                  area={listing.area}
+                  areaC={listing.areaC}
+                  areaNC={listing.areaNC}
                   body={listing.body}
                   beds={listing.beds}
                   cars={listing.cars}
@@ -280,7 +281,8 @@ const Buying = (props) => {
                 baths={selectedListing.baths}
                 header={selectedListing.header}
                 location={selectedListing.location}
-                area={selectedListing.area}
+                areaC={selectedListing.areaC}
+                areaNC={selectedListing.areaNC}
                 body={selectedListing.body}
                 beds={selectedListing.beds}
                 garage={selectedListing.garage}
@@ -290,6 +292,8 @@ const Buying = (props) => {
                 interval={selectedListing.interval}
                 closeDetails={handleCloseDetails}
                 type={selectedListing.type}
+                yearBuilt={selectedListing.yearBuilt}
+                city={selectedListing.city}
               />
             </>
           )}
