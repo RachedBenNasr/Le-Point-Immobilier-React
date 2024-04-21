@@ -1,12 +1,12 @@
 .byuing-listing-blog-post-card {
-  
+
   cursor: pointer;
   display: flex;
-  
+  border-radius: 10px;
   position: relative;
   width: 300px;
   min-width: 300px;
-  box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
+  box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.6);
   transition: 0.3s;
   align-items: center;
   flex-direction: column;
@@ -19,6 +19,8 @@
 }
 
 .byuing-listing-hero {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
   width: 100%;
   height: 250px;
   display: flex;
@@ -138,7 +140,7 @@
 
 .byuing-listing-container {
   display: flex;
-  padding: var(--dl-space-space-unit);
+  padding: 16px;
   align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
@@ -219,7 +221,7 @@
 
 @media(max-width: 767px) {
   .byuing-listing-blog-post-card {
-    
+
     margin-top: var(--dl-space-space-unit);
     margin-bottom: var(--dl-space-space-unit);
   }

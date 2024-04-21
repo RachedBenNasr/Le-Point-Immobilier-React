@@ -2,9 +2,34 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+}
 
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+
+  align-items: center;
+  padding-top: var(--dl-space-space-twounits);
+  padding-left: var(--dl-space-space-threeunits);
+  padding-right: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-twounits);
 
 }
+
+.trust-logos {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+
+
+
 
 .footer-footer {
   width: 100%;

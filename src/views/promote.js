@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { Helmet } from 'react-helmet'
+import { Helmet } from "react-helmet";
 
-import Header from '../components/header'
-import Footer from '../components/footer'
-import './promote.css'
+import Header from "../components/header";
+import Footer from "../components/footer";
+import "./promote.css";
 
 const Promote = (props) => {
   return (
@@ -143,7 +143,7 @@ const Promote = (props) => {
             <span>
               <span
                 dangerouslySetInnerHTML={{
-                  __html: ' ',
+                  __html: " ",
                 }}
               />
             </span>
@@ -159,7 +159,7 @@ const Promote = (props) => {
         <Footer rootClassName="footer-root-class-name3"></Footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Promote
+export default Promote;

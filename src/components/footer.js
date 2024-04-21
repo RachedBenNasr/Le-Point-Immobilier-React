@@ -10,12 +10,15 @@ import "./footer.css";
 const Footer = () => {
   return (
     <div className="all">
-      <h1>ILS NOUS ONT FAIT CONFIANCE</h1>
-      <div className="trust-logos">
-        <Logos startIndex={0}></Logos>
-        <Logos startIndex={1}></Logos>
-        <Logos startIndex={2}></Logos>
+      <div className="card">
+        <h1>ILS NOUS ONT FAIT CONFIANCE</h1>
+        <div className="trust-logos">
+          <Logos startIndex={0}></Logos>
+          <Logos startIndex={1}></Logos>
+          <Logos startIndex={2}></Logos>
+        </div>
       </div>
+
       <footer className="footer-footer">
         <Link to="/" className="footer-navlink">
           <img

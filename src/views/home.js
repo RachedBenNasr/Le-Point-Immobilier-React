@@ -80,23 +80,23 @@ const Home = (props) => {
               L&apos;immobilier n&apos;a jamais été aussi simple.
             </h1>
             <div className="home-container03">
-              <Link to="/service" className="home-navlink button">
-                <span>
-                  <span className="home-text02">Découvrez nos services</span>
-                  <br></br>
-                </span>
-              </Link>
               <Link to="/promote" className="home-navlink1 button">
                 <span>
                   <span className="home-text05">Promouvez votre annonce</span>
                   <br></br>
                 </span>
               </Link>
+              <Link to="/service" className="home-navlink button">
+                <span>
+                  <span className="home-text02">Découvrez nos services</span>
+                  <br></br>
+                </span>
+              </Link>
             </div>
           </div>
         </div>
-        <div className="home-separator"></div>
-        <div className="home-gallery">
+
+        <div className="home-gallery card">
           <h1 className="home-text07">
             <span>À la une</span>
           </h1>
@@ -110,23 +110,14 @@ const Home = (props) => {
             </span>
           </span>
           <div className="home-container04">
-            <GalleryCard3 rootClassName="rootClassName"></GalleryCard3>
-            <GalleryCard3
-              imageSrc="https://images.unsplash.com/photo-1501127122-f385ca6ddd9d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDExfHxtaW5pbWFsaXNtJTIwaG9tZXxlbnwwfHx8fDE2MjY0NDg1Mjc&amp;ixlib=rb-1.2.1&amp;h=1000"
-              rootClassName="rootClassName1"
-            ></GalleryCard3>
-            <GalleryCard3
-              imageSrc="https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDR8fG1pbmltYWxpc20lMjBob21lfGVufDB8fHx8MTYyNjQ0ODUyNw&amp;ixlib=rb-1.2.1&amp;h=1000"
-              rootClassName="rootClassName3"
-            ></GalleryCard3>
-            <GalleryCard3
-              imageSrc="https://images.unsplash.com/photo-1531829039722-d3fb3e705a4b?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE4fHxtaW5pbWFsaXNtJTIwaG9tZXxlbnwwfHx8fDE2MjY0NDg1Mjc&amp;ixlib=rb-1.2.1&amp;h=1000"
-              rootClassName="rootClassName2"
-            ></GalleryCard3>
+            <GalleryCard3></GalleryCard3>
+            <GalleryCard3 imageSrc="https://images.unsplash.com/photo-1501127122-f385ca6ddd9d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDExfHxtaW5pbWFsaXNtJTIwaG9tZXxlbnwwfHx8fDE2MjY0NDg1Mjc&amp;ixlib=rb-1.2.1&amp;h=1000"></GalleryCard3>
+            <GalleryCard3 imageSrc="https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDR8fG1pbmltYWxpc20lMjBob21lfGVufDB8fHx8MTYyNjQ0ODUyNw&amp;ixlib=rb-1.2.1&amp;h=1000"></GalleryCard3>
+            <GalleryCard3 imageSrc="https://images.unsplash.com/photo-1531829039722-d3fb3e705a4b?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE4fHxtaW5pbWFsaXNtJTIwaG9tZXxlbnwwfHx8fDE2MjY0NDg1Mjc&amp;ixlib=rb-1.2.1&amp;h=1000"></GalleryCard3>
           </div>
         </div>
-        <div className="home-separator"></div>
-        <div className="home-stats">
+
+        <div className="home-stats card">
           <h1 className="home-text17">Statistiques clés</h1>
           <span className="home-text18">
             <span>
@@ -167,9 +158,9 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-        <div className="home-separator"></div>
-        <div className="home-steps">
-          <h1 className="home-text37">Découvrez Notre Processus</h1>
+
+        <div className="home-steps card">
+          <h1 className="home-text17">Découvrez Notre Processus</h1>
           <span className="home-text38">
             <span>Simple. Efficace. Avec vous au cœur.</span>
             <br></br>
@@ -190,7 +181,7 @@ const Home = (props) => {
                 </span>
               </div>
             </div>
-            <div className="home-step1">
+            <div className="home-step">
               <div className="home-container09">
                 <div className="home-line2"></div>
                 <div className="home-container10">
@@ -208,7 +199,7 @@ const Home = (props) => {
                 </span>
               </div>
             </div>
-            <div className="home-step2">
+            <div className="home-step">
               <div className="home-container12">
                 <div className="home-line4"></div>
                 <div className="home-container13">
@@ -227,7 +218,7 @@ const Home = (props) => {
                 </span>
               </div>
             </div>
-            <div className="home-step3">
+            <div className="home-step">
               <div className="home-container15">
                 <div className="home-line6"></div>
                 <div className="home-container16">
@@ -247,8 +238,8 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-        <div className="home-separator"></div>
-        <div className="home-testimonial">
+
+        <div className="home-testimonial card">
           <h1 className="home-text55">Nos clients témoignent</h1>
           <span className="home-text56">
             Découvrez les histoires de ceux qui ont transformé leurs aspirations

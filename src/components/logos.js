@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import "./logos.css";
+
 
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-
-import PropTypes from "prop-types";
 
 import {
   getStorage,
@@ -45,33 +43,25 @@ const Logos = ({ startIndex }) => {
     fetchLogos();
   }, []);
   return (
-    <div className="logos-container">
-      <div className="logos-features">
-        <div className="logos-container1">
-          <ImageGallery
-            items={imageList}
-            showIndex={false}
-            showFullscreenButton={false}
-            showNav={false}
-            showPlayButton={false}
-            disableKeyDown={true}
-            disableThumbnailSwipe={true}
-            autoPlay={true}
-            lazyLoad={true}
-            disableSwipe={true}
-            slideDuration={300}
-            slideInterval={2000}
-            useTranslate3D={false}
-            startIndex={startIndex} // Set the startIndex here
-          />
-        </div>
-      </div>
+    <div>
+      <ImageGallery
+        items={imageList}
+        showIndex={false}
+        showFullscreenButton={false}
+        showNav={false}
+        showPlayButton={false}
+        disableKeyDown={true}
+        disableThumbnailSwipe={true}
+        autoPlay={true}
+        lazyLoad={true}
+        disableSwipe={true}
+        slideDuration={300}
+        slideInterval={2000}
+        useTranslate3D={false}
+        startIndex={startIndex} // Set the startIndex here
+      />
     </div>
   );
-};
-
-Logos.propTypes = {
-  startIndex: PropTypes.number.isRequired,
 };
 
 export default Logos;
