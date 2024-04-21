@@ -274,7 +274,6 @@ const Home = (props) => {
             ></TestimonialCard>
           </div>
         </div>
-        <div className="home-separator"></div>
 
         <Footer></Footer>
       </div>
