@@ -47,11 +47,6 @@ const Renting = (props) => {
     }));
   };
 
-  const updateFilters = () => {
-    console.log("Selected Filters:", filters);
-    // Here you can perform further actions like filtering data or making API calls
-  };
-
   const resetFilters = () => {
     setFilters(initialFilters);
   };
@@ -222,16 +217,6 @@ const Renting = (props) => {
             </select>
 
             <div className="buying-container6">
-              <button
-                type="button"
-                className="buying-button "
-                onClick={updateFilters}
-              >
-                <span>
-                  <span className="buying-text4">Appliquer</span>
-                  <br></br>
-                </span>
-              </button>
               <button
                 type="reset"
                 className="buying-button1 "
