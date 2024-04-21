@@ -61,6 +61,19 @@ const Contact = (props) => {
           property="og:image"
           content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/c9c7ea5e-99e3-47ab-b80b-7093b1c26267/88d48a30-d400-4a40-ab6c-cec76baadcc7?org_if_sml=1&amp;force_format=original"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Trouvez votre propriété de rêve en Tunisie. Découvrez une large gamme de biens immobiliers à vendre et à louer. Parcourez les annonces d'appartements, de villas et de terrains. Services immobiliers experts pour trouver votre maison idéale. Commencez dès maintenant !"
+        />
+        <meta
+          name="keywords"
+          content="Tunisie immobilier, propriétés tunisiennes, maisons à vendre Tunisie, appartements à louer Tunisie, villas tunisiennes, agences immobilières Tunisie, acheter une maison Tunisie, louer un appartement Tunisie"
+        />
+        <meta name="geo.region" content="TN" />
+        <meta name="geo.placename" content="Tunisie" />
+        <meta name="geo.position" content="35.8617; 10.5364" />
+        <meta name="language" content="fr,en" />
       </Helmet>
       <div className="contact-container1">
         <Header rootClassName="header-root-class-name1"></Header>
