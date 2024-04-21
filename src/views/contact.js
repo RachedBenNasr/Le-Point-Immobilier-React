@@ -127,23 +127,28 @@ const Contact = (props) => {
               <input
                 type="text"
                 id="name"
-                required="true"
+                required
                 placeholder="Nom et Prenom"
                 className="contact-name input"
               />
               <input
                 type="text"
                 id="mail"
-                required="true"
+                required
                 placeholder="Email"
                 className="contact-name1 input"
               />
               <input
                 type="text"
                 id="Phone Number"
-                required="true"
+                required
                 placeholder="Numéro"
                 className="contact-name2 input"
+                onInput={(e) => {
+                  e.target.value = e.target.value
+                    .replace(/[^0-9+]/g, "")
+                    .replace(/\+/g, "00");
+                }}
               />
               <textarea
                 placeholder="Sujet"

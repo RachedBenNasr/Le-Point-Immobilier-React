@@ -130,11 +130,11 @@ const Details = (props) => {
                 <tbody>
                   <tr>
                     <td>Zone Construite</td>
-                    <td>{props.areaC}</td>
+                    <td>{props.areaC} m²</td>
                   </tr>
                   <tr>
                     <td>Zone Non Construite</td>
-                    <td>{props.areaNC}</td>
+                    <td>{props.areaNC} m²</td>
                   </tr>
                   <tr>
                     <td>Ville</td>

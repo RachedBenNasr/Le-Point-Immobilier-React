@@ -1,14 +1,26 @@
 .header-header {
   width: 100%;
   display: flex;
-  position: relative;
-  max-width: var(--dl-size-size-maxwidth);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
   align-items: center;
   padding-top: var(--dl-space-space-twounits);
   padding-left: var(--dl-space-space-threeunits);
   padding-right: var(--dl-space-space-threeunits);
   padding-bottom: var(--dl-space-space-twounits);
   justify-content: space-between;
+}
+
+
+body>*:not(.header-header) {
+  margin-top: 60;
+  /* Adjust as needed */
+  padding-top: 40px;
+  /* Adjust as needed */
 }
 
 .header-navlink {
@@ -48,12 +60,6 @@
   display: none;
 }
 
-.header-icon {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  cursor: pointer;
-}
-
 .header-mobile-menu {
   display: none;
 }
@@ -84,11 +90,7 @@
   object-fit: cover;
 }
 
-.header-icon04 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  margin-right: var(--dl-space-space-twounits);
-}
+
 
 .header-icon06 {
   width: var(--dl-size-size-xsmall);
@@ -96,17 +98,13 @@
   text-decoration: none;
 }
 
-.header-icon08 {
-  width: var(--dl-size-size-xsmall);
-  height: 24px;
-  text-decoration: none;
-}
+
 
 
 
 
 @media(max-width: 1200px) {
-  
+
 
   .header-icon06 {
     margin-right: var(--dl-space-space-twounits);
@@ -123,12 +121,12 @@
     height: 2rem;
   }
 
-  
+
 }
 
 @media(max-width: 767px) {
 
-.header-mobile-menu {
+  .header-mobile-menu {
     opacity: 0;
     top: 0;
     left: 0;
@@ -142,7 +140,7 @@
     background-color: #fff;
     transform: translateX(-100%);
     display: flex;
-    
+
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   }
 
@@ -181,7 +179,7 @@
     display: flex;
     opacity: 1;
     pointer-events: auto;
-        
+
   }
 
   .header-semi-transparent-layer.notShowing {
@@ -193,7 +191,7 @@
   .header-header {
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
-    
+
   }
 
   .header-nav {
@@ -206,7 +204,7 @@
     justify-content: center;
   }
 
-  
+
 
   .header-logo {
     align-items: center;
@@ -247,6 +245,8 @@
 
   .header-icon-group {
     align-self: center;
+    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -255,5 +255,5 @@
     padding: var(--dl-space-space-unit);
   }
 
-  
+
 }

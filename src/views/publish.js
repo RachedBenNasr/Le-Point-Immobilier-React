@@ -296,8 +296,9 @@ const Publish = (props) => {
                   className="publish-number input"
                   onBlur={saveData}
                   onInput={(e) => {
-                    // Remove non-numeric characters
-                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                    e.target.value = e.target.value
+                      .replace(/[^0-9+]/g, "")
+                      .replace(/\+/g, "00");
                   }}
                 />
                 <input
@@ -308,8 +309,9 @@ const Publish = (props) => {
                   className="publish-number input"
                   onBlur={saveData}
                   onInput={(e) => {
-                    // Remove non-numeric characters
-                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                    e.target.value = e.target.value
+                      .replace(/[^0-9+]/g, "")
+                      .replace(/\+/g, "00");
                   }}
                 />
                 <input
