@@ -39,17 +39,27 @@ const Renting = (props) => {
 
   const [filters, setFilters] = useState(initialFilters);
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [id]: value,
-    }));
-  };
-
   const resetFilters = () => {
     setFilters(initialFilters);
   };
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+
+    // Check if the default option is selected
+    if (value === "0") {
+      // Reset the filter for the respective id
+      resetFilters();
+    } else {
+      // Update the filter value
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        [id]: value,
+      }));
+    }
+  };
+
+  const [emptyChecker, setEmptyChecker] = useState("");
 
   // Effect to fetch rent listings from Firebase
   useEffect(() => {
@@ -75,8 +85,8 @@ const Renting = (props) => {
               console.log("nature failed");
               return false;
             }
-            if (filters.range && listing.interval !== filters.range) {
-              console.log("range failed");
+            if (filters.interval && listing.interval !== filters.interval) {
+              console.log("interval failed");
               return false;
             }
             if (filters.beds && listing.beds !== filters.beds) {
@@ -89,6 +99,14 @@ const Renting = (props) => {
             }
             return true;
           });
+
+          if (listingsArray.length == 0) {
+            setEmptyChecker(
+              "Aucun filtre ne correspond à votre recherche. Merci d'essayer avec d'autres filtres."
+            );
+          } else {
+            setEmptyChecker("");
+          }
 
           setRentListings(listingsArray);
         }
@@ -228,27 +246,34 @@ const Renting = (props) => {
             </div>
           </div>
           <div className="buying-container7">
-            {rentListings.map((listing) => (
-              <div key={listing.id} onClick={() => handleListingClick(listing)}>
-                <RentingListing
-                  id={listing.id}
-                  photos={listing.photos}
-                  price={listing.price}
-                  baths={listing.baths}
-                  header={listing.header}
-                  city={listing.city}
-                  location={listing.location}
-                  area={listing.areaC}
-                  body={listing.body}
-                  beds={listing.beds}
-                  cars={listing.cars}
-                  pool={listing.pool}
-                  garden={listing.garden}
-                  nature={listing.nature}
-                  interval={listing.interval}
-                />
-              </div>
-            ))}
+            {rentListings.length > 0 ? (
+              rentListings.map((listing) => (
+                <div
+                  key={listing.id}
+                  onClick={() => handleListingClick(listing)}
+                >
+                  <RentingListing
+                    id={listing.id}
+                    photos={listing.photos}
+                    price={listing.price}
+                    baths={listing.baths}
+                    header={listing.header}
+                    city={listing.city}
+                    location={listing.location}
+                    area={listing.areaC}
+                    body={listing.body}
+                    beds={listing.beds}
+                    cars={listing.cars}
+                    pool={listing.pool}
+                    garden={listing.garden}
+                    nature={listing.nature}
+                    interval={listing.interval}
+                  />
+                </div>
+              ))
+            ) : (
+              <h2>{emptyChecker}</h2>
+            )}
           </div>
           {detailsVisible && (
             <>

@@ -38,22 +38,31 @@ const Buying = (props) => {
 
   const [filters, setFilters] = useState(initialFilters);
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [id]: value,
-    }));
-  };
-
   const resetFilters = () => {
     setFilters(initialFilters);
   };
 
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+
+    // Check if the default option is selected
+    if (value === "0") {
+      // Reset the filter for the respective id
+      resetFilters();
+    } else {
+      // Update the filter value
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        [id]: value,
+      }));
+    }
+  };
+
+  const [emptyChecker, setEmptyChecker] = useState("");
+
   // Effect to fetch sale listings from Firebase
   useEffect(() => {
     const fetchSaleListings = async () => {
-      console.log("LATEST");
       const database = getDatabase();
       const saleListingsRef = ref(database, "listings/sale");
 
@@ -75,8 +84,8 @@ const Buying = (props) => {
               console.log("nature failed");
               return false;
             }
-            if (filters.range && listing.interval !== filters.range) {
-              console.log("range failed");
+            if (filters.interval && listing.interval !== filters.interval) {
+              console.log("interval failed");
               return false;
             }
             if (filters.beds && listing.beds !== filters.beds) {
@@ -90,6 +99,13 @@ const Buying = (props) => {
             return true;
           });
 
+          if (listingsArray.length == 0) {
+            setEmptyChecker(
+              "Aucun filtre ne correspond à votre recherche. Merci d'essayer avec d'autres filtres."
+            );
+          } else {
+            setEmptyChecker("");
+          }
           setSaleListings(listingsArray);
         }
       });
@@ -227,29 +243,37 @@ const Buying = (props) => {
               </button>
             </div>
           </div>
+
           <div className="buying-container7">
-            {saleListings.map((listing) => (
-              <div key={listing.id} onClick={() => handleListingClick(listing)}>
-                <ByuingListing
-                  id={listing.id}
-                  photos={listing.photos}
-                  price={listing.price}
-                  baths={listing.baths}
-                  header={listing.header}
-                  city={listing.city}
-                  location={listing.location}
-                  areaC={listing.areaC}
-                  areaNC={listing.areaNC}
-                  body={listing.body}
-                  beds={listing.beds}
-                  cars={listing.cars}
-                  pool={listing.pool}
-                  garden={listing.garden}
-                  nature={listing.nature}
-                  interval={listing.interval}
-                />
-              </div>
-            ))}
+            {saleListings.length > 0 ? (
+              saleListings.map((listing) => (
+                <div
+                  key={listing.id}
+                  onClick={() => handleListingClick(listing)}
+                >
+                  <ByuingListing
+                    id={listing.id}
+                    photos={listing.photos}
+                    price={listing.price}
+                    baths={listing.baths}
+                    header={listing.header}
+                    city={listing.city}
+                    location={listing.location}
+                    areaC={listing.areaC}
+                    areaNC={listing.areaNC}
+                    body={listing.body}
+                    beds={listing.beds}
+                    cars={listing.cars}
+                    pool={listing.pool}
+                    garden={listing.garden}
+                    nature={listing.nature}
+                    interval={listing.interval}
+                  />
+                </div>
+              ))
+            ) : (
+              <h2>{emptyChecker}</h2>
+            )}
           </div>
           {detailsVisible && (
             <>
