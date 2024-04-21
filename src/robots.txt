@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /thanking/
+Disallow: /thanking-promoter/
+Disallow: /not-found/
+Disallow: /*.css$
+Allow: /
