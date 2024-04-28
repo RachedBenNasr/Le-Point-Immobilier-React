@@ -228,7 +228,7 @@ const Publish = (props) => {
       if (formData.role == "person") {
         window.location.href = "/thanking";
       } else {
-        window.location.href = "/thanking";
+        window.location.href = "/thanking-promoter";
       }
     } catch (error) {
       console.log(error.message);
