@@ -7,7 +7,7 @@ import FeatureCard3 from "../components/feature-card3";
 import Footer from "../components/footer";
 import "./consulting.css";
 
-const Consulting = (props) => {
+const Consulting = () => {
   return (
     <div className="consulting-container">
       <Helmet>
