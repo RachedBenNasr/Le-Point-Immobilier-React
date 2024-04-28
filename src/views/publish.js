@@ -101,6 +101,7 @@ const Publish = () => {
     (_, index) => startYear + index
   ).reverse();
 
+  // Function to resize and compress an image
   const resizeAndCompressImage = async (file) => {
     console.log("Start resizing and compressing:", file.name);
 
@@ -139,23 +140,11 @@ const Publish = () => {
 
           canvas.toBlob(
             (blob) => {
-              // Convert blob to WebP format
-              canvas.toDataURL("image/webp", 0.75, (webpDataUrl) => {
-                // Create a new File from the WebP data URL
-                const webpBlob = dataURLtoBlob(webpDataUrl);
-                const webpFile = new File(
-                  [webpBlob],
-                  file.name.replace(/\.[^/.]+$/, "") + ".webp",
-                  {
-                    type: "image/webp",
-                  }
-                );
-                console.log(
-                  "Resized and converted to WebP file size:",
-                  webpFile.size
-                );
-                resolve(webpFile);
+              const resizedFile = new File([blob], file.name, {
+                type: "image/jpeg",
               });
+              console.log("Resized file size:", resizedFile.size);
+              resolve(resizedFile);
             },
             "image/jpeg",
             0.75
@@ -166,21 +155,6 @@ const Publish = () => {
       reader.readAsDataURL(file);
     });
   };
-
-  // Function to convert data URL to Blob
-  function dataURLtoBlob(dataURL) {
-    const parts = dataURL.split(";base64,");
-    const contentType = parts[0].split(":")[1];
-    const raw = window.atob(parts[1]);
-    const rawLength = raw.length;
-    const uInt8Array = new Uint8Array(rawLength);
-
-    for (let i = 0; i < rawLength; ++i) {
-      uInt8Array[i] = raw.charCodeAt(i);
-    }
-
-    return new Blob([uInt8Array], { type: contentType });
-  }
 
   const finalSend = async (e) => {
     e.preventDefault();
