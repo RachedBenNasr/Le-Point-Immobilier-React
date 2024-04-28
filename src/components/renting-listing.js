@@ -115,49 +115,13 @@ const RentingListing = (props) => {
               className=""
             ></path>
           </svg>
-          <span className="renting-listing-text8">{props.area} m²</span>
+          <span className="renting-listing-text8">
+            {Number(props.areaC) + Number(props.areaNC)} m²
+          </span>
         </div>
       </div>
     </div>
   );
-};
-
-RentingListing.defaultProps = {
-  id: "0",
-  photos: "",
-  price: "",
-  baths: "",
-  header: "",
-  city: "",
-  location: "",
-  area: "",
-  body: "",
-  rootClassName: "",
-  beds: "",
-  cars: "",
-  pool: "",
-  garden: "",
-  nature: "",
-  interval: "",
-};
-
-RentingListing.propTypes = {
-  id: PropTypes.string,
-  photos: PropTypes.number,
-  price: PropTypes.string,
-  baths: PropTypes.string,
-  header: PropTypes.string,
-  city: PropTypes.string,
-  location: PropTypes.string,
-  area: PropTypes.string,
-  body: PropTypes.string,
-  rootClassName: PropTypes.string,
-  beds: PropTypes.string,
-  cars: PropTypes.string,
-  pool: PropTypes.bool,
-  garden: PropTypes.bool,
-  nature: PropTypes.string,
-  interval: PropTypes.string,
 };
 
 export default RentingListing;

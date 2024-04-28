@@ -284,7 +284,8 @@ const Commercial = (props) => {
                     header={listing.header}
                     city={listing.city}
                     location={listing.location}
-                    area={listing.areaC}
+                    areaC={listing.areaC}
+                    areaNC={listing.areaNC}
                     body={listing.body}
                     beds={listing.beds}
                     cars={listing.cars}
